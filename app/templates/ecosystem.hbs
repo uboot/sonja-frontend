@@ -1,0 +1,9 @@
+<h1>Ecosystem {{this.model.name}}</h1>
+
+<ul>
+  {{#each this.model.repos as |repo|}}
+    <li>{{repo.id}} {{repo.url}} {{repo.path}}</li>
+  {{/each}}
+</ul>
+
+{{outlet}}

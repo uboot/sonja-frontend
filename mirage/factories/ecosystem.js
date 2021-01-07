@@ -4,6 +4,10 @@ export default Factory.extend({
 
   name(i) {
     return `Ecoystem ${i}`
+  },
+
+  user() {
+    return 'conanci'
   }
 
 });

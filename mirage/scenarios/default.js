@@ -5,5 +5,7 @@ export default function(server) {
     This data will not be loaded in your tests.
   */
 
-  server.createList('ecosystem', 3);
+  server.createList('ecosystem', 2).forEach(ecosystem => {
+    server.createList('repo', 3, { ecosystem })
+  })
 }

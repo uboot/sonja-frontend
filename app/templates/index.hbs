@@ -1,7 +1,13 @@
+<h1>Ecosystems</h1>
+
 <div class="card-deck">
   {{#each this.model as |ecosystem|}}
     <div class="card">
-      {{ecosystem.name}}
+      <div class="card-body">
+        <h5 class="card-title">{{ecosystem.name}}</h5>
+        <p class="card-text">User: {{ecosystem.user}}</p>
+        <LinkTo @route="ecosystem" @model={{ecosystem}} class="btn btn-primary">Open</LinkTo>
+      </div>
     </div>
   {{/each}}
 </div>

@@ -24,7 +24,12 @@ export default function() {
     https://www.ember-cli-mirage.com/docs/route-handlers/shorthands
   */
 
-  this.get('/ecosystems', (schema, request) => {
-    return schema.ecosystems.all();
+  this.namespace = '/api/v1';
+  this.get('/ecosystem');
+  this.get('/ecosystem/:id');
+  this.get('/ecosystem/:id/repo', (schema, request) => {
+    return schema.ecosystems.find(request.params.id).repos;
   });
+
+  this.get('/repo/:id');
 }
