@@ -26,7 +26,9 @@ export default function() {
 
   this.namespace = '/api/v1';
   this.get('/ecosystem');
+  this.post('/ecosystem');
   this.get('/ecosystem/:id');
+  this.patch('/ecosystem/:id');
   this.get('/ecosystem/:id/repo', (schema, request) => {
     return schema.ecosystems.find(request.params.id).repos;
   });

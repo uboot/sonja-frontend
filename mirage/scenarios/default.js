@@ -6,6 +6,6 @@ export default function(server) {
   */
 
   server.createList('ecosystem', 2).forEach(ecosystem => {
-    server.createList('repo', 3, { ecosystem })
+    server.createList('repo', 2, { ecosystem })
   })
 }

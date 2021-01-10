@@ -1,0 +1,18 @@
+<BsButton @onClick={{action "showDialog"}} @type="primary">Show</BsButton>
+
+<BsModal @open={{this.open}} @onHide={{action "closeDialog"}} as |Modal|>
+  <Modal.header>
+    <h4 class="modal-title"><i class="glyphicon glyphicon-alert"></i>{{@title}}</h4>
+  </Modal.header>
+  <Modal.body>
+    <BsForm @onSubmit={{action "submitDialog"}} @model={{this.model}} as |form|>
+      <form.element @controlType="textarea" @property="decoded" />
+    </BsForm>
+  </Modal.body>
+  {{#unless @readonly}}
+    <Modal.footer as |footer|>
+      <BsButton @onClick={{action Modal.close}} @type="secondary">Cancel</BsButton>
+      <BsButton @onClick={{action Modal.submit}} @type="success">Save</BsButton>
+    </Modal.footer>
+  {{/unless}}
+</BsModal>

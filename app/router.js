@@ -7,5 +7,6 @@ export default class Router extends EmberRouter {
 }
 
 Router.map(function() {
-  this.route('ecosystem', { path: '/ecosystem/:ecosystem_id' });
+  this.route('ecosystem', { path: '/:ecosystem_id' });
+  this.route('new');
 });

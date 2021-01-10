@@ -1,0 +1,16 @@
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><LinkTo @route="index">Ecosystems</LinkTo></li>
+    <li class="breadcrumb-item active" aria-current="page">New Ecosystem</li>
+  </ol>
+</nav>
+
+<h1>New Ecosystem</h1>
+
+<section>
+  <BsForm @onSubmit={{action "createEcosystem"}} @model={{this.newEcosystem}} as |form|>
+    <form.element @controlType="input" @label="Name" @property="name" />
+    <LinkTo @route="index" class="btn btn-secondary">Cancel</LinkTo>
+    <form.submitButton>Create</form.submitButton>
+  </BsForm>
+</section>

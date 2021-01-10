@@ -1,2 +1,7 @@
 
 @import "ember-bootstrap/bootstrap";
+
+section {
+  margin-top: ($spacer * .75) !important;
+  margin-bottom: ($spacer * .75) !important;
+}
