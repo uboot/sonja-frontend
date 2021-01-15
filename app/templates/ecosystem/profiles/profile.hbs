@@ -1,0 +1,11 @@
+{{page-title "Profile"}}
+
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><LinkTo @route="index">Ecosystems</LinkTo></li>
+    <li class="breadcrumb-item active" aria-current="page"><LinkTo @route="ecosystem" @model={{this.model.ecosystem}}>{{this.model.ecosystem.name}}</LinkTo></li>
+    <li class="breadcrumb-item active" aria-current="page">{{this.model.name}}</li>
+  </ol>
+</nav>
+
+<h1>{{this.model.name}}</h1>

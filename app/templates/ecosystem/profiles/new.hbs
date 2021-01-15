@@ -1,0 +1,19 @@
+{{page-title "New Profile"}}
+
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><LinkTo @route="index">Ecosystems</LinkTo></li>
+    <li class="breadcrumb-item active" aria-current="page"><LinkTo @route="ecosystem" @model={{this.model}}>{{this.model.name}}</LinkTo></li>
+    <li class="breadcrumb-item active" aria-current="page">New Profile</li>
+  </ol>
+</nav>
+
+<h1>New Profile</h1>
+
+<section>
+  <BsForm @onSubmit={{action "createProfile"}} @model={{this.profile}} as |form|>
+    <form.element @controlType="input" @label="Name" @property="name" />
+    <LinkTo @route="ecosystem" @model={{this.model}} class="btn btn-secondary">Cancel</LinkTo>
+    <form.submitButton>Create</form.submitButton>
+  </BsForm>
+</section>

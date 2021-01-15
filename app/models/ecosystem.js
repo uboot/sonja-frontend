@@ -1,4 +1,5 @@
 import Model, { attr, hasMany } from '@ember-data/model';
+
 export default class EcosystemModel extends Model {
   @attr name;
   @attr user;
@@ -6,4 +7,5 @@ export default class EcosystemModel extends Model {
   @attr known_hosts;
   @attr settings;
   @hasMany('repo') repos;
+  @hasMany('profile') profiles;
 }

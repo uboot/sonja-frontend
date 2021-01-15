@@ -1,7 +1,7 @@
 import Controller from '@ember/controller';
 import { action } from '@ember/object';
 
-export default class EcosystemController extends Controller {
+export default class EcosystemIndexController extends Controller {
 
   @action
   saveModel() {

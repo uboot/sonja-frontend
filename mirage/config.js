@@ -33,5 +33,8 @@ export default function() {
     return schema.ecosystems.find(request.params.id).repos;
   });
 
+  this.post('/profile');
+  this.get('/profile/:id');
+
   this.get('/repo/:id');
 }
