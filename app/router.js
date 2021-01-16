@@ -12,6 +12,7 @@ Router.map(function() {
       this.route('new');
       this.route('profile', { path: '/:profile_id' });
     });
+    this.route('ecosystem', { path: '/' });
   });
   this.route('new');
 });
