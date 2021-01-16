@@ -1,0 +1,38 @@
+{{page-title "Ecoystem Profiles"}}
+
+<section>
+  <h3>Profiles</h3>
+
+  <p>A profile defines the settings for a Conan package build. All builds for a given 
+    profile share these settings. Examples of profiles are "Windows Debug", "GCC9 Release".
+  </p>
+
+  <LinkTo @route="ecosystem.profiles.new" class="btn btn-primary">New Profile</LinkTo>
+</section>
+
+<section>
+  <BsAccordion as |acc|>
+    {{#each this.model.profiles as |profile|}}
+    <acc.item @title={{profile.name}}>
+      <section>
+      <h4>Container</h4>
+      <p>{{profile.container}}</p>
+      </section>
+
+      <section>
+      <h4>Settings</h4>
+      <table class="table">
+        <tbody>
+          {{#each profile.settings as |setting|}}
+            <tr>
+              <td>{{setting.key}}</td>
+              <td>{{setting.value}}</td>
+            </tr>
+          {{/each}}
+        </tbody>
+      </table>
+      </section>
+    </acc.item>
+    {{/each}}
+  </BsAccordion>
+</section>

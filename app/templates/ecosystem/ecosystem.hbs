@@ -9,52 +9,13 @@
 
 <h1>{{this.model.name}}</h1>
 
-<section>
-  <h3>Conan User</h3>
+<ul class="nav">
+  <li class="nav-item">
+    <LinkTo @route="ecosystem.ecosystem" class="nav-link">General</LinkTo>
+  </li>
+  <li class="nav-item">
+    <LinkTo @route="ecosystem.ecosystem.profiles" class="nav-link">Profiles</LinkTo>
+  </li>
+</ul>
 
-  <p>
-    This is the <em>user</em> part of the Conan package references built in this ecosystem.
-  </p>
-
-  <BsForm @formLayout="inline" @model={{this.model}} @onSubmit={{action "saveModel"}} as |form|>
-    <form.element @controlType="input" @placeholder="user" @property="user" @required={{true}} />
-    <form.submitButton>Save</form.submitButton>
-  </BsForm>
-</section>
-
-<section>
-  <h3>Public SSH Key</h3>
-
-  <p>
-    A SSH key was generated when the ecosystem was created. This is the corresponding public key. Make sure
-    that the repositories of the ecosystem provide read access to this key.
-  </p>
-
-  <TextDialog @title="Public SSH Key" @content={{this.model.public_ssh_key}} @readonly={{true}} />
-</section>
-
-<section>
-  <h3>Known Hosts</h3>
-
-  <p>
-    A list of known SSH hosts and their public SSH keys in the format of the well-known 
-    <code>known_hosts</code> file.
-  </p>
-
-  <TextDialog @title="Known Hosts" @content={{this.model.known_hosts}} @readonly={{false}} @onChange={{action "saveKnownHosts"}} />
-</section>
-
-<section>
-  <h3>Profiles</h3>
-
-  <p>A profile defines the settings for a Conan package build. All builds for a given 
-    profile share these settings. Examples of profiles are "Windows Debug", "GCC9 Release".
-  </p>
-
-  <LinkTo @route="ecosystem.profiles.new" class="btn btn-primary">New Profile</LinkTo>
-</section>
-  <ul>
-    {{#each this.model.repos as |repo|}}
-      <li>{{repo.id}} {{repo.url}} {{repo.path}}</li>
-    {{/each}}
-  </ul>
+{{outlet}}

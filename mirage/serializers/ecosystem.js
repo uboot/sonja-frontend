@@ -8,6 +8,13 @@ export default ApplicationSerializer.extend({
         related: `repo`
       }
     };
+  },
+
+  shouldIncludeLinkageData(relationshipKey, model) {
+    if (relationshipKey === 'profiles') {
+      return true;
+    }
+    return false;
   }
 
 });

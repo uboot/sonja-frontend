@@ -3,15 +3,15 @@ import { Factory } from 'ember-cli-mirage';
 export default Factory.extend({
 
   name(i) {
-    let ecosystems = [ 'Default', 'My Company' ];
+    let values = [ 'Default', 'My Company' ];
 
-    return ecosystems[i % ecosystems.length];
+    return values[i % values.length];
   },
 
   user(i) {
-    let users = [ 'conanci', 'mycompany' ];
+    let values = [ 'conanci', 'mycompany' ];
 
-    return users[i % users.length];
+    return values[i % values.length];
   },
 
   public_ssh_key() {

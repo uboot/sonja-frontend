@@ -7,9 +7,9 @@ export default Factory.extend({
   },
 
   path(i) {
-    let paths = [ 'packages/hello', 'packages/deadlock' ];
+    let values = [ 'packages/hello', 'packages/deadlock' ];
 
-    return paths[i % paths.length];
+    return values[i % values.length];
   }
 
 });

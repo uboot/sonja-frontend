@@ -1,0 +1,36 @@
+{{page-title "Ecosystem"}}
+
+<section>
+  <h3>Conan User</h3>
+
+  <p>
+    This is the <em>user</em> part of the Conan package references built in this ecosystem.
+  </p>
+
+  <BsForm @formLayout="inline" @model={{this.model}} @onSubmit={{action "saveModel"}} as |form|>
+    <form.element @controlType="input" @placeholder="user" @property="user" @required={{true}} />
+    <form.submitButton>Save</form.submitButton>
+  </BsForm>
+</section>
+
+<section>
+  <h3>Public SSH Key</h3>
+
+  <p>
+    A SSH key was generated when the ecosystem was created. This is the corresponding public key. Make sure
+    that the repositories of the ecosystem provide read access to this key.
+  </p>
+
+  <TextDialog @title="Public SSH Key" @content={{this.model.public_ssh_key}} @readonly={{true}} />
+</section>
+
+<section>
+  <h3>Known Hosts</h3>
+
+  <p>
+    A list of known SSH hosts and their public SSH keys in the format of the well-known 
+    <code>known_hosts</code> file.
+  </p>
+
+  <TextDialog @title="Known Hosts" @content={{this.model.known_hosts}} @readonly={{false}} @onChange={{action "saveKnownHosts"}} />
+</section>
