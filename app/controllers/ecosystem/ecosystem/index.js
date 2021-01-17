@@ -4,8 +4,8 @@ import { action } from '@ember/object';
 export default class EcosystemIndexController extends Controller {
 
   @action
-  saveModel() {
-    this.model.save();
+  async saveModel() {
+    await this.model.save();
   }
 
   @action

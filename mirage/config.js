@@ -27,6 +27,7 @@ export default function() {
   this.namespace = '/api/v1';
   this.get('/ecosystem');
   this.post('/ecosystem');
+  this.delete('/ecosystem/:id');
   this.get('/ecosystem/:id');
   this.patch('/ecosystem/:id');
   this.get('/ecosystem/:id/repo', (schema, request) => {
@@ -34,7 +35,9 @@ export default function() {
   });
 
   this.post('/profile');
+  this.delete('/profile/:id');
   this.get('/profile/:id');
+  this.patch('/profile/:id');
 
   this.get('/repo/:id');
 }

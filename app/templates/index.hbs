@@ -26,6 +26,7 @@
           <h5 class="card-title">{{ecosystem.name}}</h5>
           <p class="card-text">User: {{ecosystem.user}}</p>
           <LinkTo @route="ecosystem" @model={{ecosystem}} class="btn btn-primary">Open</LinkTo>
+          <RemoveDialog @item={{ecosystem}} />
         </div>
       </div>
     {{/each}}

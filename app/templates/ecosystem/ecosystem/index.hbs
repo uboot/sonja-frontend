@@ -8,7 +8,7 @@
   </p>
 
   <BsForm @formLayout="inline" @model={{this.model}} @onSubmit={{action "saveModel"}} as |form|>
-    <form.element @controlType="input" @placeholder="user" @property="user" @required={{true}} />
+    <form.element @controlType="input" @property="user" @required={{true}} />
     <form.submitButton>Save</form.submitButton>
   </BsForm>
 </section>

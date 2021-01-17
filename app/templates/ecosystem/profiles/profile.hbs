@@ -1,0 +1,37 @@
+{{page-title "Profile"}}
+
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><LinkTo @route="index">Ecosystems</LinkTo></li>
+    <li class="breadcrumb-item active" aria-current="page"><LinkTo @route="ecosystem.ecosystem.profiles" @model={{this.model.ecosystem}}>{{this.model.ecosystem.name}}</LinkTo></li>
+    <li class="breadcrumb-item active" aria-current="page">{{this.model.name}}</li>
+  </ol>
+</nav>
+
+<h1>{{this.model.name}}</h1>
+
+<section>
+  <h3>Container Image</h3>
+
+  <p>The docker image for the build containers of this profile. The image must container
+    all required build tools such as compilers, linkers, make tools etc. Because the
+    package repositories will be cloned inside the build containers <em>git</em> must be present.
+    If SSH repository URLs then also <em>SSH</em> has to be included in the build image.    
+  </p>
+
+  <BsForm @formLayout="inline" @model={{this.model}} @onSubmit={{action "saveModel"}} as |form|>
+    <form.element @controlType="input" @property="container" @required={{true}} />
+    <form.submitButton>Save</form.submitButton>
+  </BsForm>
+</section>
+
+<section>
+  <h3>Settings</h3>
+
+  <p>
+    These settings are passed to the <em>conan create</em> command. They are the same for 
+    each build for this profile.
+  </p>
+  
+  <SettingsEditor @settings={{this.model.settings}} @onSaveSettings={{action "saveModel"}}/>
+</section>

@@ -10,6 +10,7 @@ Router.map(function() {
   this.route('ecosystem', { path: '/:ecosystem_id' }, function() {
     this.route('profiles', function() {
       this.route('new');
+      this.route('profile', { path: '/:profile_id' });
     });
     this.route('ecosystem', { path: '/' }, function() {
       this.route('profiles');

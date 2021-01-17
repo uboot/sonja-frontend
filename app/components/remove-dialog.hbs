@@ -1,0 +1,18 @@
+<BsButton @onClick={{action "showDialog"}} @type="primary" ...attributes>Remove</BsButton>
+
+<BsModal @open={{this.open}} @onSubmit={{action "submitDialog"}} @onHide={{action "closeDialog"}} as |Modal|>
+  <Modal.header>
+    <h4 class="modal-title"><i class="glyphicon glyphicon-alert"></i>Remove</h4>
+  </Modal.header>
+  <Modal.body>
+    <p>
+      Do you really want to remove <em>{{@item.name}}</em>?
+    </p>
+  </Modal.body>
+  {{#unless @readonly}}
+    <Modal.footer as |footer|>
+      <BsButton @onClick={{action Modal.close}} @type="secondary">Cancel</BsButton>
+      <BsButton @onClick={{action Modal.submit}} @type="danger">Remove</BsButton>
+    </Modal.footer>
+  {{/unless}}
+</BsModal>
