@@ -13,5 +13,11 @@ export default class EcosystemIndexController extends Controller {
     this.model.known_hosts = value;
     this.model.save();
   }
+
+  @action
+  saveSettings(value) {
+    this.model.settings = value;
+    this.model.save();
+  }
   
 }

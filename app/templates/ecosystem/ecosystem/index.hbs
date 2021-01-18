@@ -34,3 +34,13 @@
 
   <TextDialog @title="Known Hosts" @content={{this.model.known_hosts}} @readonly={{false}} @onChange={{action "saveKnownHosts"}} />
 </section>
+
+<section>
+  <h3>Settings</h3>
+
+  <p>
+    The Conan settings file which is usually stored in <em>~/.conan/settings.yaml</em>.
+  </p>
+
+  <TextDialog @title="Conan Settings" @content={{this.model.settings}} @readonly={{false}} @onChange={{action "saveSettings"}} />
+</section>

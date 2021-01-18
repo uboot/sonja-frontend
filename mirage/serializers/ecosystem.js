@@ -11,7 +11,7 @@ export default ApplicationSerializer.extend({
   },
 
   shouldIncludeLinkageData(relationshipKey, model) {
-    if (relationshipKey === 'profiles') {
+    if (relationshipKey === 'profiles' || relationshipKey === 'channels') {
       return true;
     }
     return false;

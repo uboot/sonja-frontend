@@ -7,6 +7,7 @@ export default function(server) {
 
   server.createList('ecosystem', 2).forEach(ecosystem => {
     server.createList('profile', 4, { ecosystem }),
-    server.createList('repo', 2, { ecosystem })
+    server.createList('repo', 2, { ecosystem }),
+    server.createList('channel', 3, { ecosystem })
   })
 }

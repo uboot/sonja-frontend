@@ -34,6 +34,11 @@ export default function() {
     return schema.ecosystems.find(request.params.id).repos;
   });
 
+  this.post('/channel');
+  this.delete('/channel/:id');
+  this.get('/channel/:id');
+  this.patch('/channel/:id');
+
   this.post('/profile');
   this.delete('/profile/:id');
   this.get('/profile/:id');

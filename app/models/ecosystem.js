@@ -8,4 +8,5 @@ export default class EcosystemModel extends Model {
   @attr settings;
   @hasMany('repo') repos;
   @hasMany('profile') profiles;
+  @hasMany('channel') channels;
 }

@@ -1,0 +1,31 @@
+{{page-title "Channels"}}
+
+<section>
+  <h3>Channels</h3>
+
+  <p>ADD SOME EXPLANATION!!!
+  </p>
+
+  <LinkTo @route="ecosystem.channels.new" class="btn btn-primary">New Channel</LinkTo>
+</section>
+
+<section>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col" colspan="3">Branches</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each this.model.channels as |channel|}}
+        <tr>
+          <td>{{channel.name}}</td>
+          <td>{{channel.branch}}</td>
+          <td><LinkTo @route="ecosystem.channels.channel" @models={{array channel.ecosystem channel}} class="btn btn-primary btn-sm">Open</LinkTo></td>
+          <td><RemoveDialog @item={{channel}} class="btn-sm"/></td>
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
+</section>

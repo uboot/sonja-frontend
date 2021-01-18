@@ -1,0 +1,23 @@
+{{page-title "Channel"}}
+
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><LinkTo @route="index">Ecosystems</LinkTo></li>
+    <li class="breadcrumb-item active" aria-current="page"><LinkTo @route="ecosystem.ecosystem.channels" @model={{this.model.ecosystem}}>{{this.model.ecosystem.name}}</LinkTo></li>
+    <li class="breadcrumb-item active" aria-current="page">{{this.model.name}}</li>
+  </ol>
+</nav>
+
+<h1>{{this.model.name}}</h1>
+
+<section>
+  <h3>Branches</h3>
+
+  <p>EXPLANATION!!!!!   
+  </p>
+
+  <BsForm @formLayout="inline" @model={{this.model}} @onSubmit={{action "saveModel"}} as |form|>
+    <form.element @controlType="input" @property="container" @required={{true}} />
+    <form.submitButton>Save</form.submitButton>
+  </BsForm>
+</section>
