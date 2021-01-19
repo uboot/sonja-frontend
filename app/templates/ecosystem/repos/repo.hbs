@@ -1,0 +1,42 @@
+{{page-title "Repository"}}
+
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><LinkTo @route="index">Ecosystems</LinkTo></li>
+    <li class="breadcrumb-item active" aria-current="page"><LinkTo @route="ecosystem.ecosystem.repos" @model={{this.model.ecosystem}}>{{this.model.ecosystem.name}}</LinkTo></li>
+    <li class="breadcrumb-item active" aria-current="page">{{this.model.name}}</li>
+  </ol>
+</nav>
+
+<h1>{{this.model.name}}</h1>
+
+<section>
+  <h3>Location</h3>
+
+  <p>
+    The URL of the repository. It can either be of the type <em>http/https</em> or 
+    <em>SSH</em>. In case of SSH access the repository must be configured with the 
+    public key of the parent ecosystem. Authenticated access of <em>http/https</em>
+    repositories is not possible. Repositories of this type must allow un-authenticated
+    read access.
+  </p>
+
+  <BsForm @formLayout="inline" @model={{this.model}} @onSubmit={{action "saveModel"}} as |form|>
+    <form.element @controlType="input" @property="url" @required={{true}} />
+    <form.submitButton>Save</form.submitButton>
+  </BsForm>
+</section>
+
+<section>
+  <h3>Path</h3>
+
+  <p>
+    The path to the <code>conanfile.py</code> inside the repository, e.g. <code>packages/hello</code>.
+    Provide an empty path if the Conan file is located at the repository root.
+  </p>
+
+  <BsForm @formLayout="inline" @model={{this.model}} @onSubmit={{action "saveModel"}} as |form|>
+    <form.element @controlType="input" @property="path" @required={{true}} />
+    <form.submitButton>Save</form.submitButton>
+  </BsForm>
+</section>

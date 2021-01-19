@@ -44,5 +44,8 @@ export default function() {
   this.get('/profile/:id');
   this.patch('/profile/:id');
 
+  this.post('/repo');
+  this.delete('/repo/:id');
   this.get('/repo/:id');
+  this.patch('/repo/:id');
 }

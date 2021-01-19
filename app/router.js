@@ -16,9 +16,14 @@ Router.map(function() {
       this.route('new');
       this.route('channel', { path: '/:channel_id' });
     });
+    this.route('repos', function() {
+      this.route('new');
+      this.route('repo', { path: '/:repo_id' });
+    });
     this.route('ecosystem', { path: '/' }, function() {
       this.route('profiles');
       this.route('channels');
+      this.route('repos');
     });
   });
   this.route('new');
