@@ -24,20 +24,28 @@ export default function() {
     https://www.ember-cli-mirage.com/docs/route-handlers/shorthands
   */
 
+  this.get('/build/:id');
+  this.patch('/build/:id');
+
+  this.get('/commit/:id');
+
+  this.post('/channel');
+  this.delete('/channel/:id');
+  this.get('/channel/:id');
+  this.patch('/channel/:id');
+
   this.namespace = '/api/v1';
   this.get('/ecosystem');
   this.post('/ecosystem');
   this.delete('/ecosystem/:id');
   this.get('/ecosystem/:id');
   this.patch('/ecosystem/:id');
+  this.get('/ecosystem/:id/build', (schema, request) => {
+    return schema.ecosystems.find(request.params.id).builds;
+  });
   this.get('/ecosystem/:id/repo', (schema, request) => {
     return schema.ecosystems.find(request.params.id).repos;
   });
-
-  this.post('/channel');
-  this.delete('/channel/:id');
-  this.get('/channel/:id');
-  this.patch('/channel/:id');
 
   this.post('/profile');
   this.delete('/profile/:id');
@@ -48,4 +56,7 @@ export default function() {
   this.delete('/repo/:id');
   this.get('/repo/:id');
   this.patch('/repo/:id');
+  this.get('/repo/:id/commit', (schema, request) => {
+    return schema.repos.find(request.params.id).commit;
+  });
 }
