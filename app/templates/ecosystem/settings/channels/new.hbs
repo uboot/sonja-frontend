@@ -1,0 +1,9 @@
+<h2>New Channel</h2>
+
+<section>
+  <BsForm @onSubmit={{action "createChannel"}} @model={{this.channel}} as |form|>
+    <form.element @controlType="input" @label="Name" @property="name" />
+    <LinkTo @route="ecosystem.settings.channels" @model={{this.model}} class="btn btn-secondary">Cancel</LinkTo>
+    <form.submitButton>Create</form.submitButton>
+  </BsForm>
+</section>

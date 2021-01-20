@@ -7,10 +7,13 @@ module('Integration | Component | settings-editor', function(hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function(assert) {
+    this.set('model', {
+      settings: []
+    });
     // Set any properties with this.set('myProperty', 'value');
     // Handle any actions with this.set('myAction', function(val) { ... });
 
-    await render(hbs`<SettingsEditor />`);
+    await render(hbs`<SettingsEditor @model={{this.model}} @property="settings" />`);
 
     assert.notEqual(this.element.textContent.trim(), null);
   });

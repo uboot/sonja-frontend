@@ -1,0 +1,9 @@
+<h3>New Profile</h3>
+
+<section>
+  <BsForm @onSubmit={{action "createProfile"}} @model={{this.profile}} as |form|>
+    <form.element @controlType="input" @label="Name" @property="name" />
+    <LinkTo @route="ecosystem.settings.profiles" @model={{this.model}} class="btn btn-secondary">Cancel</LinkTo>
+    <form.submitButton>Create</form.submitButton>
+  </BsForm>
+</section>

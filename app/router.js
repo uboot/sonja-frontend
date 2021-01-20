@@ -8,22 +8,19 @@ export default class Router extends EmberRouter {
 
 Router.map(function() {
   this.route('ecosystem', { path: '/:ecosystem_id' }, function() {
-    this.route('profiles', function() {
-      this.route('new');
-      this.route('profile', { path: '/:profile_id' });
-    });
-    this.route('channels', function() {
-      this.route('new');
-      this.route('channel', { path: '/:channel_id' });
-    });
-    this.route('repos', function() {
-      this.route('new');
-      this.route('repo', { path: '/:repo_id' });
-    });
-    this.route('ecosystem', { path: '/' }, function() {
-      this.route('profiles');
-      this.route('channels');
-      this.route('repos');
+    this.route('settings', function() {
+      this.route('profiles', function() {
+        this.route('new');
+        this.route('profile', { path: '/:profile_id' });
+      });
+      this.route('channels', function() {
+        this.route('new');
+        this.route('channel', { path: '/:channel_id' });
+      });
+      this.route('repos', function() {
+        this.route('new');
+        this.route('repo', { path: '/:repo_id' });
+      });
     });
   });
   this.route('new');

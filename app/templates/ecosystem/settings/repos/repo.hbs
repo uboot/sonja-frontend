@@ -1,0 +1,32 @@
+<h3>{{this.model.name}}</h3>
+
+<section>
+  <h4>Location</h4>
+
+  <p>
+    The URL of the repository. It can either be of the type <em>http/https</em> or 
+    <em>SSH</em>. In case of SSH access the repository must be configured with the 
+    public key of the parent ecosystem. Authenticated access of <em>http/https</em>
+    repositories is not possible. Repositories of this type must allow un-authenticated
+    read access.
+  </p>
+
+  <BsForm @formLayout="inline" @model={{this.model}} @onSubmit={{action "saveModel"}} as |form|>
+    <form.element @controlType="input" @property="url" @required={{true}} />
+    <form.submitButton>Save</form.submitButton>
+  </BsForm>
+</section>
+
+<section>
+  <h4>Path</h4>
+
+  <p>
+    The path to the <code>conanfile.py</code> inside the repository, e.g. <code>packages/hello</code>.
+    Provide an empty path if the Conan file is located at the repository root.
+  </p>
+
+  <BsForm @formLayout="inline" @model={{this.model}} @onSubmit={{action "saveModel"}} as |form|>
+    <form.element @controlType="input" @property="path" @required={{true}} />
+    <form.submitButton>Save</form.submitButton>
+  </BsForm>
+</section>

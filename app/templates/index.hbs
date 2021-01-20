@@ -14,7 +14,9 @@
     Builds of an ecosytem also share common SSH settings, i.e. they can access a common set of Git
     repositories via SSH.
   </p>
-
+</section>
+  
+<section>
   <LinkTo @route="new" class="btn btn-primary">New Ecosystem</LinkTo>
 </section>
 
@@ -25,7 +27,7 @@
         <div class="card-body">
           <h5 class="card-title">{{ecosystem.name}}</h5>
           <p class="card-text">User: {{ecosystem.user}}</p>
-          <LinkTo @route="ecosystem" @model={{ecosystem}} class="btn btn-primary">Open</LinkTo>
+          <LinkTo @route="ecosystem.settings" @model={{ecosystem}} class="btn btn-primary">Settings</LinkTo>
           <RemoveDialog @item={{ecosystem}} />
         </div>
       </div>

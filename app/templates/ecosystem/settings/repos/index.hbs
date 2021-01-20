@@ -1,0 +1,26 @@
+<section>
+  <LinkTo @route="ecosystem.settings.repos.new" class="btn btn-primary">New Repo</LinkTo>
+</section>
+
+<section>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Location</th>
+        <th scope="col" colspan="3">Path</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each this.model.repos as |repo|}}
+        <tr>
+          <td>{{repo.name}}</td>
+          <td>{{repo.url}}</td>
+          <td>{{repo.path}}</td>
+          <td><LinkTo @route="ecosystem.settings.repos.repo" @models={{array repo.ecosystem repo}} class="btn btn-primary btn-sm">Open</LinkTo></td>
+          <td><RemoveDialog @item={{repo}} class="btn-sm"/></td>
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
+</section>

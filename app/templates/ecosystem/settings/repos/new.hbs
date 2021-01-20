@@ -1,0 +1,9 @@
+<h3>New Repository</h3>
+
+<section>
+  <BsForm @onSubmit={{action "createRepo"}} @model={{this.repo}} as |form|>
+    <form.element @controlType="input" @label="Name" @property="name" />
+    <LinkTo @route="ecosystem.settings.repos" @model={{this.model}} class="btn btn-secondary">Cancel</LinkTo>
+    <form.submitButton>Create</form.submitButton>
+  </BsForm>
+</section>

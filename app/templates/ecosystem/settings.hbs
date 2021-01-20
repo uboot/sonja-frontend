@@ -1,0 +1,27 @@
+{{page-title "Ecosystem"}}
+
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><LinkTo @route="index">Ecosystems</LinkTo></li>
+    <li class="breadcrumb-item active" aria-current="page">Settings</li>
+  </ol>
+</nav>
+
+<h1>{{this.model.name}}</h1>
+
+<ul class="nav">
+  <li class="nav-item">
+    <LinkTo @route="ecosystem.settings" class="nav-link">General</LinkTo>
+  </li>
+  <li class="nav-item">
+    <LinkTo @route="ecosystem.settings.profiles" class="nav-link">Profiles</LinkTo>
+  </li>
+  <li class="nav-item">
+    <LinkTo @route="ecosystem.settings.channels" class="nav-link">Channels</LinkTo>
+  </li>
+  <li class="nav-item">
+    <LinkTo @route="ecosystem.settings.repos" class="nav-link">Repos</LinkTo>
+  </li>
+</ul>
+
+{{outlet}}

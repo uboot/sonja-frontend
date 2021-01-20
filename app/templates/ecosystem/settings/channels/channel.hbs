@@ -1,0 +1,17 @@
+<h3>Channel: {{this.model.name}}</h3>
+
+<section>
+  <h4>Branches</h4>
+
+  <p>
+    The name of the branch which should be monitored for this channel. New commits
+    on the branch will trigger builds for the channel. Example: <code>master</code>.
+    It is also possible to provide a pattern to monitor several branches, e.g.
+    <code>feature/*</code>.
+  </p>
+
+  <BsForm @formLayout="inline" @model={{this.model}} @onSubmit={{action "saveModel"}} as |form|>
+    <form.element @controlType="input" @property="branch" @required={{true}} />
+    <form.submitButton>Save</form.submitButton>
+  </BsForm>
+</section>
