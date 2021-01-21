@@ -2,8 +2,10 @@ import { Factory } from 'ember-cli-mirage';
 
 export default Factory.extend({
 
-  name() {
-    return 'Conan CI'
+  name(i) {
+    let values = [ 'Hello', 'Deadlock' ];
+
+    return values[i % values.length];
   },
   
   url() {
