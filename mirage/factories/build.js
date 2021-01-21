@@ -8,8 +8,6 @@ export default Factory.extend({
     return values[i % values.length];
   },
 
-  commit: association(),
-
   profile: association()
 
 });

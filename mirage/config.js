@@ -24,6 +24,8 @@ export default function() {
     https://www.ember-cli-mirage.com/docs/route-handlers/shorthands
   */
 
+  this.namespace = '/api/v1';
+  
   this.get('/build/:id');
   this.patch('/build/:id');
 
@@ -34,7 +36,6 @@ export default function() {
   this.get('/channel/:id');
   this.patch('/channel/:id');
 
-  this.namespace = '/api/v1';
   this.get('/ecosystem');
   this.post('/ecosystem');
   this.delete('/ecosystem/:id');

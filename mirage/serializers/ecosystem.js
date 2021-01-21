@@ -5,7 +5,10 @@ export default ApplicationSerializer.extend({
   links(ecosystem) {
     return {
       'repos': {
-        related: `repo`
+        related: 'repo'
+      },
+      'builds': {
+        related: 'build'
       }
     };
   },

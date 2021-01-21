@@ -11,6 +11,8 @@ export default Factory.extend({
     return values[i % values.length];
   },
 
-  channel: association()
+  channel: association(),
+
+  repo: association()
 
 });

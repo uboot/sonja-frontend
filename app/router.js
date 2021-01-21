@@ -22,6 +22,7 @@ Router.map(function() {
         this.route('repo', { path: '/:repo_id' });
       });
     });
+    this.route('builds');
   });
   this.route('new');
 });

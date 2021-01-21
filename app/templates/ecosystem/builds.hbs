@@ -1,0 +1,33 @@
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><LinkTo @route="index">Ecosystems</LinkTo></li>
+    <li class="breadcrumb-item active" aria-current="page">Builds</li>
+  </ol>
+</nav>
+
+<h1>{{this.model.name}}</h1>
+
+<h2>Builds</h2>
+
+<section>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Repository</th>
+        <th scope="col">Commit</th>
+        <th scope="col" colspan="2">Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each this.model.builds as |build|}}
+        <tr>
+          <td>{{build.commit.repo.name}}</td>
+          <td>{{build.commit.sha}}</td>
+          <td>{{build.status}}</td>
+          <td><BsButton @onClick={{action "stopBuild" build}} @type="primary" class="btn-sm">Stop</BsButton></td>
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
+</section>
+
