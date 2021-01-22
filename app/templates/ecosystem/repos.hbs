@@ -7,26 +7,5 @@
 
 <h1>{{this.model.name}}</h1>
 
-<h2>Repositories</h2>
-
-<section>
-  <table class="table">
-    <thead>
-      <tr>
-        <th scope="col">Repository</th>
-        <th scope="col">URL</th>
-        <th scope="col">Path</th>
-      </tr>
-    </thead>
-    <tbody>
-      {{#each this.model.repos as |repo|}}
-        <tr>
-          <td>{{repo.name}}</td>
-          <td>{{repo.url}}</td>
-          <td>{{repo.path}}</td>
-        </tr>
-      {{/each}}
-    </tbody>
-  </table>
-</section>
+{{outlet}}
 

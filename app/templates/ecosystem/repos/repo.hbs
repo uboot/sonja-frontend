@@ -1,0 +1,35 @@
+<h2>{{this.model.name}}</h2>
+
+<section>
+  <div class="row row-cols-1">
+    {{#each this.model.commits as |commit|}}
+      <div class="col mb-4">
+        <div class="card">
+          <div class="card-body">
+              <h5 class="card-title">{{commit.sha}}</h5>
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">Profile</th>
+                    <th scope="col">Channel</th>
+                    <th scope="col" colspan="2">Status</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {{#each commit.builds as |build|}}
+                    <tr>
+                      <td>{{build.profile.name}}</td>
+                      <td>{{build.commit.channel.name}}</td>
+                      <td>{{build.status}}</td>
+                      <td><BsButton @onClick={{action "stopBuild" build}} @type="primary" class="btn-sm">Stop</BsButton></td>
+                    </tr>
+                  {{/each}}
+                </tbody>
+              </table>
+          </div>
+        </div>
+      </div>
+    {{/each}}
+  </div>
+</section>
+

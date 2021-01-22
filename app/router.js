@@ -23,7 +23,9 @@ Router.map(function() {
       });
     });
     this.route('builds');
-    this.route('repos');
+    this.route('repos', function() {
+      this.route('repo', { path: '/:repo_id' });
+    });
   });
   this.route('new');
 });

@@ -58,6 +58,6 @@ export default function() {
   this.get('/repo/:id');
   this.patch('/repo/:id');
   this.get('/repo/:id/commit', (schema, request) => {
-    return schema.repos.find(request.params.id).commit;
+    return schema.repos.find(request.params.id).commits;
   });
 }
