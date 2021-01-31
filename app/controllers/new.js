@@ -12,7 +12,7 @@ export default class NewController extends Controller {
       name: model.name,
     });
     await ecosystem.save();
-    this.transitionToRoute("ecosystem", ecosystem);
+    this.transitionToRoute("ecosystem.settings", ecosystem);
   }
   
 }
