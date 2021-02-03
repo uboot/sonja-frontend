@@ -9,7 +9,11 @@ export default class TextDialogComponent extends Component {
 
   @action
   showDialog() {
-    this.model.decoded = atob(this.args.content);
+    if (this.args.content) {
+      this.model.decoded = atob(this.args.content);
+    } else {
+      this.model.decoded = '';
+    }
     this.open = true;
   }
 
