@@ -1,3 +1,5 @@
+import { Response } from 'miragejs';
+
 export default function() {
 
   // These comments are here to help you get started. Feel free to delete them.
@@ -46,6 +48,19 @@ export default function() {
   });
   this.get('/ecosystem/:id/repo', (schema, request) => {
     return schema.ecosystems.find(request.params.id).repos;
+  });
+
+  this.post('/login', () => {
+    //return new Response(401);
+    return { user: 'user' };
+  });
+
+  this.post('/restore', () => {
+    return { user: 'user' };
+  });
+
+  this.post('/logout', () => {
+    return {};
   });
 
   this.post('/profile');
