@@ -5,8 +5,11 @@ export default class ApiKeyAuthenticator extends Base{
   restore(data) {
     return fetch("/api/v1/restore", {
       method: "POST",
-      body: data,
-      credentials: 'include'
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data),
+      credentials: 'same-origin'
     }).then(function(response) {
       if (response.ok) {
         return response.json();
@@ -17,10 +20,13 @@ export default class ApiKeyAuthenticator extends Base{
   }
 
   authenticate(user, password) {
+    let data =  { user: user, password: password };
     return fetch("/api/v1/login", {
       method: "POST",
-      body: { user: user, password: password },
-      credentials: 'include'
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data)
     }).then(function(response) {
       if (response.ok) {
         return response.json();
@@ -33,8 +39,11 @@ export default class ApiKeyAuthenticator extends Base{
   invalidate(data) {
     return fetch("/api/v1/logout", {
       method: "POST",
-      body: data,
-      credentials: 'include'
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data),
+      credentials: 'same-origin'
     }).then(function(response) {
       if (response.ok) {
         return response.json();
