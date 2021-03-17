@@ -9,7 +9,19 @@ export default Factory.extend({
   },
   
   container(i) {
-    let values = [ 'msvc15:local', 'uboot/gcc9:latest' ];
+    let values = [ 'registry.azurecr.io/msvc15:latest', 'uboot/gcc9:latest' ];
+
+    return values[Math.floor(i/2) % values.length];
+  },
+
+  docker_user(i) {
+    let values = [ 'user', '' ];
+
+    return values[Math.floor(i/2) % values.length];
+  },
+
+  docker_password(i) {
+    let values = [ 'paSSw0rd', '' ];
 
     return values[Math.floor(i/2) % values.length];
   },

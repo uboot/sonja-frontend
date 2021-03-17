@@ -14,6 +14,18 @@ export default Factory.extend({
     return values[i % values.length];
   },
 
+  conan_remote() {
+    return 'http://test-conan-server:9300';
+  },
+
+  conan_user() {
+    return 'agent';
+  },
+
+  conan_password() {
+    return 'demo';
+  },
+
   public_ssh_key() {
     return `
       c3NoLXJzYSBBQUFBQjNOemFDMXljMkVBQUFBREFRQUJBQUFDZHNqZmRzYWpmaWRzb2ZqZHNpZnZj
