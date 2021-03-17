@@ -1,7 +1,5 @@
 <section>
-  <h2>Settings</h2>
-  
-  <h3>Conan User</h3>
+  <h3>User Reference</h3>
 
   <p>
     This is the <em>user</em> part of the Conan package references built in this ecosystem.
@@ -9,6 +7,21 @@
 
   <BsForm @formLayout="inline" @model={{this.model}} @onSubmit={{action "saveModel"}} as |form|>
     <form.element @controlType="input" @property="user" @required={{true}} />
+    <form.submitButton>Save</form.submitButton>
+  </BsForm>
+</section>
+
+<section>
+  <h3>Conan Remote</h3>
+
+  <p>This ecosystem will receive and store Conan packages at from and to an external Conan remote.
+    Here, the location of this remote and the credentials to access it are defined. Set a fully qualified
+    URL such as <code>http://server:9300/repo</code> for the remote.</p>
+
+  <BsForm @formLayout="vertical" @model={{this.model}} @onSubmit={{action "saveModel"}} as |form|>
+    <form.element @controlType="input" @label="Remote" @property="conan_remote" @required={{true}} />
+    <form.element @controlType="input" @label="User" @property="conan_user" @required={{true}} />
+    <form.element @controlType="password" @label="Password" @property="conan_password" @required={{true}} />
     <form.submitButton>Save</form.submitButton>
   </BsForm>
 </section>

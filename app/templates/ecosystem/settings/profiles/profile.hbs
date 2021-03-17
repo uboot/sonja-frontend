@@ -6,11 +6,15 @@
   <p>The docker image for the build containers of this profile. The image must container
     all required build tools such as compilers, linkers, make tools etc. Because the
     package repositories will be cloned inside the build containers <em>git</em> must be present.
-    If SSH repository URLs then also <em>SSH</em> has to be included in the build image.    
+    If SSH repository URLs then also <em>SSH</em> has to be included in the build image. 
+
+    Optionally, credentials to access the registry server can be given provided.
   </p>
 
-  <BsForm @formLayout="inline" @model={{this.model}} @onSubmit={{action "saveModel"}} as |form|>
-    <form.element @controlType="input" @property="container" @required={{true}} />
+  <BsForm @formLayout="vertical" @model={{this.model}} @onSubmit={{action "saveModel"}} as |form|>
+    <form.element @controlType="input" @label="Image" @property="container" @required={{true}} />
+    <form.element @controlType="input" @label="User" @property="docker_user" />
+    <form.element @controlType="password" @label="Password" @property="docker_password" />
     <form.submitButton>Save</form.submitButton>
   </BsForm>
 </section>
