@@ -4,6 +4,7 @@ export default class EcosystemModel extends Model {
   @attr name;
   @attr user;
   @attr conan_remote;
+  @attr('boolean') conan_verify_ssl;
   @attr conan_user;
   @attr conan_password;
   @attr public_ssh_key;

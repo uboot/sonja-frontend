@@ -14,6 +14,10 @@ export default Factory.extend({
     return values[i % values.length];
   },
 
+  conan_verify_ssl() {
+    return true;
+  },
+
   conan_remote() {
     return 'http://test-conan-server:9300';
   },
