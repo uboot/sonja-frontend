@@ -16,12 +16,15 @@
 
   <p>This ecosystem will receive and store Conan packages at from and to an external Conan remote.
     Here, the location of this remote and the credentials to access it are defined. Set a fully qualified
-    URL such as <code>http://server:9300/repo</code> for the remote.</p>
+    URL such as <code>http://server:9300/repo</code> for the remote. If the URL points to a secure 
+    (i.e. <code>https</code>) Conan will verify the SSL certificate of the remote. To disable this
+    verification uncheck the "Verify SSL" box.</p>
 
   <BsForm @formLayout="vertical" @model={{this.model}} @onSubmit={{action "saveModel"}} as |form|>
     <form.element @controlType="input" @label="Remote" @property="conan_remote" @required={{true}} />
     <form.element @controlType="input" @label="User" @property="conan_user" @required={{true}} />
     <form.element @controlType="password" @label="Password" @property="conan_password" @required={{true}} />
+    <form.element @controlType="checkbox" @label="Verify SSL" @property="conan_verify_ssl" @required={{true}} />
     <form.submitButton>Save</form.submitButton>
   </BsForm>
 </section>
