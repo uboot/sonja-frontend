@@ -14,7 +14,7 @@
   <BsForm @formLayout="vertical" @model={{this.model}} @onSubmit={{action "saveModel"}} as |form|>
     <form.element @controlType="input" @label="Image" @property="container" @required={{true}} />
     <form.element @controlType="input" @label="User" @property="docker_user" />
-    <form.element @controlType="password" @label="Password" @property="docker_password" />
+    <form.element @controlType="input" @label="Password" @property="docker_password" />
     <form.submitButton>Save</form.submitButton>
   </BsForm>
 </section>

@@ -23,7 +23,7 @@
   <BsForm @formLayout="vertical" @model={{this.model}} @onSubmit={{action "saveModel"}} as |form|>
     <form.element @controlType="input" @label="Remote" @property="conan_remote" @required={{true}} />
     <form.element @controlType="input" @label="User" @property="conan_user" @required={{true}} />
-    <form.element @controlType="password" @label="Password" @property="conan_password" @required={{true}} />
+    <form.element @controlType="input" @label="Password" @property="conan_password" @required={{true}} />
     <form.element @controlType="checkbox" @label="Verify SSL" @property="conan_verify_ssl" @required={{true}} />
     <form.submitButton>Save</form.submitButton>
   </BsForm>
