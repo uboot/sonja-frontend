@@ -17,7 +17,10 @@
           <td>{{build.commit.repo.name}}</td>
           <td>{{build.commit.sha}}</td>
           <td>{{build.status}}</td>
-          <td><BsButton @onClick={{action "stopBuild" build}} @type="primary" class="btn-sm">Stop</BsButton></td>
+          <td>
+            <BsButton @onClick={{action "startBuild" build}} @type="primary" class="btn-sm">Start</BsButton>
+            <BsButton @onClick={{action "stopBuild" build}} @type="primary" class="btn-sm">Stop</BsButton>
+          </td>
         </tr>
       {{/each}}
     </tbody>
