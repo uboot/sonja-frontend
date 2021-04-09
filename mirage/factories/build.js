@@ -8,6 +8,8 @@ export default Factory.extend({
     return values[i % values.length];
   },
 
-  profile: association()
+  profile: association(),
+
+  log: association()
 
 });
