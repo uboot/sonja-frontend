@@ -50,6 +50,8 @@ export default function() {
     return schema.ecosystems.find(request.params.id).repos;
   });
 
+  this.get('/log/:id');
+
   this.post('/login', () => {
     //return new Response(401);
     return { user: 'user' };

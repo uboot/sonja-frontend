@@ -6,7 +6,7 @@
       <div class="col mb-4">
         <div class="card">
           <div class="card-body">
-              <h5 class="card-title">{{commit.sha}}</h5>
+              <h5 class="card-title">{{commit.sha}} {{commit.message}}</h5>
               <table class="table">
                 <thead>
                   <tr>
@@ -21,7 +21,11 @@
                       <td>{{build.profile.name}}</td>
                       <td>{{build.commit.channel.name}}</td>
                       <td>{{build.status}}</td>
-                      <td><BsButton @onClick={{action "stopBuild" build}} @type="primary" class="btn-sm">Stop</BsButton></td>
+                      <td>
+                        <LinkTo @route="ecosystem.builds.build" @model={{build}} class="btn btn-sm btn-primary">Details</LinkTo>
+                        <BsButton @onClick={{action "startBuild" build}} @type="primary" class="btn-sm">Start</BsButton>
+                        <BsButton @onClick={{action "stopBuild" build}} @type="primary" class="btn-sm">Stop</BsButton>
+                      </td>
                     </tr>
                   {{/each}}
                 </tbody>

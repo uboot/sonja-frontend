@@ -11,6 +11,15 @@ export default Factory.extend({
     return values[i % values.length];
   },
 
+  message(i) {
+    let values = [
+      'Initial commit',
+      'Add important feature'
+    ];
+
+    return values[i % values.length];
+  },
+
   channel: association(),
 
   repo: association()

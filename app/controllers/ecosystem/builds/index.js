@@ -8,6 +8,7 @@ export default class EcosystemBuildsController extends Controller {
     model.status = 'new';
     model.save();
   }
+  
   @action
   stopBuild(model) {
     model.status = 'stopping';
