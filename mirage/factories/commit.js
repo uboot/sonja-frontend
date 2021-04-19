@@ -20,6 +20,14 @@ export default Factory.extend({
     return values[i % values.length];
   },
 
+  user_name() {
+    return 'Joe Smith';
+  },
+
+  user_email() {
+    return 'joe.smith@acme.com';
+  },
+
   channel: association(),
 
   repo: association()

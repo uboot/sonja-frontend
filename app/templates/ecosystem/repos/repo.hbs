@@ -6,7 +6,9 @@
       <div class="col mb-4">
         <div class="card">
           <div class="card-body">
-              <h5 class="card-title">{{commit.sha}} {{commit.message}}</h5>
+              <h5 class="card-title">{{commit.message}}</h5>
+              <p>{{commit.sha}}</p>
+              <p>{{commit.user_name}} {{commit.user_email}}</p>
               <table class="table">
                 <thead>
                   <tr>
