@@ -10,8 +10,9 @@ export default class EcosystemModel extends Model {
   @attr public_ssh_key;
   @attr known_hosts;
   @attr settings;
-  @hasMany('builds') builds;
+  @hasMany('build') builds;
   @hasMany('repo') repos;
   @hasMany('profile') profiles;
   @hasMany('channel') channels;
+  @hasMany('recipe') recipes;
 }

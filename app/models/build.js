@@ -1,4 +1,4 @@
-import Model, { attr, belongsTo } from '@ember-data/model';
+import Model, { attr, belongsTo, hasMany } from '@ember-data/model';
 
 export default class BuildModel extends Model {
   @attr status;
@@ -6,4 +6,7 @@ export default class BuildModel extends Model {
   @belongsTo('commit') commit;
   @belongsTo('profile') profile;
   @belongsTo('ecosystem') ecosystem;
+  @belongsTo('package') package;
+  @hasMany('recipe') missing_recipes;
+  @hasMany('package') missing_packages;
 }
