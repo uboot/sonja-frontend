@@ -1,0 +1,25 @@
+import { Factory } from 'ember-cli-mirage';
+
+export default Factory.extend({
+
+  name() {
+    return 'hello';
+  },
+
+  version() {
+    return '1.2.3';
+  },
+
+  channel() {
+    return 'stable'
+  },
+
+  user() {
+    return 'mycompany'
+  },
+
+  revision() {
+    return 'a96dea11e1b80baf13cc4221c4070ec4f813fc5f'
+  }
+
+});

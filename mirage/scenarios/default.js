@@ -12,6 +12,9 @@ export default function(server) {
         server.createList('build', 4, { ecosystem, commit })
       })
     }),
+    server.createList('recipe', 1, { ecosystem }).forEach(recipe => {
+      server.createList('package', 2, { recipe })
+    })
     server.createList('channel', 3, { ecosystem })
   })
 }

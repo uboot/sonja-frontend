@@ -28,6 +28,9 @@ Router.map(function() {
     this.route('repos', function() {
       this.route('repo', { path: '/:repo_id' });
     });
+    this.route('recipes', function() {
+      this.route('recipe', { path: '/:recipe_id' });
+    });
   });
   this.route('new');
   this.route('login');

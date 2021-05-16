@@ -10,6 +10,8 @@ export default Factory.extend({
 
   profile: association(),
 
-  log: association()
+  log: association(),
+
+  package: association()
 
 });

@@ -21,6 +21,7 @@
           <p class="card-text">User: {{ecosystem.user}}</p>
           <LinkTo @route="ecosystem.builds" @model={{ecosystem}} class="btn btn-primary">Builds</LinkTo>
           <LinkTo @route="ecosystem.repos" @model={{ecosystem}} class="btn btn-primary">Repositories</LinkTo>
+          <LinkTo @route="ecosystem.recipes" @model={{ecosystem}} class="btn btn-primary">Recipes</LinkTo>
           <LinkTo @route="ecosystem.settings" @model={{ecosystem}} class="btn btn-primary">Settings</LinkTo>
           <RemoveDialog @item={{ecosystem}} />
         </div>

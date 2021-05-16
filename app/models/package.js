@@ -2,11 +2,7 @@ import Model, { attr, belongsTo, hasMany } from '@ember-data/model';
 
 export default class PackageModel extends Model {
   @attr package_id;
-  @attr version;
-  @attr channel;
-  @attr user;
-  @attr revision;
   @belongsTo('recipe') recipe;
-  @hasMany('package') requires;
-  @hasMany('package') required_by;
+  @hasMany('package', { inverse: null }) requires;
+  @hasMany('package', { inverse: null }) required_by;
 }

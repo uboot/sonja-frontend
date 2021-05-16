@@ -49,6 +49,9 @@ export default function() {
   this.get('/ecosystem/:id/repo', (schema, request) => {
     return schema.ecosystems.find(request.params.id).repos;
   });
+  this.get('/ecosystem/:id/recipe', (schema, request) => {
+    return schema.ecosystems.find(request.params.id).recipes;
+  });
 
   this.get('/log/:id');
 
@@ -56,6 +59,10 @@ export default function() {
     //return new Response(401);
     return { user: 'user' };
   });
+
+  this.get('/package/:id');
+
+  this.get('/recipe/:id');
 
   this.post('/restore', () => {
     return { user: 'user' };
