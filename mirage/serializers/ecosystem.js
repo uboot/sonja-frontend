@@ -9,6 +9,9 @@ export default ApplicationSerializer.extend({
       },
       'builds': {
         related: 'build'
+      },
+      'recipes': {
+        related: 'recipe'
       }
     };
   },
