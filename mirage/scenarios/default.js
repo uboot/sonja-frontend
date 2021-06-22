@@ -13,7 +13,9 @@ export default function(server) {
       })
     }),
     server.createList('recipe', 1, { ecosystem }).forEach(recipe => {
-      server.createList('package', 2, { recipe })
+      server.createList('recipe-revision', 1, { recipe }).forEach(recipe_revision => {
+        server.createList('package', 2, { recipe_revision })
+      })
     })
     server.createList('channel', 3, { ecosystem })
   })

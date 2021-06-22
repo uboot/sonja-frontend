@@ -9,13 +9,19 @@
     <table class="table">
       <thead>
         <tr>
-          <th scope="col">Package ID</th>
+          <th scope="col">Revision</th>
+          <th scope="col">Packages</th>
         </tr>
       </thead>
       <tbody>
-        {{#each this.model.packages as |package|}}
+        {{#each this.model.revisions as |revision|}}
           <tr>
-            <td>{{package.package_id}}</td>
+            <td>{{revision.revision}}</td>
+            <td>
+              {{#each revision.packages as |package|}}
+                {{package.package_id}}<br/>
+              {{/each}}
+            </td>
           </tr>
         {{/each}}
       </tbody>

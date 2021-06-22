@@ -7,6 +7,4 @@ export default class BuildModel extends Model {
   @belongsTo('profile') profile;
   @belongsTo('ecosystem') ecosystem;
   @belongsTo('package') package;
-  @hasMany('recipe') missing_recipes;
-  @hasMany('package') missing_packages;
 }

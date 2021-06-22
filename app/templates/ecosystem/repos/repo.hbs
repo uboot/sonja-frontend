@@ -24,7 +24,7 @@
                       <td>{{build.profile.name}}</td>
                       <td>{{build.commit.channel.name}}</td>
                       <td>{{build.status}}</td>
-                      <td>{{build.package.recipe.name}}/{{build.package.recipe.version}}@{{build.package.recipe.user}}/{{build.package.recipe.channel}}</td>
+                      <td>{{build.package.recipe_revision.recipe.name}}/{{build.package.recipe_revision.recipe.version}}@{{build.package.recipe_revision.recipe.user}}/{{build.package.recipe_revision.recipe.channel}}</td>
                       <td>
                         <LinkTo @route="ecosystem.builds.build" @model={{build}} class="btn btn-sm btn-primary">Details</LinkTo>
                         <BsButton @onClick={{action "startBuild" build}} @type="primary" class="btn-sm">Start</BsButton>

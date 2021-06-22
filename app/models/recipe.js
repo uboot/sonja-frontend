@@ -5,7 +5,6 @@ export default class RecipeModel extends Model {
   @attr version;
   @attr channel;
   @attr user;
-  @attr revision;
   @belongsTo('ecosystem') ecosystem;
-  @hasMany('packages') packages;
+  @hasMany('recipe-revision') revisions;
 }
