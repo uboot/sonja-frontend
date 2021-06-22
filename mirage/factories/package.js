@@ -8,6 +8,6 @@ export default Factory.extend({
     return values[i % values.length];
   },
 
-  recipe: association()
+  recipe_revision: association()
 
 });

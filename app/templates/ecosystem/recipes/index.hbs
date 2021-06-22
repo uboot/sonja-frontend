@@ -5,14 +5,12 @@
     <thead>
       <tr>
         <th scope="col">Recipe</th>
-        <th scope="col">Revision</th>
       </tr>
     </thead>
     <tbody>
       {{#each this.model.recipes as |recipe|}}
         <tr>
           <td><LinkTo @route="ecosystem.recipes.recipe" @models={{array recipe.ecosystem recipe}}>{{recipe.name}}/{{recipe.version}}@{{recipe.user}}/{{recipe.channel}}</LinkTo></td>
-          <td>{{recipe.revision}}</td>
         </tr>
       {{/each}}
     </tbody>

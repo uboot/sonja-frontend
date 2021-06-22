@@ -63,6 +63,10 @@ export default function() {
   this.get('/package/:id');
 
   this.get('/recipe/:id');
+  this.get('/recipe/:id/revision', (schema, request) => {
+    return schema.recipes.find(request.params.id).revisions;
+  });
+  this.get('/recipe_revision/:id');
 
   this.post('/restore', () => {
     return { user: 'user' };

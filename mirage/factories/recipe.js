@@ -16,10 +16,6 @@ export default Factory.extend({
 
   user() {
     return 'mycompany'
-  },
-
-  revision() {
-    return 'a96dea11e1b80baf13cc4221c4070ec4f813fc5f'
   }
 
 });
