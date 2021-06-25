@@ -8,10 +8,5 @@ export default class EcosystemSettingsProfilesNewController extends Controller {
     async saveModel() {
       await this.model.save();
     }
-
-    @action
-    addSetting() {
-      this.model.settings.pushObject({});
-    }
     
 }

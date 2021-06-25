@@ -16,6 +16,21 @@ export default Factory.extend({
     let values = [ 'packages/hello', 'packages/deadlock' ];
 
     return values[i % values.length];
+  },
+
+  exclude(i) {
+    let labels = [
+      {
+        label: "embedded"
+      },
+      {
+        label: "desktop"
+      }
+    ];
+
+    return [
+      labels[i % labels.length]
+    ];
   }
 
 });
