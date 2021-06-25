@@ -29,3 +29,31 @@
   
   <SettingsEditor @model={{this.model}} @property="settings" @onSubmit={{action "saveModel"}}/>
 </section>
+
+<section>
+  <h4>Options</h4>
+
+  <p>
+    These options are passed to the <em>conan create</em> command. They are the same for 
+    each build for this profile.
+  </p>
+  
+  <SettingsEditor @model={{this.model}} @property="options" @onSubmit={{action "saveModel"}}/>
+</section>
+
+<section>
+  <h4>Labels</h4>
+
+  <p>
+    Labels are strings which can be assigned to profiles. Labels can be used to identify a
+    set of profiles which share a common property. E.g. profiles which refer to debug 
+    builds might carry the label <code>debug</code>. 
+  </p>
+  <p>
+    It is possible to exclude profiles with certain labels fromr the build of a repository.
+    E.g. a repository which defines <code>debug</code> as one of its <em>exclude labels</em>
+    will not be built for profiles which share the <code>debug</code> label.
+  </p>
+  
+  <LabelEditor @model={{this.model}} @property="labels" @onSubmit={{action "saveModel"}}/>
+</section>

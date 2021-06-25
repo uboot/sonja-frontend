@@ -1,7 +1,5 @@
 import { action } from '@ember/object';
-import { inject as service } from '@ember/service';
 import Component from '@glimmer/component';
-import { tracked } from '@glimmer/tracking';
 
 export default class SettingsEditorComponent extends Component {
   settings = [];
@@ -17,7 +15,7 @@ export default class SettingsEditorComponent extends Component {
 
   @action
   saveSettings() {
-    this.args.model.settings = this.settings;
+    this.args.model[this.args.property] = this.settings;
     this.args.onSubmit(this.args.model);
   }
 

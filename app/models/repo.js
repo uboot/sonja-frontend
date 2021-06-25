@@ -4,6 +4,7 @@ export default class RepoModel extends Model {
   @attr name;
   @attr url;
   @attr path;
+  @attr exclude;
   @belongsTo('ecosystem') ecosystem;
   @hasMany('commit') commits;
 }

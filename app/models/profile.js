@@ -7,5 +7,7 @@ export default class ProfileModel extends Model {
     @attr docker_user;
     @attr docker_password;
     @attr settings;
+    @attr options;
+    @attr labels;
     @belongsTo('ecosystem') ecosystem;
 }

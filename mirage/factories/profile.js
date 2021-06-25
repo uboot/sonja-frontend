@@ -53,6 +53,38 @@ export default Factory.extend({
       os[Math.floor(i/2) % os.length],
       buildType[i % buildType.length]
     ];
+  },
+
+  options(i) {
+    let shared = [
+      {
+        key: "base:shared",
+        value: "True"
+      },
+      {
+        key: "base:shared",
+        value: "False"
+      }
+    ];
+
+    return [
+      shared[i % shared.length]
+    ];
+  },
+
+  labels(i) {
+    let labels = [
+      {
+        label: "embedded"
+      },
+      {
+        label: "desktop"
+      }
+    ];
+
+    return [
+      labels[i % labels.length]
+    ];
   }
   
 });

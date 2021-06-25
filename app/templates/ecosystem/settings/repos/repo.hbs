@@ -30,3 +30,20 @@
     <form.submitButton>Save</form.submitButton>
   </BsForm>
 </section>
+
+<section>
+  <h4>Exclude Labels</h4>
+
+  <p>
+    <em>Exclude labels</em> identify profiles which should be excluded from building 
+    this repository.
+  </p>
+
+  <p>
+    E.g. a repository which defines <code>debug</code> as one of its <em>exclude labels</em>
+    will not be built for profiles which share the <code>debug</code> label.
+  </p>
+
+  <LabelEditor @model={{this.model}} @property="exclude" @onSubmit={{action "saveModel"}}/>
+</section>
+
