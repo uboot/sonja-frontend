@@ -4,9 +4,11 @@ import { action } from '@ember/object';
 export default class EcosystemBuildsController extends Controller {
 
   @action
-  startBuild(model) {
+  async startBuild(model) {
     model.status = 'new';
     model.save();
+    let log = await model.log;
+    log.unloadRecord();
   }
   
   @action
