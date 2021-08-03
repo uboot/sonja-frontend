@@ -6,7 +6,7 @@ export default class EcosystemBuildsController extends Controller {
   @action
   async startBuild(model) {
     model.status = 'new';
-    model.save();
+    await model.save();
     let log = await model.log;
     log.unloadRecord();
   }

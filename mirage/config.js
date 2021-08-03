@@ -76,6 +76,10 @@ export default function() {
     return {};
   });
 
+  this.get('/process-repo/:id', () => {
+    return{};
+  });
+
   this.post('/profile');
   this.delete('/profile/:id');
   this.get('/profile/:id');
