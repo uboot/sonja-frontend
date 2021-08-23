@@ -8,11 +8,17 @@
     package repositories will be cloned inside the build containers <em>git</em> must be present.
     If SSH repository URLs then also <em>SSH</em> has to be included in the build image. 
 
+    Provide the full <em>registry:tag</em> specification of the docker container below.
+    It is also necessary to specify the platform of the docker container such that
+    an appropriate execution environment can be chosen by the build scheduler.
     Optionally, credentials to access the registry server can be given provided.
   </p>
 
   <BsForm @formLayout="vertical" @model={{this.model}} @onSubmit={{action "saveModel"}} as |form|>
-    <form.element @controlType="input" @label="Image" @property="container" @required={{true}} />
+    <form.element @controlType="radio"  @label="Platform" @property="platform" @options={{platforms}} @optionValuePath="value" as |el|>
+      <el.control @inline={{true}} />
+    </form.element>
+    <form.element @controlType="input" @label="Image" @property="container" required />
     <form.element @controlType="input" @label="User" @property="docker_user" />
     <form.element @controlType="input" @label="Password" @property="docker_password" />
     <form.submitButton>Save</form.submitButton>
@@ -20,25 +26,20 @@
 </section>
 
 <section>
-  <h4>Settings</h4>
+  <h4>Conan Profile</h4>
 
   <p>
-    These settings are passed to the <em>conan create</em> command. They are the same for 
-    each build for this profile.
+    Each build for this profile is run with a Conan profile defined by the Conan 
+    configuration. If e.g. the <em>Profile</em> here is set to <em>windows-debug</em>
+    the parameter <code>--profile windows-debug</code> will be passed to the
+    <code>conan create</code> command.
+    In addition
   </p>
-  
-  <SettingsEditor @model={{this.model}} @property="settings" @onSubmit={{action "saveModel"}}/>
-</section>
 
-<section>
-  <h4>Options</h4>
-
-  <p>
-    These options are passed to the <em>conan create</em> command. They are the same for 
-    each build for this profile.
-  </p>
-  
-  <SettingsEditor @model={{this.model}} @property="options" @onSubmit={{action "saveModel"}}/>
+  <BsForm @formLayout="vertical" @model={{this.model}} @onSubmit={{action "saveModel"}} as |form|>
+    <form.element @controlType="input" @label="Profile" @property="conan_profile" />
+    <form.submitButton>Save</form.submitButton>
+  </BsForm>
 </section>
 
 <section>

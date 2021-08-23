@@ -6,7 +6,27 @@
   </p>
 
   <BsForm @formLayout="inline" @model={{this.model}} @onSubmit={{action "saveModel"}} as |form|>
-    <form.element @controlType="input" @property="user" @required={{true}} />
+    <form.element @controlType="input" @property="user" required />
+    <form.submitButton>Save</form.submitButton>
+  </BsForm>
+</section>
+
+<section>
+  <h3>Conan Configuration</h3>
+
+  <p>
+    The build environment will be initialized with a Conan configuration from an 
+    external git repository. Provide the <em>URL</em> of the git repository here.
+    If the configuration is not located at the root of the repository but in 
+    a subdirectory set <em>Path</em> to the location of the directory.
+    If a branch other than the default branch should be used as a source of the configuration 
+    this branch can optionally be specified in the field <em>Branch</em>. 
+  </p>
+
+  <BsForm @formLayout="vertical" @model={{this.model}} @onSubmit={{action "saveModel"}} as |form|>
+    <form.element @controlType="input" @label="URL" @property="conan_config_url" required />
+    <form.element @controlType="input" @label="Path" @property="conan_config_path" />
+    <form.element @controlType="input" @label="Branch" @property="conan_config_branch" />
     <form.submitButton>Save</form.submitButton>
   </BsForm>
 </section>
@@ -14,17 +34,20 @@
 <section>
   <h3>Conan Remote</h3>
 
-  <p>This ecosystem will receive and store Conan packages at from and to an external Conan remote.
-    Here, the location of this remote and the credentials to access it are defined. Set a fully qualified
-    URL such as <code>http://server:9300/repo</code> for the remote. If the URL points to a secure 
-    (i.e. <code>https</code>) Conan will verify the SSL certificate of the remote. To disable this
-    verification uncheck the "Verify SSL" box.</p>
+  <p>This ecosystem will store Conan packages at to one of the Conan remotes which are 
+    defined by the Conan configuration above. Usually additional credentials are required to be 
+    able to <em>upload</em> packages to the remote.
+    Here, this remote and the credentials to access it are defined. Set <em>Remote</em>
+    to the name of the remote as defined by the Conan configuration. The actual URL
+    of the remote is then looked up via the configuration during the build. 
+    If required proved a user name and a password. Before uploading Conan
+    will login into the remote using this credentials.
+  </p>
 
   <BsForm @formLayout="vertical" @model={{this.model}} @onSubmit={{action "saveModel"}} as |form|>
-    <form.element @controlType="input" @label="Remote" @property="conan_remote" @required={{true}} />
-    <form.element @controlType="input" @label="User" @property="conan_user" @required={{true}} />
-    <form.element @controlType="input" @label="Password" @property="conan_password" @required={{true}} />
-    <form.element @controlType="checkbox" @label="Verify SSL" @property="conan_verify_ssl" @required={{true}} />
+    <form.element @controlType="input" @label="Remote" @property="conan_remote" required />
+    <form.element @controlType="input" @label="User" @property="conan_user" required />
+    <form.element @controlType="input" @label="Password" @property="conan_password" required />
     <form.submitButton>Save</form.submitButton>
   </BsForm>
 </section>
@@ -51,12 +74,3 @@
   <TextDialog @title="Known Hosts" @content={{this.model.known_hosts}} @readonly={{false}} @onChange={{action "saveKnownHosts"}} />
 </section>
 
-<section>
-  <h3>Settings</h3>
-
-  <p>
-    The Conan settings file which is usually stored in <em>~/.conan/settings.yaml</em>.
-  </p>
-
-  <TextDialog @title="Conan Settings" @content={{this.model.settings}} @readonly={{false}} @onChange={{action "saveSettings"}} />
-</section>

@@ -8,6 +8,18 @@ export default Factory.extend({
     return values[i % values.length];
   },
   
+  conan_profile(i) {
+    let values = [ 'windows-debug', 'windows-release', 'linux-debug', 'linux-release' ];
+
+    return values[Math.floor(i/2) % values.length];
+  },
+  
+  platform(i) {
+    let values = [ 'windows', 'windows', 'linux', 'linux' ];
+
+    return values[Math.floor(i/2) % values.length];
+  },
+  
   container(i) {
     let values = [ 'registry.azurecr.io/msvc15:latest', 'uboot/gcc9:latest' ];
 
@@ -24,52 +36,6 @@ export default Factory.extend({
     let values = [ 'paSSw0rd', '' ];
 
     return values[Math.floor(i/2) % values.length];
-  },
-
-  settings(i) {
-    let os = [
-      {
-        key: "os",
-        value: "Windows"
-      },
-      {
-        key: "os",
-        value: "Linux"
-      }
-    ];
-
-    let buildType = [
-      {
-        key: "build_type",
-        value: "Debug"
-      },
-      {
-        key: "build_type",
-        value: "Release"
-      }
-    ];
-
-    return [
-      os[Math.floor(i/2) % os.length],
-      buildType[i % buildType.length]
-    ];
-  },
-
-  options(i) {
-    let shared = [
-      {
-        key: "base:shared",
-        value: "True"
-      },
-      {
-        key: "base:shared",
-        value: "False"
-      }
-    ];
-
-    return [
-      shared[i % shared.length]
-    ];
   },
 
   labels(i) {
