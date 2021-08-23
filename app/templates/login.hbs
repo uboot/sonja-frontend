@@ -2,8 +2,8 @@
 
 <section>
   <BsForm @formLayout="vertical" @model={{this}} @onSubmit={{action "submit"}} as |form|>
-    <form.element @controlType="string" @label="User" @placeholder="User" @property="user" @required={{true}} />
-    <form.element @controlType="password" @label="Password" @placeholder="Password" @property="password" @required={{true}} />
+    <form.element @controlType="string" @label="User" @placeholder="User" @property="user" required />
+    <form.element @controlType="password" @label="Password" @placeholder="Password" @property="password" required />
     <form.submitButton>Login</form.submitButton>
   </BsForm>
 </section>

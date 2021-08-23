@@ -11,7 +11,7 @@
   </p>
 
   <BsForm @formLayout="inline" @model={{this.model}} @onSubmit={{action "saveModel"}} as |form|>
-    <form.element @controlType="input" @property="branch" @required={{true}} />
+    <form.element @controlType="input" @property="branch" required />
     <form.submitButton>Save</form.submitButton>
   </BsForm>
 </section>
