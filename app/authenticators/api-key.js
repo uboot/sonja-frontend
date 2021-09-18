@@ -20,7 +20,7 @@ export default class ApiKeyAuthenticator extends Base{
   }
 
   authenticate(user, password) {
-    let data =  { user: user, password: password };
+    let data =  { "user-name": user, "password": password };
     return fetch("/api/v1/login", {
       method: "POST",
       headers: {
