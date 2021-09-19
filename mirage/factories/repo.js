@@ -9,7 +9,7 @@ export default Factory.extend({
   },
   
   url() {
-    return 'git@github.com:uboot/conan-ci.git'
+    return 'git@github.com:uboot/sonja.git'
   },
 
   path(i) {

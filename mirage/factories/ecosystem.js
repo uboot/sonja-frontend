@@ -9,13 +9,13 @@ export default Factory.extend({
   },
 
   user(i) {
-    let values = [ 'conanci', 'mycompany' ];
+    let values = [ 'sonja', 'mycompany' ];
 
     return values[i % values.length];
   },
 
   conan_config_url() {
-    return 'git@github.com:uboot/conan-ci.git';
+    return 'git@github.com:uboot/sonja.git';
   },
 
   conan_config_path() {

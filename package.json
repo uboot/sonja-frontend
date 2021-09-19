@@ -1,8 +1,8 @@
 {
-  "name": "conan-ci",
+  "name": "sonja",
   "version": "0.0.0",
   "private": true,
-  "description": "Small description for conan-ci goes here",
+  "description": "Small description for sonja goes here",
   "repository": "",
   "license": "MIT",
   "author": "",

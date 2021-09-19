@@ -1,5 +1,5 @@
-import Application from 'conan-ci/app';
-import config from 'conan-ci/config/environment';
+import Application from 'sonja/app';
+import config from 'sonja/config/environment';
 import * as QUnit from 'qunit';
 import { setApplication } from '@ember/test-helpers';
 import { setup } from 'qunit-dom';
