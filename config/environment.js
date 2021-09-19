@@ -2,7 +2,7 @@
 
 module.exports = function (environment) {
   let ENV = {
-    modulePrefix: 'conan-ci',
+    modulePrefix: 'sonja',
     environment,
     rootURL: '/',
     locationType: 'auto',
