@@ -92,4 +92,10 @@ export default function() {
   this.get('/repo/:id/commit', (schema, request) => {
     return schema.repos.find(request.params.id).commits;
   });
+
+  this.get('/user');
+  this.post('/user');
+  this.delete('/user/:id');
+  this.get('/user/:id');
+  this.patch('/user/:id');
 }
