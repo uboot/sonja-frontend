@@ -3,6 +3,7 @@ import { action } from '@ember/object';
 import { inject as service } from '@ember/service';
 
 export default class LoginController extends Controller {
+  @service router;
   @service session;
 
   @action
@@ -15,7 +16,7 @@ export default class LoginController extends Controller {
     }
 
     if (this.session.isAuthenticated) {
-      this.transitionToRoute("index");
+      this.router.transitionTo("index");
     }
   }
 }

@@ -7,6 +7,7 @@
     <thead>
       <tr>
         <th scope="col">Name</th>
+        <th scope="col">Channel</th>
         <th scope="col" colspan="3">Branches</th>
       </tr>
     </thead>
@@ -14,6 +15,7 @@
       {{#each this.model.channels as |channel|}}
         <tr>
           <td>{{channel.name}}</td>
+          <td>{{channel.conan_channel}}</td>
           <td>{{channel.branch}}</td>
           <td><LinkTo @route="ecosystem.settings.channels.channel" @models={{array channel.ecosystem channel}} class="btn btn-primary btn-sm">Open</LinkTo></td>
           <td><RemoveDialog @item={{channel}} class="btn-sm"/></td>
