@@ -3,6 +3,7 @@ import { action } from '@ember/object';
 import { inject as service } from '@ember/service';
 
 export default class NewController extends Controller {
+  @service router;
   @service store;
   ecosystem = {};
 
@@ -12,7 +13,7 @@ export default class NewController extends Controller {
       name: model.name,
     });
     await ecosystem.save();
-    this.transitionToRoute("ecosystem.settings", ecosystem);
+    this.router.transitionTo("ecosystem.settings", ecosystem);
   }
   
 }

@@ -19,4 +19,5 @@ export default function(server) {
     })
     server.createList('channel', 3, { ecosystem })
   })
+  server.createList('user', 2)
 }

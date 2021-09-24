@@ -1,15 +1,39 @@
 {{page-title "Sonja"}}
 
 <div class="container">
-  <nav class="navbar navbar-expand-sm navbar-light bg-light">
-    <LinkTo @route="application" class="navbar-brand">Sonja</LinkTo>
-    
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <form class="form-inline">
-        <button type="button" class="btn btn-sm btn-outline-success" {{on "click" this.logOut}}>Logout</button>
-      </form>
+  <BsNavbar
+    @type="light"
+    @backgroundColor="light"
+    @collapsed={{true}}
+    @onCollapse={{action (mut collapsed) true}}
+    @onExpand={{action (mut collapsed) false}} as |navbar|>
+    <div class="navbar-header">
+      {{navbar.toggle}}
+      {{#link-to "application" class="navbar-brand"}}Sonja{{/link-to}}
     </div>
-  </nav>
+    <navbar.content>
+      <navbar.nav as |nav|>
+        <nav.item>
+          <nav.link-to @route="application">Ecosystems</nav.link-to>
+        </nav.item>
+        <nav.dropdown as |dd|>
+          <dd.toggle>Joe Doe <span class="caret"></span></dd.toggle>
+          <dd.menu as |ddm|>
+            <ddm.item>
+              <ddm.link-to @route="users">Users</ddm.link-to>
+            </ddm.item>
+            <div class="dropdown-divider"></div>
+            <ddm.item>
+              <ddm.link-to @route="settings">Settings</ddm.link-to>
+            </ddm.item>
+            <ddm.item>
+              <button class="dropdown-item" {{on "click" this.logOut}}>Logout</button>
+            </ddm.item>
+          </dd.menu>
+        </nav.dropdown>
+      </navbar.nav>
+    </navbar.content>
+  </BsNavbar>
 
   {{outlet}}
 </div>

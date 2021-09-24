@@ -20,7 +20,7 @@ export default Factory.extend({
     return values[i % values.length];
   },
 
-  e_mail(i) {
+  email(i) {
     let values = [ 'j.doe@acme.com', 'l.mayer@acme.com' ];
 
     return values[i % values.length];

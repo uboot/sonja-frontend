@@ -34,4 +34,9 @@ Router.map(function() {
   });
   this.route('new');
   this.route('login');
+  this.route('users', function() {
+    this.route('new');
+    this.route('user', { path: '/:user_id' });
+  });
+  this.route('settings');
 });
