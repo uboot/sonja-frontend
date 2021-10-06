@@ -1,7 +1,6 @@
 import { Factory } from 'ember-cli-mirage';
 
 export default Factory.extend({
-
   name() {
     return 'hello';
   },
@@ -11,11 +10,10 @@ export default Factory.extend({
   },
 
   channel() {
-    return 'stable'
+    return 'stable';
   },
 
   user() {
-    return 'mycompany'
-  }
-
+    return 'mycompany';
+  },
 });

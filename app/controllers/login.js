@@ -11,12 +11,12 @@ export default class LoginController extends Controller {
     let { user, password } = this;
     try {
       await this.session.authenticate('authenticator:api-key', user, password);
-    } catch(error) {
+    } catch (error) {
       console.log(error);
     }
 
     if (this.session.isAuthenticated) {
-      this.router.transitionTo("index");
+      this.router.transitionTo('index');
     }
   }
 }

@@ -21,5 +21,4 @@ export default class RemoveDialogComponent extends Component {
     this.args.item.destroyRecord();
     this.open = false;
   }
-
 }

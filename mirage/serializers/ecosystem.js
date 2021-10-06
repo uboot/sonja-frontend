@@ -1,18 +1,17 @@
 import ApplicationSerializer from './application';
 
 export default ApplicationSerializer.extend({
-
   links(ecosystem) {
     return {
-      'repos': {
-        related: 'repo'
+      repos: {
+        related: 'repo',
       },
-      'builds': {
-        related: 'build'
+      builds: {
+        related: 'build',
       },
-      'recipes': {
-        related: 'recipe'
-      }
+      recipes: {
+        related: 'recipe',
+      },
     };
   },
 
@@ -21,6 +20,5 @@ export default ApplicationSerializer.extend({
       return true;
     }
     return false;
-  }
-
+  },
 });

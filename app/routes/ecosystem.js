@@ -5,11 +5,10 @@ export default class EcosystemRoute extends Route {
   @service session;
 
   beforeModel(transition) {
-    this.get('session').requireAuthentication(transition, 'login');
+    this.session.requireAuthentication(transition, 'login');
   }
 
   model(params) {
-    return this.store.findRecord('ecosystem', params.ecosystem_id)
+    return this.store.findRecord('ecosystem', params.ecosystem_id);
   }
-
 }

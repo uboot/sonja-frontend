@@ -1,7 +1,6 @@
 import { Response } from 'miragejs';
 
-export default function() {
-
+export default function () {
   // These comments are here to help you get started. Feel free to delete them.
 
   /*
@@ -27,7 +26,7 @@ export default function() {
   */
 
   this.namespace = '/api/v1';
-  
+
   this.get('/build/:id');
   this.patch('/build/:id');
 
@@ -57,7 +56,7 @@ export default function() {
 
   this.post('/login', () => {
     //return new Response(401);
-    return { user: 'user' };
+    return { 'user-id': '2' };
   });
 
   this.get('/package/:id');
@@ -69,7 +68,7 @@ export default function() {
   this.get('/recipe_revision/:id');
 
   this.post('/restore', () => {
-    return { user: 'user' };
+    return { 'user-id': '2' };
   });
 
   this.post('/logout', () => {
@@ -77,7 +76,7 @@ export default function() {
   });
 
   this.get('/process-repo/:id', () => {
-    return{};
+    return {};
   });
 
   this.post('/profile');

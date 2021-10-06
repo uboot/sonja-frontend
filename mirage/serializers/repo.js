@@ -1,12 +1,11 @@
 import ApplicationSerializer from './application';
 
 export default ApplicationSerializer.extend({
-
   links(ecosystem) {
     return {
-      'commits': {
-        related: `commit`
-      }
+      commits: {
+        related: `commit`,
+      },
     };
   },
 
@@ -15,6 +14,5 @@ export default ApplicationSerializer.extend({
       return true;
     }
     return false;
-  }
-
+  },
 });

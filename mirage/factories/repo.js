@@ -1,19 +1,18 @@
 import { Factory } from 'ember-cli-mirage';
 
 export default Factory.extend({
-
   name(i) {
-    let values = [ 'Hello', 'Deadlock' ];
+    let values = ['Hello', 'Deadlock'];
 
     return values[i % values.length];
   },
-  
+
   url() {
-    return 'git@github.com:uboot/sonja.git'
+    return 'git@github.com:uboot/sonja.git';
   },
 
   path(i) {
-    let values = [ 'packages/hello', 'packages/deadlock' ];
+    let values = ['packages/hello', 'packages/deadlock'];
 
     return values[i % values.length];
   },
@@ -21,16 +20,13 @@ export default Factory.extend({
   exclude(i) {
     let labels = [
       {
-        label: "embedded"
+        label: 'embedded',
       },
       {
-        label: "desktop"
-      }
+        label: 'desktop',
+      },
     ];
 
-    return [
-      labels[i % labels.length]
-    ];
-  }
-
+    return [labels[i % labels.length]];
+  },
 });

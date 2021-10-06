@@ -1,15 +1,14 @@
 import { Factory } from 'ember-cli-mirage';
 
 export default Factory.extend({
-
   name(i) {
-    let values = [ 'Default', 'My Company' ];
+    let values = ['Default', 'My Company'];
 
     return values[i % values.length];
   },
 
   user(i) {
-    let values = [ 'sonja', 'mycompany' ];
+    let values = ['sonja', 'mycompany'];
 
     return values[i % values.length];
   },
@@ -57,5 +56,4 @@ export default Factory.extend({
       E4VkppUzVhcDQzSlhpVUZGQWFRPT0K
       `;
   },
-
 });

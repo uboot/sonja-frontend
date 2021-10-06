@@ -17,7 +17,7 @@
           <nav.link-to @route="application">Ecosystems</nav.link-to>
         </nav.item>
         <nav.dropdown as |dd|>
-          <dd.toggle>Joe Doe <span class="caret"></span></dd.toggle>
+          <dd.toggle>{{this.currentUser.user.first_name}} {{this.currentUser.user.last_name}}<span class="caret"></span></dd.toggle>
           <dd.menu as |ddm|>
             <ddm.item>
               <ddm.link-to @route="users">Users</ddm.link-to>
@@ -27,7 +27,7 @@
               <ddm.link-to @route="settings">Settings</ddm.link-to>
             </ddm.item>
             <ddm.item>
-              <button class="dropdown-item" {{on "click" this.logOut}}>Logout</button>
+              <button class="dropdown-item" type="button" {{on "click" this.logOut}}>Logout</button>
             </ddm.item>
           </dd.menu>
         </nav.dropdown>
