@@ -1,12 +1,5 @@
 <h2>{{this.model.user_name}}</h2>
 
 <section>
-  <BsForm @formLayout="vertical" @model={{this.model}} @onSubmit={{action "saveModel"}} as |form|>
-    <form.element @controlType="input" @label="User Name" @property="user_name" required />
-    <form.element @controlType="input" @label="First Name" @property="first_name" />
-    <form.element @controlType="input" @label="Last Name" @property="last_name" />
-    <form.element @controlType="input" @label="E-Mail" @property="email" />
-    <form.element @controlType="input" @label="Password " @property="password" />
-    <form.submitButton>Save</form.submitButton>
-  </BsForm>
+  <UserEditor @user={{this.model}} @save={{this.saveModel}}/>
 </section>

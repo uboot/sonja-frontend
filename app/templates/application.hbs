@@ -5,8 +5,8 @@
     @type="light"
     @backgroundColor="light"
     @collapsed={{true}}
-    @onCollapse={{action (mut collapsed) true}}
-    @onExpand={{action (mut collapsed) false}} as |navbar|>
+    @onCollapse={{action (mut this.collapsed) true}}
+    @onExpand={{action (mut this.collapsed) false}} as |navbar|>
     <div class="navbar-header">
       {{navbar.toggle}}
       {{#link-to "application" class="navbar-brand"}}Sonja{{/link-to}}

@@ -9,7 +9,7 @@ export default class SessionService extends BaseSessionService {
 
     try {
       await this.currentUser.load();
-    } catch(err) {
+    } catch (err) {
       await this.invalidate();
     }
   }

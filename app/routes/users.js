@@ -7,8 +7,4 @@ export default class UsersRoute extends Route {
   beforeModel(transition) {
     this.session.requireAuthentication(transition, 'login');
   }
-
-  model() {
-    return this.store.findAll('user');
-  }
 }

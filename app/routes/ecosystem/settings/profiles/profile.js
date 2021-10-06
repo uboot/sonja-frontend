@@ -7,8 +7,6 @@ export default class EcosystemSettingsProfilesProfileRoute extends Route {
 
   deactivate(transition) {
     let model = this.modelFor('ecosystem.settings.profiles.profile');
-
-    console.log(model.changedAttributes());
     model.rollbackAttributes();
   }
 }

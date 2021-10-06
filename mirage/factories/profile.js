@@ -20,19 +20,19 @@ export default Factory.extend({
       'linux-release',
     ];
 
-    return values[Math.floor(i / 2) % values.length];
+    return values[i % values.length];
   },
 
   platform(i) {
     let values = ['windows', 'windows', 'linux', 'linux'];
 
-    return values[Math.floor(i / 2) % values.length];
+    return values[i % values.length];
   },
 
   container(i) {
     let values = ['registry.azurecr.io/msvc15:latest', 'uboot/gcc9:latest'];
 
-    return values[Math.floor(i / 2) % values.length];
+    return values[i % values.length];
   },
 
   docker_user(i) {

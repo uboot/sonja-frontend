@@ -11,7 +11,12 @@ export default class UsersNewController extends Controller {
     let user = this.store.createRecord('user', {
       user_name: model.user_name,
     });
-    await user.save();
-    this.router.transitionTo('users.user', user);
+
+    try {
+      await user.save();
+      this.router.transitionTo('users.user', user);
+    } catch (error) {
+      console.warn(error.errors[0]);
+    }
   }
 }
