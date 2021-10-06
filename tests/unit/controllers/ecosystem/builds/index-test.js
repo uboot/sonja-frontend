@@ -6,7 +6,7 @@ module('Unit | Controller | ecosystem/builds', function(hooks) {
 
   // TODO: Replace this with your real tests.
   test('it exists', function(assert) {
-    let controller = this.owner.lookup('controller:ecosystem/builds');
+    let controller = this.owner.lookup('controller:ecosystem/builds/index');
     assert.ok(controller);
   });
 });
