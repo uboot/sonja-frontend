@@ -13,11 +13,13 @@
     </thead>
     <tbody>
       {{#each this.model as |user|}}
-        <tr>
-          <td>{{user.user_name}}</td>
-          <td>{{user.first_name}} {{user.last_name}}</td>
-          <td><LinkTo @route="users.user" @model={{user}} class="btn btn-primary btn-sm">Open</LinkTo></td>
-        </tr>
+        {{#unless (eq user.id this.currentUser.user.id)}}
+          <tr>
+            <td>{{user.user_name}}</td>
+            <td>{{user.first_name}} {{user.last_name}}</td>
+            <td><LinkTo @route="users.user" @model={{user}} class="btn btn-primary btn-sm">Open</LinkTo></td>
+          </tr>
+        {{/unless}}
       {{/each}}
     </tbody>
   </table>
