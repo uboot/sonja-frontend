@@ -2,13 +2,12 @@ import Controller from '@ember/controller';
 import { action } from '@ember/object';
 
 export default class EcosystemReposRepoController extends Controller {
-
   @action
   crawlRepo() {
     let repoId = this.model.id;
     fetch(`/api/v1/process-repo/${repoId}`, {
-      method: "GET"
-    })
+      method: 'GET',
+    });
   }
 
   @action

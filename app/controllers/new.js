@@ -13,7 +13,6 @@ export default class NewController extends Controller {
       name: model.name,
     });
     await ecosystem.save();
-    this.router.transitionTo("ecosystem.settings", ecosystem);
+    this.router.transitionTo('ecosystem.settings', ecosystem);
   }
-  
 }

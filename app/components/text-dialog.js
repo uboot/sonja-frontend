@@ -3,7 +3,6 @@ import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 
 export default class TextDialogComponent extends Component {
-
   @tracked open = false;
   model = {};
 
@@ -29,5 +28,4 @@ export default class TextDialogComponent extends Component {
     this.args.onChange(content);
     this.open = false;
   }
-
 }

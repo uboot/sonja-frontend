@@ -2,7 +2,6 @@ import Controller from '@ember/controller';
 import { action } from '@ember/object';
 
 export default class EcosystemSettingsIndexController extends Controller {
-
   @action
   async saveModel() {
     await this.model.save();
@@ -13,5 +12,4 @@ export default class EcosystemSettingsIndexController extends Controller {
     this.model.known_hosts = value;
     this.model.save();
   }
-  
 }

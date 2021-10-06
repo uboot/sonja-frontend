@@ -1,12 +1,11 @@
 import ApplicationSerializer from './application';
 
 export default ApplicationSerializer.extend({
-
   links(recipe) {
     return {
-      'revisions': {
-        related: 'revision'
-      }
+      revisions: {
+        related: 'revision',
+      },
     };
   },
 
@@ -15,6 +14,5 @@ export default ApplicationSerializer.extend({
       return true;
     }
     return false;
-  }
-
+  },
 });

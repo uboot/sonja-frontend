@@ -8,8 +8,8 @@ export default class SettingsEditorComponent extends Component {
     super(owner, args);
 
     let settings = args.model[args.property];
-    settings.forEach(setting => {
-      this.settings.push({...setting});
+    settings.forEach((setting) => {
+      this.settings.push({ ...setting });
     });
   }
 

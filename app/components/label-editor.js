@@ -8,8 +8,8 @@ export default class LabelEditorComponent extends Component {
     super(owner, args);
 
     let items = args.model[args.property];
-    items.forEach(item => {
-      this.items.push({...item});
+    items.forEach((item) => {
+      this.items.push({ ...item });
     });
   }
 

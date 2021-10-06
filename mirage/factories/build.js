@@ -1,7 +1,6 @@
 import { Factory, association } from 'ember-cli-mirage';
 
 export default Factory.extend({
-
   status(i) {
     let values = ['new', 'active', 'error'];
 
@@ -12,6 +11,5 @@ export default Factory.extend({
 
   log: association(),
 
-  package: association()
-
+  package: association(),
 });

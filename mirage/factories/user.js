@@ -1,27 +1,26 @@
 import { Factory } from 'ember-cli-mirage';
 
 export default Factory.extend({
-
   user_name(i) {
-    let values = [ 'user', 'admin' ];
+    let values = ['user', 'admin'];
 
     return values[i % values.length];
   },
 
   first_name(i) {
-    let values = [ 'John', 'Linda' ];
+    let values = ['John', 'Linda'];
 
     return values[i % values.length];
   },
 
   last_name(i) {
-    let values = [ 'Doe', 'Mayer' ];
+    let values = ['Doe', 'Mayer'];
 
     return values[i % values.length];
   },
 
   email(i) {
-    let values = [ 'j.doe@acme.com', 'l.mayer@acme.com' ];
+    let values = ['j.doe@acme.com', 'l.mayer@acme.com'];
 
     return values[i % values.length];
   },
@@ -30,25 +29,25 @@ export default Factory.extend({
     let values = [
       [
         {
-          permission: "read"
+          permission: 'read',
         },
         {
-          permission: "write"
-        }
+          permission: 'write',
+        },
       ],
       [
         {
-          permission: "read"
+          permission: 'read',
         },
         {
-          permission: "write"
+          permission: 'write',
         },
         {
-          permission: "admin"
-        }
+          permission: 'admin',
+        },
       ],
     ];
 
     return values[i % values.length];
-  }
+  },
 });

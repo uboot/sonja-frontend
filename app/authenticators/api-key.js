@@ -1,54 +1,54 @@
 import Base from 'ember-simple-auth/authenticators/base';
-import { fetch } from 'fetch'
+import { fetch } from 'fetch';
 
-export default class ApiKeyAuthenticator extends Base{
+export default class ApiKeyAuthenticator extends Base {
   restore(data) {
-    return fetch("/api/v1/restore", {
-      method: "POST",
+    return fetch('/api/v1/restore', {
+      method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify(data),
-      credentials: 'same-origin'
-    }).then(function(response) {
+      credentials: 'same-origin',
+    }).then(function (response) {
       if (response.ok) {
         return response.json();
       } else {
-        return Promise.reject("not authenticated");
+        return Promise.reject('not authenticated');
       }
     });
   }
 
   authenticate(user, password) {
-    let data =  { "user-name": user, "password": password };
-    return fetch("/api/v1/login", {
-      method: "POST",
+    let data = { 'user-name': user, password: password };
+    return fetch('/api/v1/login', {
+      method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify(data)
-    }).then(function(response) {
+      body: JSON.stringify(data),
+    }).then(function (response) {
       if (response.ok) {
         return response.json();
       } else {
-        return Promise.reject("not authenticated");
+        return Promise.reject('not authenticated');
       }
     });
   }
 
   invalidate(data) {
-    return fetch("/api/v1/logout", {
-      method: "POST",
+    return fetch('/api/v1/logout', {
+      method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify(data),
-      credentials: 'same-origin'
-    }).then(function(response) {
+      credentials: 'same-origin',
+    }).then(function (response) {
       if (response.ok) {
         return response.json();
       } else {
-        return Promise.reject("failed to log out");
+        return Promise.reject('failed to log out');
       }
     });
   }

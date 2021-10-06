@@ -5,15 +5,19 @@ import { inject as service } from '@ember/service';
 export default class EcosystemSettingsChannelsNewController extends Controller {
   @service router;
   @service store;
-  
+
   @action
   async createChannel(model) {
-    let ecosystem = this.model
+    let ecosystem = this.model;
     let channel = this.store.createRecord('channel', {
       name: model.name,
-      ecosystem: ecosystem
+      ecosystem: ecosystem,
     });
     await channel.save();
-    this.router.transitionTo("ecosystem.settings.channels.channel", ecosystem, channel);
+    this.router.transitionTo(
+      'ecosystem.settings.channels.channel',
+      ecosystem,
+      channel
+    );
   }
 }

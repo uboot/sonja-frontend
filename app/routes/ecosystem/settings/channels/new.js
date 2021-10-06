@@ -1,4 +1,3 @@
 import Route from '@ember/routing/route';
 
-export default class EcosystemSettingsChannelsNewRoute extends Route {
-}
+export default class EcosystemSettingsChannelsNewRoute extends Route {}
