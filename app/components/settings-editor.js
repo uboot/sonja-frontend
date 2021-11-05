@@ -28,7 +28,7 @@ const UserProxy = ObjectProxy.extend(Validations, {
   save() {
     this.content.first_name = this.first_name;
     this.content.last_name = this.last_name;
-  }
+  },
 });
 
 export default class UserEditorComponent extends Component {

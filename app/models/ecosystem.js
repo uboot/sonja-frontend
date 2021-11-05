@@ -11,6 +11,7 @@ export default class EcosystemModel extends Model {
   @attr conan_password;
   @attr public_ssh_key;
   @attr known_hosts;
+  @attr credentials;
   @hasMany('build') builds;
   @hasMany('repo') repos;
   @hasMany('profile') profiles;

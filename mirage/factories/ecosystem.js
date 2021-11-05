@@ -56,4 +56,19 @@ export default Factory.extend({
       E4VkppUzVhcDQzSlhpVUZGQWFRPT0K
       `;
   },
+
+  credentials() {
+    return [
+      {
+        url: 'https://github.com',
+        username: 'user',
+        password: 'Passw0rd',
+      },
+      {
+        url: 'https://gitlab.com',
+        username: '',
+        password: '123456',
+      },
+    ];
+  },
 });

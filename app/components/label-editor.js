@@ -16,7 +16,7 @@ export default class LabelEditorComponent extends Component {
   @action
   saveItems() {
     this.args.model[this.args.property] = this.items;
-    this.args.onSubmit(this.args.model);
+    this.args.onSubmit();
   }
 
   @action
