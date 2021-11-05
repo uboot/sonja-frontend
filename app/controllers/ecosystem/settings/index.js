@@ -8,8 +8,8 @@ export default class EcosystemSettingsIndexController extends Controller {
   }
 
   @action
-  saveKnownHosts(value) {
+  async saveKnownHosts(value) {
     this.model.known_hosts = value;
-    this.model.save();
+    await this.model.save();
   }
 }
