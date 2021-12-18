@@ -1,0 +1,21 @@
+{{#each this.options as |option|}}
+  <BsForm @model={{option}} as |form|>
+    <div class="row">
+      <div class="col">
+        <form.element @controlType="input" @property="key" as |el|>
+          <el.control placeholder="Key" />
+        </form.element>
+      </div>
+      <div class="col">
+        <form.element @controlType="input" @property="value" as |el|>
+          <el.control placeholder="Value" />
+        </form.element>
+      </div>
+    </div>
+  </BsForm>
+{{/each}}
+
+<BsForm>
+  <BsButton @type="primary" @onClick={{action "add"}}>Add Item</BsButton>
+  <BsButton @type="primary" @onClick={{action "save"}}>Save</BsButton>    
+</BsForm>

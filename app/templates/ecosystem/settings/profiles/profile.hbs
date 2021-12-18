@@ -1,4 +1,4 @@
-<h3>{{this.model.name}}</h3>
+<TitleEditor @model={{this.model}} @property="name" @onSave={{action "saveModel"}}/>
 
 <section>
   <h4>Container Image</h4>
@@ -51,7 +51,7 @@
     builds might carry the label <code>debug</code>. 
   </p>
   <p>
-    It is possible to exclude profiles with certain labels fromr the build of a repository.
+    It is possible to exclude profiles with certain labels from the build of a repository.
     E.g. a repository which defines <code>debug</code> as one of its <em>exclude labels</em>
     will not be built for profiles which share the <code>debug</code> label.
   </p>

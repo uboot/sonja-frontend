@@ -6,7 +6,6 @@ import { validator, buildValidations } from 'ember-cp-validations';
 
 const Validations = buildValidations({
   user_name: validator('presence', true),
-  email: validator('format', { type: 'email' }),
   password: validator('length', { min: 4 }),
   retype_password: validator('confirmation', {
     on: 'password',
