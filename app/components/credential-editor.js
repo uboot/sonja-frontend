@@ -1,11 +1,10 @@
 import Component from '@glimmer/component';
 import { action } from '@ember/object';
-import { A } from '@ember/array';
 import { tracked } from '@glimmer/tracking';
 
 export default class CredentialEditorComponent extends Component {
   @tracked isAddingNewItem = false;
-  @tracked newItem = {}
+  @tracked newItem = {};
 
   constructor(owner, args) {
     super(owner, args);

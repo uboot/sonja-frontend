@@ -1,4 +1,4 @@
-<h3>{{this.model.name}}</h3>
+<TitleEditor @model={{this.model}} @property="name" @onSave={{action "saveModel"}}/>
 
 <section>
   <h4>Location</h4>
@@ -32,6 +32,16 @@
 </section>
 
 <section>
+  <h4>Options</h4>
+
+  <p>
+    These options are passed to the <em>conan create</em> command for this repository.
+  </p>
+  
+  <OptionsEditor @model={{this.model}} @property="options" @onSubmit={{action "saveModel"}}/>
+</section>
+
+<section>
   <h4>Exclude Labels</h4>
 
   <p>
@@ -46,4 +56,3 @@
 
   <LabelEditor @model={{this.model}} @property="exclude" @onSubmit={{action "saveModel"}}/>
 </section>
-

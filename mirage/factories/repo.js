@@ -29,4 +29,19 @@ export default Factory.extend({
 
     return [labels[i % labels.length]];
   },
+
+  options(i) {
+    let options = [
+      {
+        key: 'hello:shared',
+        value: 'True',
+      },
+      {
+        key: 'deadlock:with_test',
+        value: 'False',
+      },
+    ];
+
+    return [options[i % options.length]];
+  },
 });
