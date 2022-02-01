@@ -13,6 +13,7 @@ export default class EcosystemSettingsReposNewController extends Controller {
       name: model.name,
       ecosystem: ecosystem,
       exclude: [],
+      options: [],
     });
     await repo.save();
     this.router.transitionTo('ecosystem.settings.repos.repo', ecosystem, repo);
