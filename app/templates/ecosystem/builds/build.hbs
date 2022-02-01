@@ -1,5 +1,6 @@
-<h1>Build</h1>
+<h1>Build <span class="badge badge-secondary">{{model.status}}</span></h1>
 
+<h2>Commit</h2>
 <p>
   {{model.commit.message}}
 </p>
@@ -8,4 +9,20 @@
   {{model.commit.sha}}
 </p>
 
+<h2>Missing Recipes</h2>
+
+<ul class="list-unstyled">
+  {{#each model.missing_recipes as |recipe|}}
+    <li>{{recipe.name}}/{{recipe.version}}@{{recipe.user}}/{{recipe.channel}}</li>
+  {{/each}}
+</ul>
+
+<h2>Missing Packages</h2>
+<ul class="list-unstyled">
+  {{#each model.missing_packages as |package|}}
+    <li>{{package.recipe_revision.recipe.name}}/{{package.recipe_revision.recipe.version}}@{{package.recipe_revision.recipe.user}}/{{package.recipe_revision.recipe.channel}}#{{package.package_id}}</li>
+  {{/each}}
+</ul>
+
+<h2>Log</h2>
 <pre><code>{{model.log.logs}}</code></pre>
