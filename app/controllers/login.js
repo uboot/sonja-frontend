@@ -10,7 +10,7 @@ export default class LoginController extends Controller {
   async submit(model) {
     let { user, password } = this;
     try {
-      await this.session.authenticate('authenticator:api-key', user, password);
+      await this.session.authenticate('authenticator:oauth2', user, password);
     } catch (error) {
       console.log(error);
     }
