@@ -54,9 +54,12 @@ export default function () {
 
   this.get('/log/:id');
 
-  this.post('/login', () => {
+  this.post('/token', () => {
     //return new Response(401);
-    return { 'user-id': '2' };
+    return { 
+      'access_token': '2',
+      'token_type': 'bearer'
+    };
   });
 
   this.get('/package/:id');
@@ -67,15 +70,7 @@ export default function () {
   });
   this.get('/recipe_revision/:id');
 
-  this.post('/restore', () => {
-    return { 'user-id': '2' };
-  });
-
-  this.post('/logout', () => {
-    return {};
-  });
-
-  this.get('/process-repo/:id', () => {
+  this.get('/process_repo/:id', () => {
     return {};
   });
 
@@ -95,6 +90,9 @@ export default function () {
   this.get('/user');
   this.post('/user');
   this.delete('/user/:id');
+  this.get('/user/me', (schema, request) => {
+    return schema.users.create({});
+  });
   this.get('/user/:id');
   this.patch('/user/:id');
 }

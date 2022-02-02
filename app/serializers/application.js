@@ -16,4 +16,12 @@ export default class ApplicationSerializer extends JSONAPISerializer {
     super.serializeBelongsTo(snapshot, json, relationship)
   }
 
+  keyForAttribute(attr, method) {
+    return attr;
+  }
+
+  keyForRelationship(key, relationship, method) {
+    return key;
+  }
+
 }
