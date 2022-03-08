@@ -14,16 +14,7 @@ module(
 
       await render(hbs`<CredentialEditor::ItemEditor />`);
 
-      assert.dom(this.element).hasText('');
-
-      // Template block usage:
-      await render(hbs`
-      <CredentialEditor::ItemEditor>
-        template block text
-      </CredentialEditor::ItemEditor>
-    `);
-
-      assert.dom(this.element).hasText('template block text');
+      assert.dom(this.element).hasAnyText();
     });
   }
 );

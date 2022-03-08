@@ -8,10 +8,11 @@ module('Integration | Helper | eq', function (hooks) {
 
   // TODO: Replace this with your real tests.
   test('it renders', async function (assert) {
-    this.set('inputValue', '1234');
+    this.set('rhs', '1234');
+    this.set('lhs', '1234');
 
-    await render(hbs`{{eq this.inputValue}}`);
+    await render(hbs`{{eq rhs lhs}}`);
 
-    assert.dom(this.element).hasText('1234');
+    assert.dom(this.element).hasText('true');
   });
 });

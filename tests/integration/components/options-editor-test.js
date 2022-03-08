@@ -7,20 +7,12 @@ module('Integration | Component | options-editor', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function (assert) {
-    // Set any properties with this.set('myProperty', 'value');
-    // Handle any actions with this.set('myAction', function(val) { ... });
+    this.set('model', {
+      options: []
+    });
 
-    await render(hbs`<OptionsEditor />`);
+    await render(hbs`<OptionsEditor @model={{this.model}} @property="options"/>`);
 
-    assert.dom(this.element).hasText('');
-
-    // Template block usage:
-    await render(hbs`
-      <OptionsEditor>
-        template block text
-      </OptionsEditor>
-    `);
-
-    assert.dom(this.element).hasText('template block text');
+    assert.dom(this.element).hasAnyText();
   });
 });

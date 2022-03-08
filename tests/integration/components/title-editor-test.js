@@ -12,15 +12,6 @@ module('Integration | Component | title-editor', function (hooks) {
 
     await render(hbs`<TitleEditor />`);
 
-    assert.dom(this.element).hasText('');
-
-    // Template block usage:
-    await render(hbs`
-      <TitleEditor>
-        template block text
-      </TitleEditor>
-    `);
-
-    assert.dom(this.element).hasText('template block text');
+    assert.dom(this.element).hasAnyText();
   });
 });

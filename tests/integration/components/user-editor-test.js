@@ -7,20 +7,12 @@ module('Integration | Component | user-editor', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function (assert) {
-    // Set any properties with this.set('myProperty', 'value');
-    // Handle any actions with this.set('myAction', function(val) { ... });
+    this.set('user', {
+      permissions: ["read"]
+    });
 
-    await render(hbs`<UserEditor />`);
+    await render(hbs`<UserEditor @user={{this.user}} />`);
 
-    assert.dom(this.element).hasText('');
-
-    // Template block usage:
-    await render(hbs`
-      <UserEditor>
-        template block text
-      </UserEditor>
-    `);
-
-    assert.dom(this.element).hasText('template block text');
+    assert.dom(this.element).hasAnyText();
   });
 });
