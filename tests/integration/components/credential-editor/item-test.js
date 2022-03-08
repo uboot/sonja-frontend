@@ -12,15 +12,6 @@ module('Integration | Component | credential-editor/item', function (hooks) {
 
     await render(hbs`<CredentialEditor::Item />`);
 
-    assert.dom(this.element).hasText('');
-
-    // Template block usage:
-    await render(hbs`
-      <CredentialEditor::Item>
-        template block text
-      </CredentialEditor::Item>
-    `);
-
-    assert.dom(this.element).hasText('template block text');
+    assert.dom(this.element).hasAnyText();
   });
 });
