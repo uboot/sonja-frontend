@@ -15,7 +15,7 @@
   </p>
 
   <BsForm @formLayout="vertical" @model={{this.model}} @onSubmit={{action "saveModel"}} as |form|>
-    <form.element @controlType="radio"  @label="Platform" @value={{platform}} @onChange={{action "setPlatform"}} @options={{platforms}} @optionLabelPath="label" as |el|>
+    <form.element @controlType="radio" @label="Platform" @value={{this.platform}} @options={{this.platforms}} @optionLabelPath="label" @onChange={{action "setPlatform"}} as |el|>
       <el.control @inline={{true}} />
     </form.element>
     <form.element @controlType="input" @label="Image" @property="container" required />

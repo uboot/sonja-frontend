@@ -11,7 +11,7 @@ module('Integration | Helper | eq', function (hooks) {
     this.set('rhs', '1234');
     this.set('lhs', '1234');
 
-    await render(hbs`{{eq rhs lhs}}`);
+    await render(hbs`{{eq this.rhs this.lhs}}`);
 
     assert.dom(this.element).hasText('true');
   });

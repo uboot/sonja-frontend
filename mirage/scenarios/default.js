@@ -11,7 +11,7 @@ export default function (server) {
           server.createList('build', 4, { 
             ecosystem,
             commit,
-            missing_recipes: server.createList('recipe', 1, { ecosystem }),
+            missing_recipes: server.createList('recipe', 1),
             missing_packages: server.createList('package', 1)
           });
         });

@@ -1,9 +1,8 @@
 import Route from '@ember/routing/route';
+import { inject as service } from '@ember/service';
 
 export default class EcosystemSettingsChannelsChannelRoute extends Route {
-  model(params) {
-    return this.store.findRecord('channel', params.channel_id);
-  }
+  @service store;
 
   deactivate(transition) {
     let model = this.modelFor('ecosystem.settings.channels.channel');

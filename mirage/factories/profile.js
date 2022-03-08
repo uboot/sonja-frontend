@@ -1,4 +1,4 @@
-import { Factory } from 'ember-cli-mirage';
+import { Factory } from 'miragejs';
 
 export default Factory.extend({
   name(i) {
@@ -32,7 +32,7 @@ export default Factory.extend({
   container(i) {
     let values = ['registry.azurecr.io/msvc15:latest', 'uboot/gcc9:latest'];
 
-    return values[i % values.length];
+    return values[Math.floor(i / 2) % values.length];
   },
 
   docker_user(i) {

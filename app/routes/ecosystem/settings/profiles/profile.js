@@ -1,9 +1,8 @@
 import Route from '@ember/routing/route';
+import { inject as service } from '@ember/service';
 
 export default class EcosystemSettingsProfilesProfileRoute extends Route {
-  model(params) {
-    return this.store.findRecord('profile', params.profile_id);
-  }
+  @service store;
 
   deactivate(transition) {
     let model = this.modelFor('ecosystem.settings.profiles.profile');
