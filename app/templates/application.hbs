@@ -9,7 +9,7 @@
     @onExpand={{action (mut this.collapsed) false}} as |navbar|>
     <div class="navbar-header">
       {{navbar.toggle}}
-      {{#link-to "application" class="navbar-brand"}}Sonja{{/link-to}}
+      <LinkTo @route="index" class="navbar-brand">Sonja</LinkTo>
     </div>
     <navbar.content>
       <navbar.nav as |nav|>
@@ -17,7 +17,7 @@
           <nav.link-to @route="application">Ecosystems</nav.link-to>
         </nav.item>
         <nav.dropdown as |dd|>
-          <dd.toggle>{{this.currentUser.user.first_name}} {{this.currentUser.user.last_name}}<span class="caret"></span></dd.toggle>
+          <dd.toggle>{{this.currentUser.user.user_name}}<span class="caret"></span></dd.toggle>
           <dd.menu as |ddm|>
             <ddm.item>
               <ddm.link-to @route="users">Users</ddm.link-to>

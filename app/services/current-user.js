@@ -6,7 +6,9 @@ export default class CurrentUserService extends Service {
   @service store;
 
   async load() {
-    let user = await this.store.findRecord('user', 'me');
-    this.set('user', user);
+    if (this.session.isAuthenticated) {
+      let user = await this.store.queryRecord('user', { me: true });
+      this.set('user', user);
+    }
   }
 }

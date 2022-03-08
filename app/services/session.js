@@ -1,11 +1,11 @@
 import { inject as service } from '@ember/service';
-import BaseSessionService from 'ember-simple-auth/services/session';
+import SessionService from 'ember-simple-auth/services/session';
 
-export default class SessionService extends BaseSessionService {
+export default class MySessionService extends SessionService {
   @service currentUser;
 
   async handleAuthentication() {
-    super.handleAuthentication(...arguments);
+    await super.handleAuthentication(...arguments);
 
     try {
       await this.currentUser.load();
