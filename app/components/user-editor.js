@@ -66,7 +66,7 @@ class UserProxy extends ObjectProxy {
 export default class UserEditorComponent extends Component {
   constructor(...args) {
     super(...args);
-    this.model = UserProxy.create(this.args.user);
+    this.model = this.args.user;
   }
 
   @action
