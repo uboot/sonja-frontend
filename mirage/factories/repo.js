@@ -17,6 +17,12 @@ export default Factory.extend({
     return values[i % values.length];
   },
 
+  version(i) {
+    let values = ['', '1.2.3'];
+
+    return values[i % values.length];
+  },
+
   exclude(i) {
     let labels = [
       {
