@@ -32,6 +32,23 @@
 </section>
 
 <section>
+  <h4>Version</h4>
+
+  <p>
+    Some Conan recipes support different package versions. In this case the version
+    to be built must be provided to Conan. Set a non-empty version here to build
+    the package for this version. If the Conan recipe in this repository defines
+    the version itself then leave the version empty. If the version here does not 
+    match one of the versions supported by the package then the build will fail.
+  </p>
+
+  <BsForm @formLayout="inline" @model={{this.model}} @onSubmit={{action "saveModel"}} as |form|>
+    <form.element @controlType="input" @property="version" required />
+    <form.submitButton>Save</form.submitButton>
+  </BsForm>
+</section>
+
+<section>
   <h4>Options</h4>
 
   <p>

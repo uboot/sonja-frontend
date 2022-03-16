@@ -9,7 +9,9 @@ export default class BsFormElementComponent extends BsFormElement {
   }
 
   validate() {
-    this.args.model.validate();
+    if (!!this.args.model?.validations) {
+      this.args.model.validate();
+    }
   }
 
   setupValidations() {
