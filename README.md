@@ -1,7 +1,8 @@
-# sonja-frontend
+# Sonja Frontend
 
-This README outlines the details of collaborating on this Ember application.
-A short introduction of this app could easily go here.
+This repository contains the Sonja frontend. It is a single page application
+based on EmberJS. The Sonja backend is hosted
+[here](https://github.com/uboot/sonja-backend/).
 
 ## Prerequisites
 
