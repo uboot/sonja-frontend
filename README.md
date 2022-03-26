@@ -1,8 +1,8 @@
 # Sonja Frontend
 
 This repository contains the Sonja frontend. It is a single page application
-based on EmberJS. The Sonja backend is hosted
-[here](https://github.com/uboot/sonja-backend/).
+based on EmberJS.  To deploy Sonja on a Kubernetes cluster use the Helm chart
+[here](https://github.com/uboot/sonja-helm).
 
 ## Prerequisites
 
