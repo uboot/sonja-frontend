@@ -10,4 +10,12 @@ export default class ProfileModel extends Model {
   @attr docker_password;
   @attr labels;
   @belongsTo('ecosystem') ecosystem;
+
+  get displayPlatform() {
+    return this.platform.at(0).toUpperCase() + this.platform.slice(1);
+  }
+
+  set displayPlatform(value) {
+    this.platform = value.toLowerCase();
+  }
 }

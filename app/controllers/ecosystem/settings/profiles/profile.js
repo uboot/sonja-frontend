@@ -1,16 +1,7 @@
 import Controller from '@ember/controller';
 import { action } from '@ember/object';
 
-const platforms = [
-  {
-    label: 'Linux',
-    value: 'linux',
-  },
-  {
-    label: 'Windows',
-    value: 'windows',
-  },
-];
+const platforms = ['Linux', 'Windows'];
 
 export default class EcosystemSettingsProfilesProfileController extends Controller {
   get platforms() {
