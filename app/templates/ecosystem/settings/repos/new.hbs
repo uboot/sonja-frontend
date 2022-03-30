@@ -1,9 +1,13 @@
-<h3>New Repository</h3>
+{{#if this.editName}}
+  <h3>New Repository</h3>
 
-<section>
-  <BsForm @onSubmit={{action "createRepo"}} @model={{this.repo}} as |form|>
-    <form.element @controlType="input" @label="Name" @property="name" />
-    <LinkTo @route="ecosystem.settings.repos" @model={{this.model}} class="btn btn-secondary">Cancel</LinkTo>
-    <form.submitButton>Create</form.submitButton>
-  </BsForm>
-</section>
+  <section>
+    <BsForm @onSubmit={{action this.create}} @model={{this.model}} as |form|>
+      <form.element @controlType="input" @label="Name" @property="name" />
+      <BsButton @type="primary" @onClick={{this.cancel}}>Cancel</BsButton>
+      <form.submitButton>Create</form.submitButton>
+    </BsForm>
+  </section>
+{{else}}
+  <RepoEditor @model={{this.model}} @onCancel={{this.cancel}} @onSave={{this.save}}/>
+{{/if}}

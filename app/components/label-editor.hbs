@@ -1,16 +1,37 @@
-{{#each this.items as |item|}}
-  <BsForm @model={{item}} as |form|>
-    <div class="row">
-      <div class="col">
-        <form.element @controlType="input" @property="label" as |el|>
-          <el.control placeholder="Label" />
-        </form.element>
-      </div>
-    </div>
-  </BsForm>
-{{/each}}
+{{#unless this.isEditing}}
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Label</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each this.items as |item|}}
+        <tr>
+          <td>{{item.label}}</td>
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
 
-<BsForm>
-  <BsButton @type="primary" @onClick={{action "addItem"}}>Add Label</BsButton>
-  <BsButton @type="primary" @onClick={{action "saveItems"}}>Save Label</BsButton>    
-</BsForm>
+  <BsForm>
+    <BsButton @type="primary" @onClick={{action "edit"}}>Edit Labels</BsButton>
+  </BsForm>
+{{else}}
+  {{#each this.items as |item|}}
+    <BsForm @model={{item}} as |form|>
+      <div class="row">
+        <div class="col">
+          <form.element @controlType="input" @property="label" as |el|>
+            <el.control placeholder="Label" />
+          </form.element>
+        </div>
+      </div>
+    </BsForm>
+  {{/each}}
+
+  <BsForm>
+    <BsButton @type="primary" @onClick={{action "addItem"}}>Add Label</BsButton>
+    <BsButton @type="primary" @onClick={{action "save"}}>Finish Editing</BsButton>    
+  </BsForm>
+{{/unless}}

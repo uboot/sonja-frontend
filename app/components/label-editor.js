@@ -1,8 +1,10 @@
 import { action } from '@ember/object';
 import Component from '@glimmer/component';
+import { tracked } from '@glimmer/tracking';
 
 export default class LabelEditorComponent extends Component {
   items = [];
+  @tracked isEditing = false;
 
   constructor(owner, args) {
     super(owner, args);
@@ -14,9 +16,13 @@ export default class LabelEditorComponent extends Component {
   }
 
   @action
-  saveItems() {
+  edit() {
+    this.isEditing = true;
+  }
+
+  @action
+  save() {
     this.args.model[this.args.property] = this.items;
-    this.args.onSubmit();
   }
 
   @action
