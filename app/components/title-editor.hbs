@@ -5,7 +5,6 @@
 {{else}}
   <BsForm @formLayout="inline" @model={{@model}} @onSubmit={{action "save"}} as |form|>
     <form.element @controlType="input" @property={{@property}} required />
-    <BsButton @onClick={{action this.cancel}} @type="secondary">Cancel</BsButton>
-    <form.submitButton>Save</form.submitButton>
+    <form.submitButton>Finish Editing</form.submitButton>
   </BsForm>
 {{/unless}}

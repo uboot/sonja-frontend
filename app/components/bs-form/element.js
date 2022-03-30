@@ -5,7 +5,7 @@ export default class BsFormElementComponent extends BsFormElement {
   '__ember-bootstrap_subclass' = true;
 
   get errors() {
-    return this.args.model.errors?.get(this.args.property)?.mapBy("message");
+    return this.args.model?.errors?.get(this.args.property)?.mapBy("message");
   }
 
   validate() {
@@ -15,10 +15,14 @@ export default class BsFormElementComponent extends BsFormElement {
   }
 
   setupValidations() {
-    addObserver(this.args.model, this.args.property, this, this.validate);
+    if (!!this.args.model) {
+      addObserver(this.args.model, this.args.property, this, this.validate);
+    }
   }
 
   willDestroy() {
-    removeObserver(this.args.model, this.args.property, this, this.validate);
+    if (!!this.args.model) {
+      removeObserver(this.args.model, this.args.property, this, this.validate);
+    }
   }
 }

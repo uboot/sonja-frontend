@@ -1,8 +1,10 @@
 import { action } from '@ember/object';
 import Component from '@glimmer/component';
+import { tracked } from '@glimmer/tracking';
 
 export default class OptionsEditorComponent extends Component {
   options = [];
+  @tracked isEditing = false;
 
   constructor(owner, args) {
     super(owner, args);
@@ -14,9 +16,14 @@ export default class OptionsEditorComponent extends Component {
   }
 
   @action
+  edit() {
+    this.isEditing = true;
+  }
+
+  @action
   save() {
     this.args.model[this.args.property] = this.options;
-    this.args.onSubmit(this.args.model);
+    this.isEditing = false;
   }
 
   @action

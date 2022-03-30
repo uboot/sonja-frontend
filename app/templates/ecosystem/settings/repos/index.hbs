@@ -14,10 +14,10 @@
     <tbody>
       {{#each this.model.repos as |repo|}}
         <tr>
-          <td>{{repo.name}}</td>
+          <td><LinkTo @route="ecosystem.settings.repos.repo" @models={{array repo.ecosystem repo}}>{{repo.name}}</LinkTo></td>
           <td>{{repo.url}}</td>
           <td>{{repo.path}}</td>
-          <td><LinkTo @route="ecosystem.settings.repos.repo" @models={{array repo.ecosystem repo}} class="btn btn-primary btn-sm">Open</LinkTo></td>
+          <td><LinkTo @route="ecosystem.settings.repos.new" @query={{hash copyFrom=repo.id}} class="btn btn-primary btn-sm">Duplicate</LinkTo></td>
           <td><RemoveDialog @item={{repo}} class="btn-sm"/></td>
         </tr>
       {{/each}}
