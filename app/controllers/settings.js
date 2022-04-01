@@ -6,7 +6,7 @@ export default class SettingsController extends Controller {
   @service currentUser;
 
   @action
-  async saveModel() {
+  async save() {
     try {
       await this.currentUser.user.save();
     } catch (error) {

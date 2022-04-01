@@ -1,22 +1,34 @@
 import Controller from '@ember/controller';
 import { action } from '@ember/object';
 import { inject as service } from '@ember/service';
+import { tracked } from '@glimmer/tracking'
 
 export default class UsersNewController extends Controller {
-  @service router;
   @service store;
+  @service router;
+
+  @tracked editName = true;
+
+  init() {
+    super.init(...arguments);
+    this.addObserver("model", async () => {
+      this.editName = true;
+    });
+  }
 
   @action
-  async createUser(model) {
-    let user = this.store.createRecord('user', {
-      user_name: model.user_name,
-    });
+  create() {
+    this.editName = false;
+  }
 
-    try {
-      await user.save();
-      this.router.transitionTo('users.user', user);
-    } catch (error) {
-      console.warn(error.errors[0]);
-    }
+  @action
+  async save() {
+    await this.model.save();
+    this.router.transitionTo('users');
+  }
+
+  @action
+  async cancel() {
+    this.router.transitionTo('users');
   }
 }

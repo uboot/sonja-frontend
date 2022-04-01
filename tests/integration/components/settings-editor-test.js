@@ -14,8 +14,9 @@ module('Integration | Component | settings-editor', function (hooks) {
       first_name: 'First',
       last_name: 'Last',
     });
+    this.set('save', () => {});
 
-    await render(hbs`<SettingsEditor @user={{this.user}} />`);
+    await render(hbs`<SettingsEditor @model={{this.user}} @onSave={{this.save}}/>`);
 
     assert.notEqual(this.element.textContent.trim());
   });

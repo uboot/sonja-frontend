@@ -1,5 +1,3 @@
 <h2>{{this.model.user_name}}</h2>
 
-<section>
-  <UserEditor @user={{this.model}} @save={{this.saveModel}}/>
-</section>
+<UserEditor @model={{this.model}} @onCancel={{this.cancel}} @onSave={{this.save}}/>

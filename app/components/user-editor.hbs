@@ -1,12 +1,15 @@
-<BsForm @formLayout="vertical" @model={{this.model}} @onSubmit={{action "save"}} as |form|>
-  <form.element @controlType="input" @label="User Name" @property="user_name" required />
-  <form.element @controlType="input" @label="First Name" @property="first_name" />
-  <form.element @controlType="input" @label="Last Name" @property="last_name" />
-  <form.element @controlType="input" @label="E-Mail" @property="email" />
-  <form.element @controlType="checkbox" @label="Read" @property="read" class="form-check-inline" />
-  <form.element @controlType="checkbox" @label="Write" @property="write" class="form-check-inline" />
-  <form.element @controlType="checkbox" @label="Admin" @property="admin" class="form-check-inline" />
-  <form.element @controlType="password" @label="Password " @property="password" />
-  <form.element @controlType="password" @label="Retype Password " @property="retype_password" />
-  <form.submitButton>Save</form.submitButton>
-</BsForm>
+<section>
+  <BsForm @formLayout="vertical" @model={{@model}} @onSubmit={{action @onSave}} as |form|>
+    <form.element @controlType="input" @label="User Name" @property="user_name" required />
+    <form.element @controlType="input" @label="First Name" @property="first_name" />
+    <form.element @controlType="input" @label="Last Name" @property="last_name" />
+    <form.element @controlType="input" @label="E-Mail" @property="email" />
+    <form.element @controlType="checkbox" @label="Read" @property="read" class="form-check-inline" />
+    <form.element @controlType="checkbox" @label="Write" @property="write" class="form-check-inline" />
+    <form.element @controlType="checkbox" @label="Admin" @property="admin" class="form-check-inline" />
+    <form.element @controlType="password" @label="Password " @property="password" />
+    <form.element @controlType="password" @label="Retype Password " @property="retype_password" />
+    <BsButton @type="secondary" @onClick={{action @onCancel}}>Cancel</BsButton>
+    <form.submitButton>Save</form.submitButton>
+  </BsForm>
+</section>
