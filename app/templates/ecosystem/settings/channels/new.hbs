@@ -1,9 +1,13 @@
-<h2>New Channel</h2>
+{{#if this.editName}}
+  <h3>New Channel</h3>
 
-<section>
-  <BsForm @onSubmit={{action "createChannel"}} @model={{this.channel}} as |form|>
-    <form.element @controlType="input" @label="Name" @property="name" />
-    <LinkTo @route="ecosystem.settings.channels" @model={{this.model}} class="btn btn-secondary">Cancel</LinkTo>
-    <form.submitButton>Create</form.submitButton>
-  </BsForm>
-</section>
+  <section>
+    <BsForm @onSubmit={{action this.create}} @model={{this.model}} as |form|>
+      <form.element @controlType="input" @label="Name" @property="name" />
+      <BsButton @type="primary" @onClick={{this.cancel}}>Cancel</BsButton>
+      <form.submitButton>Create</form.submitButton>
+    </BsForm>
+  </section>
+{{else}}
+  <ChannelEditor @model={{this.model}} @onCancel={{this.cancel}} @onSave={{this.save}}/>
+{{/if}}

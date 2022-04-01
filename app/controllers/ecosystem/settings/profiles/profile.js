@@ -1,28 +1,18 @@
 import Controller from '@ember/controller';
 import { action } from '@ember/object';
-
-const platforms = ['Linux', 'Windows'];
+import { inject as service } from '@ember/service';
 
 export default class EcosystemSettingsProfilesProfileController extends Controller {
-  get platforms() {
-    return platforms;
-  }
+  @service router;
 
-  get platform() {
-    if (this.model.platform === 'linux') {
-      return platforms[0];
-    } else {
-      return platforms[1];
-    }
+  @action
+  cancel() {
+    this.router.transitionTo('ecosystem.settings.profiles', this.model.ecosystem);
   }
 
   @action
-  async saveModel() {
+  async save() {
     await this.model.save();
-  }
-
-  @action
-  setPlatform(platform) {
-    this.model.platform = platform.value;
+    this.router.transitionTo('ecosystem.settings.profiles', this.model.ecosystem);
   }
 }
