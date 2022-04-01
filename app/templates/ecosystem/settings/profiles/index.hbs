@@ -13,9 +13,9 @@
     <tbody>
       {{#each this.model.profiles as |profile|}}
         <tr>
-          <td>{{profile.name}}</td>
+          <td><LinkTo @route="ecosystem.settings.profiles.profile" @models={{array profile.ecosystem profile}}>{{profile.name}}</LinkTo></td>
           <td>{{profile.container}}</td>
-          <td><LinkTo @route="ecosystem.settings.profiles.profile" @models={{array profile.ecosystem profile}} class="btn btn-primary btn-sm">Open</LinkTo></td>
+          <td><LinkTo @route="ecosystem.settings.profiles.new" @query={{hash copyFrom=profile.id}} class="btn btn-primary btn-sm">Duplicate</LinkTo></td>
           <td><RemoveDialog @item={{profile}} class="btn-sm"/></td>
         </tr>
       {{/each}}

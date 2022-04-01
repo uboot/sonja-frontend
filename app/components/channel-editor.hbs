@@ -1,0 +1,38 @@
+<TitleEditor @model={{@model}} @property="name"/>
+
+<section>
+  <h4>Channel</h4>
+
+  <p>
+    The name of the Conan channel which is used for packages which are built
+    from commits selected by this channel. Example: <code>stable</code> as a 
+    Conan channel will create packages of the form 
+    <code>hello/1.0.0@mycompany/stable</code>.
+  </p>
+
+  <BsForm @formLayout="inline" @model={{@model}} as |form|>
+    <form.element @controlType="input" @property="conan_channel" required />
+  </BsForm>
+</section>
+
+<section>
+  <h4>Branches</h4>
+
+  <p>
+    The name of the branch which should be monitored for this channel. New commits
+    on the branch will trigger builds for the channel. Example: <code>master</code>.
+    It is also possible to provide a pattern to monitor several branches, e.g.
+    <code>feature/*</code>.
+  </p>
+
+  <BsForm @formLayout="inline" @model={{@model}} as |form|>
+    <form.element @controlType="input" @property="branch" required />
+  </BsForm>
+</section>
+
+<section>
+  <p>
+    <BsButton @type="secondary" @onClick={{action @onCancel}}>Cancel</BsButton>
+    <BsButton @type="primary" @onClick={{action @onSave}}>Save</BsButton>
+  </p>
+</section>

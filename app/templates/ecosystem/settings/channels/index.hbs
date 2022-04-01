@@ -14,10 +14,10 @@
     <tbody>
       {{#each this.model.channels as |channel|}}
         <tr>
-          <td>{{channel.name}}</td>
+          <td><LinkTo @route="ecosystem.settings.channels.channel" @models={{array channel.ecosystem channel}}>{{channel.name}}</LinkTo></td>
           <td>{{channel.conan_channel}}</td>
           <td>{{channel.branch}}</td>
-          <td><LinkTo @route="ecosystem.settings.channels.channel" @models={{array channel.ecosystem channel}} class="btn btn-primary btn-sm">Open</LinkTo></td>
+          <td><LinkTo @route="ecosystem.settings.channels.new" @query={{hash copyFrom=channel.id}} class="btn btn-primary btn-sm">Duplicate</LinkTo></td>
           <td><RemoveDialog @item={{channel}} class="btn-sm"/></td>
         </tr>
       {{/each}}

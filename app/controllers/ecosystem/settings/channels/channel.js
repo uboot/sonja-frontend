@@ -1,9 +1,18 @@
 import Controller from '@ember/controller';
 import { action } from '@ember/object';
+import { inject as service } from '@ember/service';
 
 export default class EcosystemSettingsChannelsChannelController extends Controller {
+  @service router;
+
   @action
-  async saveModel() {
+  cancel() {
+    this.router.transitionTo('ecosystem.settings.channels', this.model.ecosystem);
+  }
+
+  @action
+  async save() {
     await this.model.save();
+    this.router.transitionTo('ecosystem.settings.channels', this.model.ecosystem);
   }
 }
