@@ -8,16 +8,15 @@
       <tr>
         <th scope="col">User</th>
         <th scope="col">Full Name</th>
-        <th scope="col" colspan="2"></th>
+        <th scope="col"></th>
       </tr>
     </thead>
     <tbody>
       {{#each this.model as |user|}}
         {{#unless (eq user.id this.currentUser.user.id)}}
           <tr>
-            <td>{{user.user_name}}</td>
+            <td><LinkTo @route="users.user" @model={{user}}>{{user.user_name}}</LinkTo></td>
             <td>{{user.first_name}} {{user.last_name}}</td>
-            <td><LinkTo @route="users.user" @model={{user}} class="btn btn-primary btn-sm">Open</LinkTo></td>
             <td><RemoveDialog @item={{user}} class="btn-sm"/></td>
           </tr>
         {{/unless}}

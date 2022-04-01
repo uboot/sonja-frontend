@@ -64,6 +64,10 @@ export default class BuildModel extends Model {
     }
   }
 
+  transitionTo() {
+    return this._internalModel.transitionTo(...arguments);
+  }
+
   validations = {
     user_name: {
       presence: true

@@ -1,9 +1,13 @@
-<h2>New User</h2>
+{{#if this.editName}}
+  <h2>New User</h2>
 
-<section>
-  <BsForm @onSubmit={{action "createUser"}} @model={{this.user}} as |form|>
-    <form.element @controlType="input" @label="Name" @property="user_name" />
-    <LinkTo @route="users" class="btn btn-secondary">Cancel</LinkTo>
-    <form.submitButton>Create</form.submitButton>
-  </BsForm>
-</section>
+  <section>
+    <BsForm @onSubmit={{action this.create}} @model={{this.model}} as |form|>
+      <form.element @controlType="input" @label="Name" @property="user_name" />
+      <LinkTo @route="users" class="btn btn-secondary">Cancel</LinkTo>
+      <form.submitButton>Create</form.submitButton>
+    </BsForm>
+  </section>
+{{else}}
+  <UserEditor @model={{this.model}} @onCancel={{this.cancel}} @onSave={{this.save}}/>
+{{/if}}
