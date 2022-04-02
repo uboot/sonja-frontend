@@ -12,7 +12,7 @@
   {{#unless @readonly}}
     <Modal.footer as |footer|>
       <BsButton @onClick={{action Modal.close}} @type="secondary">Cancel</BsButton>
-      <BsButton @onClick={{action Modal.submit}} @type="success">Save</BsButton>
+      <BsButton @onClick={{action Modal.submit}} @type="primary">Finish Editing</BsButton>
     </Modal.footer>
   {{/unless}}
 </BsModal>

@@ -22,7 +22,10 @@ export default class LabelEditorComponent extends Component {
 
   @action
   save() {
-    this.args.model[this.args.property] = this.items;
+    this.args.model[this.args.property] = this.items.filter((value) => {
+      return !!value.label;
+    });
+    this.isEditing = false;
   }
 
   @action
