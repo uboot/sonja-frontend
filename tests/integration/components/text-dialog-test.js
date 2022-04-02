@@ -7,10 +7,11 @@ module('Integration | Component | text-dialog', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function (assert) {
-    // Set any properties with this.set('myProperty', 'value');
-    // Handle any actions with this.set('myAction', function(val) { ... });
+    this.set('model', {
+      content: '',
+    });
 
-    await render(hbs`<TextDialog />`);
+    await render(hbs`<TextDialog @model={{this.model}} @property="content"/>`);
 
     assert.equal(this.element.textContent.trim(), 'Show');
   });

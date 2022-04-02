@@ -5,9 +5,8 @@
     This is the <em>user</em> part of the Conan package references built in this ecosystem.
   </p>
 
-  <BsForm @formLayout="inline" @model={{this.model}} @onSubmit={{action "saveModel"}} as |form|>
+  <BsForm @formLayout="inline" @model={{this.model}} as |form|>
     <form.element @controlType="input" @property="user" required />
-    <form.submitButton>Save</form.submitButton>
   </BsForm>
 </section>
 
@@ -23,11 +22,10 @@
     this branch can optionally be specified in the field <em>Branch</em>. 
   </p>
 
-  <BsForm @formLayout="vertical" @model={{this.model}} @onSubmit={{action "saveModel"}} as |form|>
+  <BsForm @formLayout="vertical" @model={{this.model}} as |form|>
     <form.element @controlType="input" @label="URL" @property="conan_config_url" required />
     <form.element @controlType="input" @label="Path" @property="conan_config_path" />
     <form.element @controlType="input" @label="Branch" @property="conan_config_branch" />
-    <form.submitButton>Save</form.submitButton>
   </BsForm>
 </section>
 
@@ -44,11 +42,10 @@
     will login into the remote using this credentials.
   </p>
 
-  <BsForm @formLayout="vertical" @model={{this.model}} @onSubmit={{action "saveModel"}} as |form|>
+  <BsForm @formLayout="vertical" @model={{this.model}} as |form|>
     <form.element @controlType="input" @label="Remote" @property="conan_remote" required />
     <form.element @controlType="input" @label="User" @property="conan_user" required />
     <form.element @controlType="input" @label="Password" @property="conan_password" required />
-    <form.submitButton>Save</form.submitButton>
   </BsForm>
 </section>
 
@@ -60,7 +57,7 @@
     that the SSH repositories of the ecosystem provide read access to this key.
   </p>
 
-  <TextDialog @title="Public SSH Key" @content={{this.model.public_ssh_key}} @readonly={{true}} />
+  <TextDialog @title="Public SSH Key" @model={{this.model}} @property="public_ssh_key" @readonly={{true}} />
 </section>
 
 <section>
@@ -71,7 +68,7 @@
     <code>known_hosts</code> file.
   </p>
 
-  <TextDialog @title="Known Hosts" @content={{this.model.known_hosts}} @readonly={{false}} @onChange={{action "saveKnownHosts"}} />
+  <TextDialog @title="Known Hosts" @model={{this.model}} @property="known_hosts" @readonly={{false}}/>
 </section>
 
 <section>
@@ -84,6 +81,12 @@
     and requires authentification then they required credentials have to be provided here.
   </p>
 
-  <CredentialEditor @model={{this.model}} @property="credentials" @onSubmit={{action "saveModel"}} />
+  <CredentialEditor @model={{this.model}} @property="credentials" />
+</section>
+
+<section>
+  <p>
+    <BsButton @type="primary" @onClick={{this.save}}>Save</BsButton>
+  </p>
 </section>
 

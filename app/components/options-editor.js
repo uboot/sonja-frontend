@@ -22,7 +22,9 @@ export default class OptionsEditorComponent extends Component {
 
   @action
   save() {
-    this.args.model[this.args.property] = this.options;
+    this.args.model[this.args.property] = this.options.filter((option) => {
+      return !!option.key;
+    });
     this.isEditing = false;
   }
 

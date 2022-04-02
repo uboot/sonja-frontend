@@ -5,11 +5,15 @@ import { tracked } from '@glimmer/tracking';
 export default class CredentialEditorComponent extends Component {
   @tracked isAddingNewItem = false;
   @tracked newItem = {};
+  items = [];
 
   constructor(owner, args) {
     super(owner, args);
 
-    this.items = args.model[args.property];
+    let items = args.model[args.property];
+    items.forEach((item) => {
+      this.items.push({ ...item });
+    });
   }
 
   @action
@@ -21,7 +25,6 @@ export default class CredentialEditorComponent extends Component {
   @action
   async save() {
     this.args.model[this.args.property] = this.items;
-    await this.args.onSubmit();
   }
 
   @action

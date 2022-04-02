@@ -1,5 +1,7 @@
 import Model, { attr, belongsTo, hasMany } from '@ember-data/model';
+import Validator from 'ember-model-validator/decorators/model-validator';
 
+@Validator
 export default class RepoModel extends Model {
   @attr name;
   @attr url;
@@ -9,4 +11,14 @@ export default class RepoModel extends Model {
   @attr options;
   @belongsTo('ecosystem') ecosystem;
   @hasMany('commit') commits;
+
+  transitionTo() {
+    return this._internalModel.transitionTo(...arguments);
+  }
+
+  validations = {
+    name: {
+      presence: true
+    },
+  }
 }

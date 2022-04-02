@@ -7,9 +7,15 @@ module('Integration | Component | credential-editor', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function (assert) {
-    this.set('model', {});
+    this.set('model', {
+      credentials: [{
+        url: 'Url',
+        username: 'user',
+        password: 'pAssw0rd'
+      }]
+    });
 
-    await render(hbs`<CredentialEditor @model={{this.model}}/>`);
+    await render(hbs`<CredentialEditor @model={{this.model}} @property="credentials"/>`);
 
     assert.dom(this.element).hasAnyText();
   });

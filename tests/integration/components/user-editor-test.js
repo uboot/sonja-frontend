@@ -10,8 +10,10 @@ module('Integration | Component | user-editor', function (hooks) {
     this.set('user', {
       permissions: ["read"]
     });
+    this.set('save', () => {});
+    this.set('cancel', () => {});
 
-    await render(hbs`<UserEditor @user={{this.user}} />`);
+    await render(hbs`<UserEditor @user={{this.user}} @onSave={{this.save}} @onCancel={{this.cancel}}/>`);
 
     assert.dom(this.element).hasAnyText();
   });

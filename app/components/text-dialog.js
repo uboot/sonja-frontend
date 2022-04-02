@@ -1,17 +1,25 @@
 import Component from '@glimmer/component';
-import { action } from '@ember/object';
+import { action, set } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 
 export default class TextDialogComponent extends Component {
   @tracked open = false;
   model = {};
 
+  get content() {
+    return this.args.model[this.args.property];
+  }
+
+  set content(value) {
+    this.args.model[this.args.property] = value;
+  }
+
   @action
   showDialog() {
-    if (this.args.content) {
-      this.model.decoded = atob(this.args.content);
+    if (this.content) {
+      set(this.model, "decoded", atob(this.content));
     } else {
-      this.model.decoded = '';
+      set(this.model, "decoded", '');
     }
     this.open = true;
   }
@@ -23,9 +31,9 @@ export default class TextDialogComponent extends Component {
   }
 
   @action
-  submitDialog(model) {
-    var content = btoa(model.decoded);
-    this.args.onChange(content);
+  submitDialog() {
+    var updatedContent = btoa(this.model.decoded);
+    this.content = updatedContent;
     this.open = false;
   }
 }
