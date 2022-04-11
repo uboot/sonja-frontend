@@ -2,11 +2,12 @@ import JSONAPIAdapter from '@ember-data/adapter/json-api';
 import { computed } from '@ember/object';
 import { inject as service } from '@ember/service';
 import { underscore } from '@ember/string';
+import ENV from 'sonja/config/environment';
 
 export default class ApplicationAdapter extends JSONAPIAdapter {
   @service session;
 
-  namespace = 'api/v1';
+  namespace = ENV.apiNamespace;
 
   @computed('session.data.authenticated.access_token')
   get headers() {

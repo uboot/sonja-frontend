@@ -3,6 +3,7 @@
 module.exports = function (environment) {
   let ENV = {
     modulePrefix: 'sonja',
+    apiNamespace: 'api/v1',
     environment,
     rootURL: '/',
     locationType: 'history',
