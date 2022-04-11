@@ -1,12 +1,13 @@
 import { discoverEmberDataModels } from "ember-cli-mirage";
 import { createServer } from 'miragejs';
+import ENV from 'sonja/config/environment';
 
 export default function (config) {
   let finalConfig = {
     ...config,
     models: { ...discoverEmberDataModels(), ...config.models },
     routes() {
-      this.namespace = '/api/v1';
+      this.namespace = `/${ENV.apiNamespace}`;
 
       this.get('/build/:id');
       this.patch('/build/:id');
