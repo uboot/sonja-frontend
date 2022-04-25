@@ -1,7 +1,11 @@
 import Controller from '@ember/controller';
-import { action } from '@ember/object';
+import { action, computed } from '@ember/object';
 
 export default class EcosystemBuildsController extends Controller {
+  get sortedBuilds() {
+    return this.model.builds.sortBy('created').reverse();
+  }
+
   @action
   async startBuild(model) {
     model.status = 'new';

@@ -2,6 +2,7 @@ import Model, { attr, belongsTo, hasMany } from '@ember-data/model';
 
 export default class BuildModel extends Model {
   @attr status;
+  @attr('date') created;
   @belongsTo('log') log;
   @belongsTo('commit') commit;
   @belongsTo('profile') profile;
