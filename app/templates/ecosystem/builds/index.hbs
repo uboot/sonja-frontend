@@ -4,6 +4,7 @@
   <table class="table">
     <thead>
       <tr>
+        <th scope="col">Created</th>
         <th scope="col">Repository</th>
         <th scope="col">Commit</th>
         <th scope="col">Profile</th>
@@ -12,8 +13,9 @@
       </tr>
     </thead>
     <tbody>
-      {{#each this.model.builds as |build|}}
+      {{#each this.sortedBuilds as |build|}}
         <tr>
+          <td>{{format-date build.created}}</td>
           <td>{{build.commit.repo.name}}</td>
           <td>{{build.commit.message}}</td>
           <td>{{build.profile.name}}</td>
