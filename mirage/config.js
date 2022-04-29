@@ -9,6 +9,7 @@ export default function (config) {
     routes() {
       this.namespace = `/${ENV.apiNamespace}`;
 
+      this.get('/build');
       this.get('/build/:id');
       this.patch('/build/:id');
 
@@ -24,9 +25,6 @@ export default function (config) {
       this.delete('/ecosystem/:id');
       this.get('/ecosystem/:id');
       this.patch('/ecosystem/:id');
-      this.get('/ecosystem/:id/build', (schema, request) => {
-        return schema.ecosystems.find(request.params.id).builds;
-      });
       this.get('/ecosystem/:id/repo', (schema, request) => {
         return schema.ecosystems.find(request.params.id).repos;
       });
