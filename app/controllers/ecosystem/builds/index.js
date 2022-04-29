@@ -1,9 +1,9 @@
 import Controller from '@ember/controller';
-import { action, computed } from '@ember/object';
+import { action } from '@ember/object';
 
 export default class EcosystemBuildsController extends Controller {
   get sortedBuilds() {
-    return this.model.builds.sortBy('created').reverse();
+    return this.model.sortBy('created').reverse();
   }
 
   @action
