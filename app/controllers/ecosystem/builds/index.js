@@ -3,7 +3,7 @@ import { action } from '@ember/object';
 
 export default class EcosystemBuildsController extends Controller {
   get sortedBuilds() {
-    return this.model.sortBy('created').reverse();
+    return this.model.sortBy('created').uniqBy('id').reverse();
   }
 
   @action

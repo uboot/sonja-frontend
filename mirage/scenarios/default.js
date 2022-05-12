@@ -12,6 +12,8 @@ export default function (server) {
           commit,
           missing_recipes: server.createList('recipe', 1),
           missing_packages: server.createList('package', 1)
+        }).forEach((build) => {
+          server.createList('run', 3, { build });
         });
       });
     }),
@@ -26,4 +28,6 @@ export default function (server) {
   });
 
   server.createList('user', 2);
+
+  server.createList('log-line', 3);
 }

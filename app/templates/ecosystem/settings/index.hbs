@@ -23,7 +23,7 @@
   </p>
 
   <BsForm @formLayout="vertical" @model={{this.model}} as |form|>
-    <form.element @controlType="input" @label="URL" @property="conan_config_url" required />
+    <form.element @controlType="input" @label="URL" @property="conan_config_url" />
     <form.element @controlType="input" @label="Path" @property="conan_config_path" />
     <form.element @controlType="input" @label="Branch" @property="conan_config_branch" />
   </BsForm>
@@ -43,9 +43,11 @@
   </p>
 
   <BsForm @formLayout="vertical" @model={{this.model}} as |form|>
-    <form.element @controlType="input" @label="Remote" @property="conan_remote" required />
-    <form.element @controlType="input" @label="User" @property="conan_user" required />
-    <form.element @controlType="input" @label="Password" @property="conan_password" required />
+    <form.element @controlType="input" @label="Remote" @property="conan_remote" />
+    <form.element @controlType="input" @label="User" @property="conan_user" />
+    <form.element @controlType="password" @label="Password" @property="conan_password" as |el|>
+      <el.control autocomplete="off"/>
+    </form.element>
   </BsForm>
 </section>
 

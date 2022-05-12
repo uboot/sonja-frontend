@@ -1,0 +1,36 @@
+
+<h2>Missing Recipes</h2>
+
+<ul class="list-unstyled">
+  {{#each this.model.missing_recipes as |recipe|}}
+    <li>{{recipe.name}}/{{recipe.version}}@{{recipe.user}}/{{recipe.channel}}</li>
+  {{/each}}
+</ul>
+
+<h2>Missing Packages</h2>
+<ul class="list-unstyled">
+  {{#each this.model.missing_packages as |package|}}
+    <li>{{package.recipe_revision.recipe.name}}/{{package.recipe_revision.recipe.version}}@{{package.recipe_revision.recipe.user}}/{{package.recipe_revision.recipe.channel}}#{{package.recipe_revision.revision}}:{{package.package_id}}</li>
+  {{/each}}
+</ul>
+
+<h2>Runs</h2>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Started</th>
+      <th scope="col" colspan="2">Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each this.runs as |run|}}
+      <tr>
+        <td>{{format-date run.started}}</td>
+        <td>{{run.status}}</td>
+        <td>
+          <LinkTo @route="ecosystem.builds.build.run" @model={{run.id}} class="btn btn-sm btn-primary">Logs</LinkTo>
+        </td>
+      </tr>
+    {{/each}}
+  </tbody>
+</table>

@@ -1,0 +1,8 @@
+<h2>Log <span class="badge bg-primary">{{this.model.run.status}}</span></h2>
+<pre><code>
+{{#each this.sortedLogLines as |line|}}
+{{line.number}} {{line.content}}
+{{/each}}
+</code></pre>
+
+<InfinityLoader @infinityModel={{this.model.logLines}} />

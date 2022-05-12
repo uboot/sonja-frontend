@@ -23,7 +23,7 @@ export default class EcosystemBuildsRoute extends Route {
       let data = JSON.parse(e.data);
       self.store.pushPayload(data);
       let record = await self.store.findRecord('build', data.data.id);
-      let model = self.modelFor('ecosystem.builds');
+      let model = await self.modelFor('ecosystem.builds');
       if (!model.isAny('id', record.id)){
         self.infinity.pushObjects(model, [record]);
       }

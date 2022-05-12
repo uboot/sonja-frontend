@@ -23,7 +23,9 @@ Router.map(function () {
       });
     });
     this.route('builds', function () {
-      this.route('build', { path: '/:build_id' });
+      this.route('build', { path: '/:build_id' }, function() {
+        this.route('run', { path: '/runs/:run_id'});
+      });
     });
     this.route('repos', function () {
       this.route('repo', { path: '/:repo_id' });
