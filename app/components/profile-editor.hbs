@@ -20,7 +20,9 @@
     </form.element>
     <form.element @controlType="input" @label="Image" @property="container" required />
     <form.element @controlType="input" @label="User" @property="docker_user" />
-    <form.element @controlType="input" @label="Password" @property="docker_password" />
+    <form.element @controlType="password" @label="Password" @property="docker_password" as |el|>
+      <el.control autocomplete="off"/>
+    </form.element>
   </BsForm>
 </section>
 

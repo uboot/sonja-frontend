@@ -13,6 +13,11 @@ export default function (config) {
       this.get('/build/:id');
       this.patch('/build/:id');
 
+      this.get('/run/:id');
+      this.get('/build/:id/run', (schema, request) => {
+        return schema.builds.find(request.params.id).runs;
+      });
+
       this.get('/commit/:id');
 
       this.post('/channel');
@@ -33,6 +38,7 @@ export default function (config) {
       });
 
       this.get('/log/:id');
+      this.get('/log_line');
 
       this.post('/token', () => {
         //return new Response(401);

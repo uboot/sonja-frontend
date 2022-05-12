@@ -1,7 +1,9 @@
 <BsForm @model={{@item}} @onSubmit={{@onSave}} as |form|>
   <form.element @controlType="input" @label="URL" @property="url" required />
   <form.element @controlType="input" @label="User" @property="username" required />
-  <form.element @controlType="input" @label="Password" @property="password" required />
+  <form.element @controlType="password" @label="Password" @property="password" as |el|>
+    <el.control autocomplete="off"/>
+  </form.element>
   <BsButton @onClick={{@onCancel}}>Cancel</BsButton>
   <form.submitButton>Finish Editing</form.submitButton>
 </BsForm>

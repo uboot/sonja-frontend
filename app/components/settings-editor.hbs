@@ -3,8 +3,14 @@
   <form.element @controlType="input" @label="First Name" @property="first_name" />
   <form.element @controlType="input" @label="Last Name" @property="last_name" />
   <form.element @controlType="input" @label="E-Mail" @property="email" />
-  <form.element @controlType="password" @label="Password " @property="password" />
-  <form.element @controlType="password" @label="Retype Password " @property="retype_password" />
-  <form.element @controlType="password" @label="Old Password " @property="old_password" />
+  <form.element @controlType="password" @label="Password " @property="password" as |el|>
+    <el.control autocomplete="off"/>
+  </form.element>
+  <form.element @controlType="password" @label="Retype Password " @property="retype_password" as |el|>
+    <el.control autocomplete="off"/>
+  </form.element>
+  <form.element @controlType="password" @label="Old Password " @property="old_password" as |el|>
+    <el.control autocomplete="off"/>
+  </form.element>
   <form.submitButton>Save</form.submitButton>
 </BsForm>
