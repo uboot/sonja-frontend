@@ -1,8 +1,16 @@
 <h2>Log <span class="badge bg-primary">{{this.model.run.status}}</span></h2>
+
+<BsForm @model={{this}} as |form|>
+  <form.element @controlType="checkbox" @label="Scroll To Bottom" @property="keepScrolledToBottom" />
+</BsForm>
+
+<div class="sonja-log-panel flex-grow-1">
 <pre><code>
 {{#each this.sortedLogLines as |line|}}
 {{line.number}} {{line.content}}
 {{/each}}
 </code></pre>
+  <div {{scroll-to-when this.scrollToBottom}}/>
+</div>
 
 <InfinityLoader @infinityModel={{this.model.logLines}} />

@@ -29,5 +29,5 @@ export default function (server) {
 
   server.createList('user', 2);
 
-  server.createList('log-line', 3);
+  server.createList('log-line', 25);
 }

@@ -57,7 +57,7 @@ export default Factory.extend({
       `;
   },
 
-  credentials() {
+  git_credentials() {
     return [
       {
         url: 'https://github.com',
@@ -67,6 +67,21 @@ export default Factory.extend({
       {
         url: 'https://gitlab.com',
         username: '',
+        password: '123456',
+      },
+    ];
+  },
+
+  docker_credentials() {
+    return [
+      {
+        server: '',
+        username: 'user',
+        password: 'Passw0rd',
+      },
+      {
+        server: 'myregistry.azurecr.io',
+        username: 'myregistry',
         password: '123456',
       },
     ];

@@ -6,7 +6,7 @@ export default ApplicationSerializer.extend({
   
     if (request.queryParams.page) {
       json.meta = {
-        total_pages: 3
+        total_pages: 1
       }
     }
   

@@ -2,9 +2,7 @@ import { Factory } from 'miragejs';
 
 export default Factory.extend({
   number(i) {
-    let values = ['1', '2', '3'];
-
-    return values[i % values.length];
+    return `${i + 1}`;
   },
   
   time(i) {
@@ -18,7 +16,7 @@ export default Factory.extend({
     let values = [
       'Start build...', 
       'Fetch sources',
-      'Compile'
+      'Compile',
     ];
 
     return values[i % values.length];

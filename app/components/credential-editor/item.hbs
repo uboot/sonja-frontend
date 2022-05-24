@@ -1,8 +1,8 @@
 <div class="card-body">
   {{#if this.isEditing}}  
-    <CredentialEditor::ItemEditor @item={{this.item}} @onSave={{action "save"}} @onCancel={{action "cancel"}}/>
+    <CredentialEditor::ItemEditor @item={{this.item}} @title={{@title}} @title_property={{@title_property}} @onSave={{action "save"}} @onCancel={{action "cancel"}}/>
   {{else}}
-    <h5 class="card-title">{{this.item.url}}</h5>
+    <h5 class="card-title">{{get this.item @title_property}}</h5>
     <BsButton @type="primary" @onClick={{action "edit"}}>Edit</BsButton>
     <BsButton @type="primary" @onClick={{this.remove}}>Remove</BsButton>
   {{/if}}

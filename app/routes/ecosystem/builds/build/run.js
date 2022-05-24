@@ -1,5 +1,6 @@
 import Route from '@ember/routing/route';
 import { inject as service } from '@ember/service';
+import { hash } from 'rsvp';
 import ENV from 'sonja/config/environment';
 
 export default class EcosystemBuildsBuildRunRoute extends Route {
@@ -9,13 +10,13 @@ export default class EcosystemBuildsBuildRunRoute extends Route {
 
   model() {
     let params = this.paramsFor('ecosystem.builds.build.run')
-    return {
+    return hash({
       run: this.store.findRecord('run', params.run_id),
       logLines: this.infinity.model('log-line', {
         perPage: 10,
         run_id: params.run_id
       })
-    }
+    });
   }
 
   activate() {

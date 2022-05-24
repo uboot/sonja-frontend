@@ -20,9 +20,6 @@ export default class EcosystemSettingsProfilesNewController extends Controller {
         this.model.container = source.container;
         this.model.platform = source.platform;
         this.model.conan_profile = source.conan_profile;
-        this.model.docker_registry = source.docker_registry;
-        this.model.docker_user = source.docker_user;
-        this.model.docker_password = source.docker_password;
         this.model.labels = source.labels;
       }
 
