@@ -11,7 +11,8 @@ export default class NewController extends Controller {
   async createEcosystem(model) {
     let ecosystem = this.store.createRecord('ecosystem', {
       name: model.name,
-      credentials: [],
+      git_credentials: [],
+      docker_credentials: [],
     });
     await ecosystem.save();
     this.router.transitionTo('ecosystem.settings', ecosystem);

@@ -35,18 +35,6 @@ export default Factory.extend({
     return values[Math.floor(i / 2) % values.length];
   },
 
-  docker_user(i) {
-    let values = ['user', ''];
-
-    return values[Math.floor(i / 2) % values.length];
-  },
-
-  docker_password(i) {
-    let values = ['paSSw0rd', ''];
-
-    return values[Math.floor(i / 2) % values.length];
-  },
-
   labels(i) {
     let labels = [
       {

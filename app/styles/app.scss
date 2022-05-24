@@ -5,3 +5,15 @@ section {
   margin-top: ($spacer * .75) !important;
   margin-bottom: ($spacer * .75) !important;
 }
+
+.sonja-fill-window {
+  height: 100vh;
+}
+
+.sonja-log-panel {
+  overflow-y: scroll;
+}
+
+.container {
+  height: 100vh;
+}
