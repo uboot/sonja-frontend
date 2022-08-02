@@ -7,4 +7,5 @@ export default class RecipeModel extends Model {
   @attr user;
   @belongsTo('ecosystem') ecosystem;
   @hasMany('recipe-revision') revisions;
+  @hasMany('build') required_by;
 }
