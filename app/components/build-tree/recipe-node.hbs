@@ -1,0 +1,8 @@
+{{#if this.hasRevision}}
+  {{#each this.revision.packages as |package|}}
+    <li>missing recipe referenced by package {{package.package_id}} of</li>
+    <BuildTree::Package @package={{package}} />
+  {{/each}}
+{{else}}
+  <li>missing recipe: {{@recipe.name}}/{{@recipe.version}}@{{@recipe.user}}/{{@recipe.channel}}</li>
+{{/if}}

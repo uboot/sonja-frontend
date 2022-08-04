@@ -6,6 +6,7 @@ export default class RecipeModel extends Model {
   @attr channel;
   @attr user;
   @belongsTo('ecosystem') ecosystem;
-  @hasMany('recipe-revision') revisions;
+  @belongsTo('recipe-revision', { inverse: null }) current_revision;
+  @hasMany('recipe-revision', { inverse: 'recipe' }) revisions;
   @hasMany('build') required_by;
 }

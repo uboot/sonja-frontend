@@ -25,6 +25,7 @@ Router.map(function () {
     this.route('builds', function () {
       this.route('build', { path: '/:build_id' }, function() {
         this.route('run', { path: '/runs/:run_id'});
+        this.route('tree');
       });
     });
     this.route('repos', function () {
