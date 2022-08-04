@@ -1,5 +1,5 @@
 import Model, { attr } from '@ember-data/model';
-import Validator from 'ember-model-validator/decorators/model-validator';
+import Validator from 'ember-model-validator/decorators/object-validator';
 
 @Validator
 export default class BuildModel extends Model {
