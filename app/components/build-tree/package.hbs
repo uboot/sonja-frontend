@@ -1,0 +1,14 @@
+{{@package.recipe_revision.recipe.name}}/{{@package.recipe_revision.recipe.version}}@{{@package.recipe_revision.recipe.user}}/{{@package.recipe_revision.recipe.channel}}
+{{#if this.hasBuild}}
+  has build "{{this.build.status}}"
+  {{#if this.hasFailedBuild}}
+    <BuildTree @build={{this.build}} />
+  {{/if}}
+{{else}}
+  no build
+{{/if}}
+<ul>
+  {{#each @package.requires as |requirement|}}
+    <BuildTree::PackageNode @present={{true}} @package={{requirement}} />
+  {{/each}}
+</ul>

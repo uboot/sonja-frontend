@@ -10,7 +10,7 @@ export default ApplicationSerializer.extend({
   },
 
   shouldIncludeLinkageData(relationshipKey, model) {
-    if (relationshipKey === 'ecosystem') {
+    if (relationshipKey === 'ecosystem' || relationshipKey === 'current_revision') {
       return true;
     }
     return false;

@@ -1,0 +1,8 @@
+<li>
+  {{#if @present}}
+    satisfied package: 
+  {{else}}
+    missing package:
+  {{/if}}
+  <BuildTree::Package @package={{@package}} />
+</li>
