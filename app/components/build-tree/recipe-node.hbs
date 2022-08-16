@@ -1,8 +1,17 @@
 {{#if this.hasRevision}}
   {{#each this.revision.packages as |package|}}
-    <li>missing recipe referenced by package {{package.package_id}} of</li>
-    <BuildTree::Package @package={{package}} />
+    <li>
+      missing recipe referenced by package {{package.package_id}} of
+      <BuildTree::Package @package={{package}} />
+    </li>
+  {{/each}}
+  {{#each this.revision.builds as |build|}}
+    <li>
+      missing recipe referenced by build {{build.id}} of
+      <BuildTree::PackageReference @recipe={{this.revision.recipe}} />
+      <BuildTree @build={{build}} />
+    </li>
   {{/each}}
 {{else}}
-  <li>missing recipe: {{@recipe.name}}/{{@recipe.version}}@{{@recipe.user}}/{{@recipe.channel}}</li>
+  <li>missing recipe: <BuildTree::PackageReference @recipe={{@recipe}} /></li>
 {{/if}}

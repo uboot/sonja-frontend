@@ -70,7 +70,7 @@ export default function (server) {
     name: 'common'
   });
 
-  let recipe_with_revision = server.create('recipe', {
+  let recipe_with_package = server.create('recipe', {
     name: 'libcommon',
     current_revision: server.create('recipe_revision', {
       packages: [
@@ -89,6 +89,15 @@ export default function (server) {
       ]
     })
   });
+
+  let recipe_with_revision = server.create('recipe', {
+    name: 'libbase',
+    current_revision: server.create('recipe_revision', {
+      builds: server.createList('build', 1, {
+        missing_packages: [package_with_failed_build]
+      })
+    }) 
+  })
 
   let build = server.create('build', {
     status: 'success',
@@ -109,7 +118,7 @@ export default function (server) {
 
   let build_with_missing_recipe = server.create('build', {
     status: 'error',
-    missing_recipes: [recipe_without_revision, recipe_with_revision]
+    missing_recipes: [recipe_without_revision, recipe_with_revision, recipe_with_package]
   });
 
   server.create('build', {
