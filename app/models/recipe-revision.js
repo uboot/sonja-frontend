@@ -4,4 +4,5 @@ export default class RecipeRevisionModel extends Model {
   @attr revision;
   @belongsTo('recipe') recipe;
   @hasMany('packages') packages;
+  @hasMany('builds') builds;
 }

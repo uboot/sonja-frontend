@@ -1,4 +1,4 @@
-{{@package.recipe_revision.recipe.name}}/{{@package.recipe_revision.recipe.version}}@{{@package.recipe_revision.recipe.user}}/{{@package.recipe_revision.recipe.channel}}
+<BuildTree::PackageReference @recipe={{@package.recipe_revision.recipe}} />
 {{#if this.hasBuild}}
   has build "{{this.build.status}}"
   {{#if this.hasFailedBuild}}
