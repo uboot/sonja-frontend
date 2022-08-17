@@ -25,11 +25,12 @@ Router.map(function () {
     this.route('builds', function () {
       this.route('build', { path: '/:build_id' }, function() {
         this.route('run', { path: '/runs/:run_id'});
-        this.route('tree');
       });
     });
     this.route('repos', function () {
-      this.route('repo', { path: '/:repo_id' });
+      this.route('repo', { path: '/:repo_id' }, function() {
+        this.route('builds');
+      });
     });
     this.route('recipes', function () {
       this.route('recipe', { path: '/:recipe_id' });

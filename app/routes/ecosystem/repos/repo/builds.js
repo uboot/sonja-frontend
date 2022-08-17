@@ -2,7 +2,7 @@ import Route from '@ember/routing/route';
 import { inject as service } from '@ember/service';
 import ENV from 'sonja/config/environment';
 
-export default class EcosystemBuildsRoute extends Route {
+export default class EcosystemReposRepoBuildsRoute extends Route {
   @service store;
   @service infinity;
   eventSource = null;

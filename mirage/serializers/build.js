@@ -13,6 +13,7 @@ export default ApplicationSerializer.extend({
     if (relationshipKey === 'commit'
     || relationshipKey === 'profile'
     || relationshipKey === 'package'
+    || relationshipKey === 'recipe_revision'
     || relationshipKey === 'missing_recipes'
     || relationshipKey === 'missing_packages') {
       return true;

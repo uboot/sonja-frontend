@@ -1,5 +1,5 @@
 import { module, test } from 'qunit';
-import { setupRenderingTest } from 'sonja/tests/helpers';
+import { setupRenderingTest } from 'ember-qunit';
 import { render } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 
@@ -13,14 +13,5 @@ module('Integration | Component | build-tree', function (hooks) {
     await render(hbs`<BuildTree />`);
 
     assert.dom(this.element).hasText('');
-
-    // Template block usage:
-    await render(hbs`
-      <BuildTree>
-        template block text
-      </BuildTree>
-    `);
-
-    assert.dom(this.element).hasText('template block text');
   });
 });

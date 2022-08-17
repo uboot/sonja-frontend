@@ -1,6 +1,8 @@
-<BuildTree::PackageReference @recipe={{@package.recipe_revision.recipe}} />
 {{#if this.hasBuild}}
-  has build "{{this.build.status}}"
+  has build
+  <LinkTo @route="ecosystem.builds.build" @model={{this.build}}>
+    "{{this.build.status}}" ({{this.build.profile.name}})
+  </LinkTo>
   {{#if this.hasFailedBuild}}
     <BuildTree @build={{this.build}} />
   {{/if}}

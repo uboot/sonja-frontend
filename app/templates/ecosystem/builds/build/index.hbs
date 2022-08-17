@@ -1,21 +1,28 @@
-<p>
-  <LinkTo @route="ecosystem.builds.build.tree" class="btn btn-primary">Tree</LinkTo>
-</p>
+<h2>Package</h2>
+<BuildReference @build={{this.model}} />
+<BuildTree @build={{this.model}} />
 
-<h2>Missing Recipes</h2>
+<h2>Related</h2>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Profile</th>
+      <th scope="col" colspan="2">Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each this.model.commit.builds as |build|}}
+      <tr>
+        <td>{{build.profile.name}}</td>
+        <td>{{build.status}}</td>
+        <td>
+          <LinkTo @route="ecosystem.builds.build" @model={{build}} class="btn btn-sm btn-primary">Build</LinkTo>
+        </td>
+      </tr>
+    {{/each}}
+  </tbody>
+</table>
 
-<ul class="list-unstyled">
-  {{#each this.model.missing_recipes as |recipe|}}
-    <li>{{recipe.name}}/{{recipe.version}}@{{recipe.user}}/{{recipe.channel}}</li>
-  {{/each}}
-</ul>
-
-<h2>Missing Packages</h2>
-<ul class="list-unstyled">
-  {{#each this.model.missing_packages as |package|}}
-    <li>{{package.recipe_revision.recipe.name}}/{{package.recipe_revision.recipe.version}}@{{package.recipe_revision.recipe.user}}/{{package.recipe_revision.recipe.channel}}#{{package.recipe_revision.revision}}:{{package.package_id}}</li>
-  {{/each}}
-</ul>
 
 <h2>Runs</h2>
 <table class="table">

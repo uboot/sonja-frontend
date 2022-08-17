@@ -1,5 +1,5 @@
 import { module, test } from 'qunit';
-import { setupRenderingTest } from 'sonja/tests/helpers';
+import { setupRenderingTest } from 'ember-qunit';
 import { render } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 
@@ -9,18 +9,10 @@ module('Integration | Component | build-tree/package', function (hooks) {
   test('it renders', async function (assert) {
     // Set any properties with this.set('myProperty', 'value');
     // Handle any actions with this.set('myAction', function(val) { ... });
+    this.set('builds', []);
 
-    await render(hbs`<BuildTree::Package />`);
+    await render(hbs`<BuildTree::Package @package={{this}} />`);
 
-    assert.dom(this.element).hasText('');
-
-    // Template block usage:
-    await render(hbs`
-      <BuildTree::Package>
-        template block text
-      </BuildTree::Package>
-    `);
-
-    assert.dom(this.element).hasText('template block text');
+    assert.dom(this.element).hasText('no build');
   });
 });
