@@ -94,7 +94,8 @@ export default function (server) {
     name: 'libbase',
     current_revision: server.create('recipe_revision', {
       builds: server.createList('build', 1, {
-        missing_packages: [package_with_failed_build]
+        missing_packages: [package_with_failed_build],
+        status: 'error'
       })
     }) 
   })
@@ -146,8 +147,20 @@ export default function (server) {
             name: 'libhello3',
           })
         }),
-        builds: [build]
+        builds: [build],
+        requires: [package_with_requirement, package_without_build]
       }),
     ]
   })
+
+  // build with recipe revision
+  server.create('build', {
+    status: 'error',
+    recipe_revision: server.create('recipe_revision', {
+      recipe: server.create('recipe', {
+        name: 'libhello3',
+      })
+    }),
+    package: null
+  });
 }

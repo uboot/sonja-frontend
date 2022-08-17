@@ -20,16 +20,4 @@ export default class EcosystemReposRepoController extends Controller {
       headers: headers
     });
   }
-
-  @action
-  startBuild(model) {
-    model.status = 'new';
-    model.save();
-  }
-
-  @action
-  stopBuild(model) {
-    model.status = 'stopping';
-    model.save();
-  }
 }

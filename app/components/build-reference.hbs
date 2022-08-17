@@ -1,0 +1,5 @@
+{{#if @build.package}}
+  <PackageReference @package={{@build.package}} />
+{{else if @build.recipe_revision}}
+  <RecipeReference @recipe={{@build.recipe_revision.recipe}} />
+{{/if}}
