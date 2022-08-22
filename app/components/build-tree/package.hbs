@@ -1,6 +1,6 @@
 {{#if this.hasBuild}}
   has build
-  <LinkTo @route="ecosystem.builds.build" @model={{this.build}}>
+  <LinkTo @route="ecosystem.repos.repo.build" @models={{array this.build.commit.repo this.build}}>
     "{{this.build.status}}" ({{this.build.profile.name}})
   </LinkTo>
   {{#if this.hasFailedBuild}}

@@ -22,14 +22,11 @@ Router.map(function () {
         this.route('repo', { path: '/:repo_id' });
       });
     });
-    this.route('builds', function () {
-      this.route('build', { path: '/:build_id' }, function() {
-        this.route('run', { path: '/runs/:run_id'});
-      });
-    });
     this.route('repos', function () {
       this.route('repo', { path: '/:repo_id' }, function() {
-        this.route('builds');
+        this.route('build', { path: '/builds/:build_id' }, function() {
+          this.route('run', { path: '/runs/:run_id'});
+        });
       });
     });
     this.route('recipes', function () {

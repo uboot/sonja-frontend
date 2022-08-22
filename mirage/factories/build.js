@@ -16,4 +16,6 @@ export default Factory.extend({
   profile: association(),
 
   package: association(),
+
+  commit: association()
 });

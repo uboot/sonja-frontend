@@ -7,6 +7,7 @@
         <th scope="col">Repository</th>
         <th scope="col">URL</th>
         <th scope="col">Path</th>
+        <th scope="col">Version</th>
       </tr>
     </thead>
     <tbody>
@@ -15,6 +16,7 @@
           <td><LinkTo @route="ecosystem.repos.repo" @models={{array repo.ecosystem repo}}>{{repo.name}}</LinkTo></td>
           <td>{{repo.url}}</td>
           <td>{{repo.path}}</td>
+          <td>{{repo.version}}</td>
         </tr>
       {{/each}}
     </tbody>
