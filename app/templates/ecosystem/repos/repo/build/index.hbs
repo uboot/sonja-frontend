@@ -16,7 +16,7 @@
         <td>{{build.profile.name}}</td>
         <td>{{build.status}}</td>
         <td>
-          <LinkTo @route="ecosystem.builds.build" @model={{build}} class="btn btn-sm btn-primary">Build</LinkTo>
+          <LinkTo @route="ecosystem.repos.repo.build" @model={{build}} class="btn btn-sm btn-primary">Build</LinkTo>
         </td>
       </tr>
     {{/each}}
@@ -38,7 +38,7 @@
         <td>{{format-date run.started}}</td>
         <td>{{run.status}}</td>
         <td>
-          <LinkTo @route="ecosystem.builds.build.run" @model={{run.id}} class="btn btn-sm btn-primary">Logs</LinkTo>
+          <LinkTo @route="ecosystem.repos.repo.build.run" @model={{run.id}} class="btn btn-sm btn-primary">Logs</LinkTo>
         </td>
       </tr>
     {{/each}}

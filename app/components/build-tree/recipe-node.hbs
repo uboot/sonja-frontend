@@ -10,7 +10,7 @@
     <li>
       missing recipe: <RecipeReference @recipe={{this.revision.recipe}} />
       referenced by build {{build.id}} 
-      <LinkTo @route="ecosystem.builds.build" @model={{this.build}}>
+      <LinkTo @route="ecosystem.repos.repo.build"  @models={{array this.build.commit.repo this.build}}>
         "{{build.status}}" ({{build.profile.name}})
       </LinkTo>
       <BuildTree @build={{build}} />
