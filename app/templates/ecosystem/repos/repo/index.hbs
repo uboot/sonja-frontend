@@ -1,4 +1,34 @@
 <section>
+  <BsDropdown as |dd|>
+    <dd.button>
+      Channel
+      <span class="caret"></span>
+    </dd.button>
+    <dd.menu as |menu|>
+      <menu.item>
+        <menu.link-to @route="index">Stable</menu.link-to>
+      </menu.item>
+      <menu.item>
+        <menu.link-to @route="demo.dropdown">Testing</menu.link-to>
+      </menu.item>
+    </dd.menu>
+  </BsDropdown>
+
+  <BsDropdown as |dd|>
+    <dd.button>
+      Profile
+      <span class="caret"></span>
+    </dd.button>
+    <dd.menu as |menu|>
+      <menu.item>
+        <menu.link-to @route="index">Windows</menu.link-to>
+      </menu.item>
+      <menu.item>
+        <menu.link-to @route="demo.dropdown">Linux</menu.link-to>
+      </menu.item>
+    </dd.menu>
+  </BsDropdown>
+  
   <table class="table">
     <thead>
       <tr>
