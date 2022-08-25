@@ -3,7 +3,7 @@ import { inject as service } from '@ember/service';
 import { hash } from 'rsvp';
 import ENV from 'sonja/config/environment';
 
-export default class EcosystemBuildsBuildRunRoute extends Route {
+export default class EcosystemReposRepoBuildRunRoute extends Route {
   @service store;
   @service infinity;
   eventSource = null;

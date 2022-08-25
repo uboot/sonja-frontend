@@ -1,4 +1,6 @@
-<h2>Log <span class="badge bg-primary">{{this.model.run.status}}</span></h2>
+<h4>Log</h4>
+<p><BuildStatus @status={{this.model.run.status}} /></p>
+<p><BuildTime @time={{this.model.run.started}} /></p>
 
 <BsForm @model={{this}} as |form|>
   <form.element @controlType="checkbox" @label="Scroll To Bottom" @property="keepScrolledToBottom" />

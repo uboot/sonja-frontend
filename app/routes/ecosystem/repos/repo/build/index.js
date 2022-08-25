@@ -1,4 +1,4 @@
 import Route from '@ember/routing/route';
 
-export default class EcosystemBuildsBuildIndexRoute extends Route {
+export default class EcosystemReposRepoBuildIndexRoute extends Route {
 }
