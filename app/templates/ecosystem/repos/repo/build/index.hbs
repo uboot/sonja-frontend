@@ -1,45 +1,61 @@
-<h2>Package</h2>
+<h4>Commit</h4>
+<p>
+  {{this.model.commit.message}}
+</p>
+
+<p>
+  {{shorten this.model.commit.sha 7}} {{this.model.commit.user_name}} &lsaquo;{{this.model.commit.user_email}}&rsaquo;
+</p>
+
+<h4>Package</h4>
 <BuildReference @build={{this.model}} />
 <BuildTree @build={{this.model}} />
 
-<h2>Related</h2>
+<h4>Related</h4>
 <table class="table">
   <thead>
     <tr>
+      <th scope="col">Created</th>
+      <th scope="col">Status</th>
       <th scope="col">Profile</th>
-      <th scope="col" colspan="2">Status</th>
+      <th scope="col">Result</th>
     </tr>
   </thead>
   <tbody>
     {{#each this.model.commit.builds as |build|}}
       <tr>
-        <td>{{build.profile.name}}</td>
-        <td>{{build.status}}</td>
         <td>
-          <LinkTo @route="ecosystem.repos.repo.build" @model={{build}} class="btn btn-sm btn-primary">Build</LinkTo>
+          <LinkTo @route="ecosystem.repos.repo.build" @model={{build}}>
+            <BuildTime @time={{build.created}} />
+          </LinkTo>
         </td>
+        <td><BuildStatus @status={{build.status}} /></td>
+        <td>{{build.profile.name}}</td>
+        <td><BuildReference @build={{build}} /></td>
       </tr>
     {{/each}}
   </tbody>
 </table>
 
 
-<h2>Runs</h2>
+<h4>Runs</h4>
 <table class="table">
   <thead>
     <tr>
       <th scope="col">Started</th>
-      <th scope="col" colspan="2">Status</th>
+      <th scope="col">Status</th>
     </tr>
   </thead>
   <tbody>
     {{#each this.runs as |run|}}
       <tr>
-        <td>{{format-date run.started}}</td>
-        <td>{{run.status}}</td>
+        
         <td>
-          <LinkTo @route="ecosystem.repos.repo.build.run" @model={{run.id}} class="btn btn-sm btn-primary">Logs</LinkTo>
+          <LinkTo @route="ecosystem.repos.repo.build.run" @model={{run.id}}>
+            <BuildTime @time={{run.started}} />
+          </LinkTo>
         </td>
+        <td><BuildStatus @status={{run.status}} /></td>
       </tr>
     {{/each}}
   </tbody>

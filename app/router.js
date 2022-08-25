@@ -29,9 +29,6 @@ Router.map(function () {
         });
       });
     });
-    this.route('recipes', function () {
-      this.route('recipe', { path: '/:recipe_id' });
-    });
   });
   this.route('new');
   this.route('login');

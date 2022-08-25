@@ -1,13 +1,14 @@
-<p>
- <span class="badge bg-primary">{{this.model.profile.name}}</span> <span class="badge bg-primary">{{this.model.status}}</span>
-</p>
-<h2>Commit</h2>
-<p>
-  {{this.model.commit.message}}
-</p>
+<h3>
+  Build
+  <BsButton @onClick={{action "startBuild"}} @type="primary" class="btn-sm">Start</BsButton>
+  <BsButton @onClick={{action "stopBuild"}} @type="primary" class="btn-sm">Stop</BsButton>
+</h3>
 
 <p>
-  {{shorten this.model.commit.sha 7}} {{this.model.commit.user_name}} &lsaquo;{{this.model.commit.user_email}}&rsaquo;
+  {{this.model.profile.name}} <BuildStatus @status={{this.model.status}} />
+</p>
+<p>
+  {{format-date this.model.created}}
 </p>
 
 {{outlet}}
