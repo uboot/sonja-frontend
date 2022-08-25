@@ -1,5 +1,5 @@
 import { module, test } from 'qunit';
-import { setupTest } from 'ember-qunit';
+import { setupTest } from 'sonja/tests/helpers';
 
 module('Unit | Route | ecosystem/repos/repo/build/run', function(hooks) {
   setupTest(hooks);
