@@ -1,31 +1,45 @@
 <section>
   <BsDropdown as |dd|>
-    <dd.button>
+    <dd.button @type="primary">
       Channel
       <span class="caret"></span>
     </dd.button>
     <dd.menu as |menu|>
       <menu.item>
-        <menu.link-to @route="index">Stable</menu.link-to>
+        <a class="dropdown-item" onclick={{action "selectChannel"}}>
+          All
+        </a>
       </menu.item>
-      <menu.item>
-        <menu.link-to @route="demo.dropdown">Testing</menu.link-to>
-      </menu.item>
+      <menu.divider/>
+      {{#each this.ecosystem.channels as |channel|}}
+        <menu.item>
+          <a class="dropdown-item" onclick={{action "selectChannel" channel}}>
+            {{channel.name}}
+          </a>
+        </menu.item>
+      {{/each}}
     </dd.menu>
   </BsDropdown>
 
   <BsDropdown as |dd|>
-    <dd.button>
+    <dd.button @type="primary">
       Profile
       <span class="caret"></span>
     </dd.button>
     <dd.menu as |menu|>
       <menu.item>
-        <menu.link-to @route="index">Windows</menu.link-to>
+        <a class="dropdown-item" onclick={{action "selectProfile"}}>
+          All
+        </a>
       </menu.item>
-      <menu.item>
-        <menu.link-to @route="demo.dropdown">Linux</menu.link-to>
-      </menu.item>
+      <menu.divider/>
+      {{#each this.ecosystem.profiles as |profile|}}
+        <menu.item>
+          <a class="dropdown-item" onclick={{action "selectProfile" profile}}>
+            {{profile.name}}
+          </a>
+        </menu.item>
+      {{/each}}
     </dd.menu>
   </BsDropdown>
   
@@ -58,5 +72,5 @@
     </tbody>
   </table>
 
-  <InfinityLoader @infinityModel={{this.model}} />
+  <InfinityLoader @infinityModel={{this.model.builds}} />
 </section>

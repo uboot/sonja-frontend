@@ -6,13 +6,35 @@ export default class EcosystemReposRepoIndexRoute extends Route {
   @service store;
   @service infinity;
   eventSource = null;
+  queryParams = {
+    channel: {
+      refreshModel: true
+    },
+    profile: {
+      refreshModel: true
+    }
+  };
 
-  model() {
+  model(params) {
     let ecosystem = this.modelFor('ecosystem');
-    return this.infinity.model('build', {
+    let repo = this.modelFor('ecosystem.repos.repo');
+    let dataParams = {
       perPage: 10,
       ecosystem_id: ecosystem.id
-    });
+    }
+
+    if (params.channel) {
+      dataParams.channel_id = params.channel;
+    }
+    
+    if (params.profile) {
+      dataParams.profile_id = params.profile;
+    }
+    
+    return { 
+      builds: this.infinity.model('build', dataParams),
+      repo
+    }
   }
 
   activate() {
@@ -24,8 +46,8 @@ export default class EcosystemReposRepoIndexRoute extends Route {
       self.store.pushPayload(data);
       let record = await self.store.findRecord('build', data.data.id);
       let model = await self.modelFor('ecosystem.repos.repo.index');
-      if (!model.isAny('id', record.id)){
-        self.infinity.pushObjects(model, [record]);
+      if (!model.builds.isAny('id', record.id)){
+        self.infinity.pushObjects(model.builds, [record]);
       }
     });
   }
