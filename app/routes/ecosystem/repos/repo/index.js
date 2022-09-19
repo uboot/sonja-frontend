@@ -48,7 +48,7 @@ export default class EcosystemReposRepoIndexRoute extends Route {
       let record = await self.store.findRecord('build', data.data.id);
       let model = await self.modelFor('ecosystem.repos.repo.index');
       if (!model.builds.isAny('id', record.id)){
-        self.infinity.pushObjects(model.builds, [record]);
+        self.infinity.pushObjects(model.builds.content, [record]);
       }
     });
   }
