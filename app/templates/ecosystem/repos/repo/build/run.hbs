@@ -12,7 +12,7 @@
 {{line.number}} {{line.content}}
 {{/each}}
 </code></pre>
+  <InfinityLoader @infinityModel={{this.model.logLines}} />
   <div {{scroll-to-when this.scrollToBottom}}/>
 </div>
 
-<InfinityLoader @infinityModel={{this.model.logLines}} />
