@@ -1,6 +1,16 @@
-<h4>Log</h4>
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><LinkTo @route="index" class="breadcrumb-item">Home</LinkTo></li>
+    <li class="breadcrumb-item"><LinkTo @route="ecosystem.repos" class="breadcrumb-item">{{this.model.run.build.commit.repo.ecosystem.name}}</LinkTo></li>
+    <li class="breadcrumb-item"><LinkTo @route="ecosystem.repos.repo" class="breadcrumb-item">{{this.model.run.build.commit.repo.name}}</LinkTo></li>
+    <li class="breadcrumb-item"><LinkTo @route="ecosystem.repos.repo.build" class="breadcrumb-item"><BuildTime @time={{this.model.run.build.created}} /></LinkTo></li>
+    <li class="breadcrumb-item active" aria-current="page">Run</li>
+  </ol>
+</nav>
+
+<h1>Run</h1>
 <p><BuildStatus @status={{this.model.run.status}} /></p>
-<p><BuildTime @time={{this.model.run.started}} /></p>
+<p>Started: <BuildTime @time={{this.model.run.started}} /></p>
 
 <BsForm @model={{this}} as |form|>
   <form.element @controlType="checkbox" @label="Scroll To Bottom" @property="keepScrolledToBottom" />
