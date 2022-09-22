@@ -1,4 +1,27 @@
-<h4>Commit</h4>
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><LinkTo @route="index" class="breadcrumb-item">Home</LinkTo></li>
+    <li class="breadcrumb-item"><LinkTo @route="ecosystem.repos" class="breadcrumb-item">{{this.model.commit.repo.ecosystem.name}}</LinkTo></li>
+    <li class="breadcrumb-item"><LinkTo @route="ecosystem.repos.repo" class="breadcrumb-item">{{this.model.commit.repo.name}}</LinkTo></li>
+    <li class="breadcrumb-item active" aria-current="page">Build</li>
+  </ol>
+</nav>
+
+<h1>
+  Build {{this.model.commit.repo.name}}
+  <BsButton @onClick={{action "startBuild"}} @type="primary" class="btn-sm">Start</BsButton>
+  <BsButton @onClick={{action "stopBuild"}} @type="primary" class="btn-sm">Stop</BsButton>
+</h1>
+
+<p>
+  {{this.model.profile.name}} <BuildStatus @status={{this.model.status}} />
+</p>
+
+<p>
+  Created: <BuildTime @time={{this.model.created}} />
+</p>
+
+<h2>Commit</h2>
 <p>
   {{this.model.commit.message}}
 </p>
@@ -7,13 +30,13 @@
   {{shorten this.model.commit.sha 7}} {{this.model.commit.user_name}} &lsaquo;{{this.model.commit.user_email}}&rsaquo;
 </p>
 
-<h4>Package</h4>
+<h2>Package</h2>
 <p>
   <BuildReference @build={{this.model}} />
   <BuildTree @build={{this.model}} />
 </p>
 
-<h4>Related</h4>
+<h2>Related</h2>
 <table class="table">
   <thead>
     <tr>
@@ -39,8 +62,7 @@
   </tbody>
 </table>
 
-
-<h4>Runs</h4>
+<h2>Runs</h2>
 <table class="table">
   <thead>
     <tr>

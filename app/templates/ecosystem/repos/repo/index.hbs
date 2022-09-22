@@ -1,3 +1,13 @@
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><LinkTo @route="index" class="breadcrumb-item">Home</LinkTo></li>
+    <li class="breadcrumb-item"><LinkTo @route="ecosystem.repos" class="breadcrumb-item">{{this.model.repo.ecosystem.name}}</LinkTo></li>
+    <li class="breadcrumb-item active" aria-current="page">Repository</li>
+  </ol>
+</nav>
+
+<h1>{{this.model.repo.name}} <BsButton @onClick={{action "crawlRepo"}} @type="primary" class="btn-sm">Crawl</BsButton></h1>
+
 <section>
   <BsDropdown as |dd|>
     <dd.button @type="primary">

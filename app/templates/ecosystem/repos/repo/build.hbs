@@ -1,14 +1,1 @@
-<h3>
-  Build
-  <BsButton @onClick={{action "startBuild"}} @type="primary" class="btn-sm">Start</BsButton>
-  <BsButton @onClick={{action "stopBuild"}} @type="primary" class="btn-sm">Stop</BsButton>
-</h3>
-
-<p>
-  {{this.model.profile.name}} <BuildStatus @status={{this.model.status}} />
-</p>
-<p>
-  <BuildTime @time={{this.model.created}} />
-</p>
-
 {{outlet}}
