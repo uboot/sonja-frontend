@@ -1,16 +1,16 @@
-<ul>
+<ul class="sonja-dependency-list">
   {{#each @build.package.requires as |requirement|}}
     <BuildTree::PackageNode @present={{true}} @package={{requirement}} />
   {{/each}}
 </ul>
 
-<ul>
+<ul class="sonja-dependency-list">
   {{#each @build.missing_packages as |requirement|}}
     <BuildTree::PackageNode @present={{false}} @package={{requirement}} />
   {{/each}}
 </ul>
 
-<ul>
+<ul class="sonja-dependency-list">
   {{#each @build.missing_recipes as |requirement|}}
     <BuildTree::RecipeNode @recipe={{requirement}} />
   {{/each}}

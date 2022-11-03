@@ -1,10 +1,10 @@
-{{#unless this.isEditing}}
-  <h3>
-    {{get @model @property}}
-    <BsButton @type="primary" @onClick={{action "edit"}}  class="btn-sm">Edit</BsButton></h3>
-{{else}}
+{{#if this.isEditing}}
   <BsForm @formLayout="inline" @model={{@model}} @onSubmit={{action "save"}} as |form|>
     <form.element @controlType="input" @property={{@property}} required />
     <form.submitButton>Finish Editing</form.submitButton>
   </BsForm>
-{{/unless}}
+{{else}}
+  <h3>
+    {{get @model @property}}
+    <BsButton @type="primary" @onClick={{action "edit"}}  class="btn-sm">Edit</BsButton></h3>
+{{/if}}

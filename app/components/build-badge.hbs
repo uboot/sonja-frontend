@@ -1,0 +1,11 @@
+{{#if (eq @build.status "error")}}
+  <span class="badge rounded-pill sonja-error"> <BuildStatus @status={{@build.status}} /> {{@build.profile.name}}</span>
+{{else if (eq @build.status "success")}}
+  <span class="badge rounded-pill sonja-success"> <BuildStatus @status={{@build.status}} /> {{@build.profile.name}}</span>
+{{else if (eq @build.status "active")}}
+  <span class="badge rounded-pill sonja-active"> <BuildStatus @status={{@build.status}} /> {{@build.profile.name}}</span>
+{{else if (eq @build.status "new")}}
+  <span class="badge rounded-pill sonja-new"> <BuildStatus @status={{@build.status}} /> {{@build.profile.name}}</span>
+{{else}}
+  {{@build.status}} {{@build.profile.name}}
+{{/if}}

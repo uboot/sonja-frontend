@@ -1,21 +1,19 @@
 {{#if this.hasRevision}}
   {{#each this.revision.packages as |package|}}
     <li>
-      missing recipe: <RecipeReference @recipe={{package.recipe_revision.recipe}} />
-      referenced by package {{shorten package.package_id 7}}
+      <RecipeReference @recipe={{package.recipe_revision.recipe}} @missing={{true}} />
       <BuildTree::Package @package={{package}} />
     </li>
   {{/each}}
   {{#each this.revision.builds as |build|}}
     <li>
-      missing recipe: <RecipeReference @recipe={{this.revision.recipe}} />
-      referenced by build {{build.id}} 
-      <LinkTo @route="ecosystem.repos.repo.build"  @models={{array build.commit.repo build}}>
-        "{{build.status}}" ({{build.profile.name}})
+      <RecipeReference @recipe={{this.revision.recipe}} @missing={{true}} />
+      <LinkTo @route="ecosystem.repos.repo.build" @models={{array build.commit.repo build}}>
+        <BuildBadge @build={{build}} />
       </LinkTo>
       <BuildTree @build={{build}} />
     </li>
   {{/each}}
 {{else}}
-  <li>missing recipe: <RecipeReference @recipe={{@recipe}} /></li>
+  <li><RecipeReference @recipe={{@recipe}} @missing={{true}} /></li>
 {{/if}}

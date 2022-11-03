@@ -1,1 +1,6 @@
-{{@recipe.name}}/{{@recipe.version}}@{{@recipe.user}}/{{@recipe.channel}}
+<span class="badge sonja-recipe">
+  {{#if @missing}}
+    <i class="bi-question-lg" />
+  {{/if}}
+  {{@recipe.name}}/{{@recipe.version}}@{{@recipe.user}}/{{@recipe.channel}}
+</span>
