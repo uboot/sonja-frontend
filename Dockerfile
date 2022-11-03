@@ -7,7 +7,7 @@ RUN npm install -g ember-cli@3.23.0
 COPY . /app
 
 RUN npm install \
-  && ember build --environment production
+  && ember build --environment development
 
 
 FROM nginx:1.19.6

@@ -20,7 +20,7 @@
     <tbody>
       {{#each this.model.repos as |repo|}}
         <tr>
-          <td><LinkTo @route="ecosystem.repos.repo" @models={{array repo.ecosystem repo}}>{{repo.name}}</LinkTo></td>
+          <td><LinkTo @route="ecosystem.repos.repo" @models={{array repo.ecosystem repo.id}}>{{repo.name}}</LinkTo></td>
           <td>{{repo.url}}</td>
           <td>{{repo.path}}</td>
           <td>{{repo.version}}</td>

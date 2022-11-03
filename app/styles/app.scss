@@ -18,3 +18,50 @@ section {
 .container {
   height: 100vh;
 }
+
+.sonja-success { 
+  color: $white;
+  background-color: $green-500;
+}
+
+.sonja-error { 
+  color: $white;
+  background-color: $red-500;
+}
+
+.sonja-stalled { 
+  color: $white;
+  background-color: $red-500;
+}
+
+.sonja-active { 
+  color: $black;
+  background-color: $yellow-500;
+}
+
+.sonja-new { 
+  color: $white;
+  background-color: $gray-600;
+}
+
+.sonja-package { 
+  color: $teal-600;
+  background-color: $teal-100;
+  border-radius: var(--bs-border-radius-sm);
+}
+
+.sonja-recipe { 
+  color: $blue-600;
+  background-color: $blue-100;
+  border-radius: var(--bs-border-radius-sm);
+}
+
+.sonja-dependency-list {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.sonja-dependency-list ul li {
+  list-style-type: none;
+  padding-left: $spacer;
+}

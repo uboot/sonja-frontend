@@ -1,15 +1,12 @@
 {{#if this.hasBuild}}
-  has build
   <LinkTo @route="ecosystem.repos.repo.build" @models={{array this.build.commit.repo this.build}}>
-    "{{this.build.status}}" ({{this.build.profile.name}})
+    <BuildBadge @build={{this.build}} />
   </LinkTo>
   {{#if this.hasFailedBuild}}
     <BuildTree @build={{this.build}} />
   {{/if}}
-{{else}}
-  no build
 {{/if}}
-<ul>
+<ul class="sonja-dependency-list">
   {{#each @package.requires as |requirement|}}
     <BuildTree::PackageNode @present={{true}} @package={{requirement}} />
   {{/each}}

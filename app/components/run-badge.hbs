@@ -1,0 +1,11 @@
+{{#if (eq @run.status "error")}}
+  <span class="badge rounded-pill sonja-error"> <BuildStatus @status={{@run.status}} /></span>
+{{else if (eq @run.status "success")}}
+  <span class="badge rounded-pill sonja-success"> <BuildStatus @status={{@run.status}} /></span>
+{{else if (eq @run.status "active")}}
+  <span class="badge rounded-pill sonja-active"> <BuildStatus @status={{@run.status}} /></span>
+{{else if (eq @run.status "stalled")}}
+  <span class="badge rounded-pill sonja-stalled"> <BuildStatus @status={{@run.status}} /></span>
+{{else}}
+  {{@run.status}}
+{{/if}}

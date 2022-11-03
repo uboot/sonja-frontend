@@ -1,9 +1,8 @@
 <li>
   {{#if @present}}
-    satisfied package: 
+    <PackageReference @package={{@package}}/>
   {{else}}
-    missing package:
+    <PackageReference @package={{@package}} @missing={{true}}/>
   {{/if}}
-  <PackageReference @package={{@package}} />
   <BuildTree::Package @package={{@package}} />
 </li>

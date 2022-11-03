@@ -1,1 +1,13 @@
-{{@status}}
+{{#if (eq @status "error")}}
+  <i class="bi-exclamation-circle" />
+{{else if (eq @status "success")}}
+  <i class="bi-check-circle" />
+{{else if (eq @status "active")}}
+  <i class="bi-arrow-repeat" />
+{{else if (eq @status "new")}}
+  <i class="bi-hourglass" />
+{{else if (eq @status "stalled")}}
+  <i class="bi-sign-stop" />
+{{else}}
+  {{@status}}
+{{/if}}

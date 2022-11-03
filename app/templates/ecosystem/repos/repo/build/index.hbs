@@ -14,7 +14,8 @@
 </h1>
 
 <p>
-  {{this.model.profile.name}} <BuildStatus @status={{this.model.status}} />
+  <BuildReference @build={{this.model}} />
+  <BuildBadge @build={{this.model}} />
 </p>
 
 <p>
@@ -30,9 +31,8 @@
   {{shorten this.model.commit.sha 7}} {{this.model.commit.user_name}} &lsaquo;{{this.model.commit.user_email}}&rsaquo;
 </p>
 
-<h2>Package</h2>
+<h2>Dependency Tree</h2>
 <p>
-  <BuildReference @build={{this.model}} />
   <BuildTree @build={{this.model}} />
 </p>
 
@@ -42,22 +42,22 @@
     <tr>
       <th scope="col">Created</th>
       <th scope="col">Status</th>
-      <th scope="col">Profile</th>
       <th scope="col">Result</th>
     </tr>
   </thead>
   <tbody>
     {{#each this.model.commit.builds as |build|}}
+      {{#unless (eq build this.model)}}
       <tr>
         <td>
           <LinkTo @route="ecosystem.repos.repo.build" @model={{build}}>
             <BuildTime @time={{build.created}} />
           </LinkTo>
         </td>
-        <td><BuildStatus @status={{build.status}} /></td>
-        <td>{{build.profile.name}}</td>
+        <td><BuildBadge @build={{build}} /></td>
         <td><BuildReference @build={{build}} /></td>
       </tr>
+      {{/unless}}
     {{/each}}
   </tbody>
 </table>
@@ -73,13 +73,12 @@
   <tbody>
     {{#each this.runs as |run|}}
       <tr>
-        
         <td>
           <LinkTo @route="ecosystem.repos.repo.build.run" @model={{run.id}}>
             <BuildTime @time={{run.started}} />
           </LinkTo>
         </td>
-        <td><BuildStatus @status={{run.status}} /></td>
+        <td><RunBadge @run={{run}} /></td>
       </tr>
     {{/each}}
   </tbody>

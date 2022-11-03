@@ -1,1 +1,6 @@
-<RecipeReference @recipe={{@package.recipe_revision.recipe}} />#{{shorten @package.recipe_revision.revision 7}}:{{shorten @package.package_id 7}}
+<span class="badge sonja-package"> 
+  {{#if @missing}}
+    <i class="bi-question-lg" />
+  {{/if}}
+  {{@package.recipe_revision.recipe.name}}/{{@package.recipe_revision.recipe.version}}@{{@package.recipe_revision.recipe.user}}/{{@package.recipe_revision.recipe.channel}}#{{shorten @package.recipe_revision.revision 7}}:{{shorten @package.package_id 7}}
+</span>

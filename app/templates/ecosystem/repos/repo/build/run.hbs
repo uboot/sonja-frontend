@@ -9,7 +9,7 @@
 </nav>
 
 <h1>Run</h1>
-<p><BuildStatus @status={{this.model.run.status}} /></p>
+<p><RunBadge @run={{this.model.run}} /></p>
 <p>Started: <BuildTime @time={{this.model.run.started}} /></p>
 
 <BsForm @model={{this}} as |form|>

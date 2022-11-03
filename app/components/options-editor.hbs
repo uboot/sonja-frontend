@@ -1,25 +1,4 @@
-{{#unless this.isEditing}}
-  <table class="table">
-    <thead>
-      <tr>
-        <th scope="col">Key</th>
-        <th scope="col">Value</th>
-      </tr>
-    </thead>
-    <tbody>
-      {{#each this.options as |option|}}
-        <tr>
-          <td>{{option.key}}</td>
-          <td>{{option.value}}</td>
-        </tr>
-      {{/each}}
-    </tbody>
-  </table>
-
-  <BsForm>
-    <BsButton @type="primary" @onClick={{action "edit"}}>Edit Options</BsButton>
-  </BsForm>
-{{else}}
+{{#if this.isEditing}}
   {{#each this.options as |option|}}
     <BsForm @model={{option}} as |form|>
       <div class="row">
@@ -41,4 +20,25 @@
     <BsButton @type="primary" @onClick={{action "add"}}>Add Item</BsButton>
     <BsButton @type="primary" @onClick={{action "save"}}>Finish Editing</BsButton>
   </BsForm>
-{{/unless}}
+{{else}}
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Key</th>
+        <th scope="col">Value</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each this.options as |option|}}
+        <tr>
+          <td>{{option.key}}</td>
+          <td>{{option.value}}</td>
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
+
+  <BsForm>
+    <BsButton @type="primary" @onClick={{action "edit"}}>Edit Options</BsButton>
+  </BsForm>
+{{/if}}
