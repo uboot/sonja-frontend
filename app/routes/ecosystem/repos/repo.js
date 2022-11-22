@@ -29,9 +29,8 @@ export default class EcosystemReposRepoRoute extends Route {
   }
 
   activate() {
-    let ecosystemId = this.paramsFor('ecosystem').ecosystem_id;
     let repoId = this.paramsFor('ecosystem.repos.repo').repo_id;
-    this.eventSource = new EventSource(`/${ENV.apiNamespace}/event/ecosystem/${ecosystemId}/build?repo_id=${repoId}`);
+    this.eventSource = new EventSource(`/${ENV.apiNamespace}/event/repo/${repoId}/build`);
     let self = this;
     this.eventSource.addEventListener('update', async function(e) {
       let data = JSON.parse(e.data);
