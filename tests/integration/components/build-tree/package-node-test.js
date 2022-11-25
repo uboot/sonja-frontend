@@ -13,6 +13,6 @@ module('Integration | Component | build-tree/package-node', function (hooks) {
 
     await render(hbs`<BuildTree::PackageNode @package={{this}} />`);
 
-    assert.dom(this.element).hasText('missing package: /@/#: no build');
+    assert.dom(this.element).hasText('/@/#:');
   });
 });

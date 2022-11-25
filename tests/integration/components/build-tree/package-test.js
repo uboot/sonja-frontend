@@ -13,6 +13,6 @@ module('Integration | Component | build-tree/package', function (hooks) {
 
     await render(hbs`<BuildTree::Package @package={{this}} />`);
 
-    assert.dom(this.element).hasText('no build');
+    assert.dom(this.element).hasText('');
   });
 });

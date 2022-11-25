@@ -36,7 +36,7 @@ export default class EcosystemReposRepoRoute extends Route {
       let data = JSON.parse(e.data);
       self.store.pushPayload(data);
       let record = await self.store.findRecord('build', data.data.id);
-      let model = await self.modelFor('ecosystem.repos.repo.index');
+      let model = await self.modelFor('ecosystem.repos.repo');
       if (!model.builds.isAny('id', record.id)){
         self.infinity.pushObjects(model.builds.content, [record]);
       }
