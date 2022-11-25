@@ -13,14 +13,5 @@ module('Integration | Component | run-badge', function (hooks) {
     await render(hbs`<RunBadge />`);
 
     assert.dom(this.element).hasText('');
-
-    // Template block usage:
-    await render(hbs`
-      <RunBadge>
-        template block text
-      </RunBadge>
-    `);
-
-    assert.dom(this.element).hasText('template block text');
   });
 });

@@ -13,6 +13,6 @@ module('Integration | Component | build-tree/recipe-node', function (hooks) {
 
     await render(hbs`<BuildTree::RecipeNode @recipe={{this}} />`);
 
-    assert.dom(this.element).hasText('missing recipe: /@/');
+    assert.dom(this.element).hasText('/@/');
   });
 });

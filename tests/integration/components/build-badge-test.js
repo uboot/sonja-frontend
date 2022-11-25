@@ -13,14 +13,5 @@ module('Integration | Component | build-badge', function (hooks) {
     await render(hbs`<BuildBadge />`);
 
     assert.dom(this.element).hasText('');
-
-    // Template block usage:
-    await render(hbs`
-      <BuildBadge>
-        template block text
-      </BuildBadge>
-    `);
-
-    assert.dom(this.element).hasText('template block text');
   });
 });
