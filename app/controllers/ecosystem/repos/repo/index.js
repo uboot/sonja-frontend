@@ -31,7 +31,7 @@ export default class EcosystemReposRepoIndexController extends Controller {
   
   @action
   crawlRepo() {
-    let repoId = this.model.repo.id;
+    let repoId = this.model.repo.get('id');
     
     const headers = new Headers();
     if (this.session.isAuthenticated) {
