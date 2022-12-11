@@ -20,6 +20,11 @@ export default function (config) {
 
       this.get('/commit/:id');
 
+      this.patch('/configuration/:id')
+      this.get('/configuration/current', (schema, request) => {
+        return schema.configurations.find('1');
+      });
+
       this.post('/channel');
       this.delete('/channel/:id');
       this.get('/channel/:id');

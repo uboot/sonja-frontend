@@ -1,0 +1,7 @@
+<section>
+  <BsForm @formLayout="vertical" @model={{@model}} as |form|>
+    <form.element @controlType="input" @label="Github Webhook Secret" @property="github_secret" required as |el|>
+      <el.control readonly />
+    </form.element>
+  </BsForm>
+</section>

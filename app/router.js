@@ -36,5 +36,7 @@ Router.map(function () {
     this.route('new');
     this.route('user', { path: '/:user_id' });
   });
-  this.route('settings');
+  this.route('settings', function() {
+    this.route('user');
+  });
 });
