@@ -34,6 +34,9 @@ export default Factory.extend({
         {
           permission: 'write',
         },
+        {
+          permission: 'admin',
+        },
       ],
       [
         {
@@ -41,9 +44,6 @@ export default Factory.extend({
         },
         {
           permission: 'write',
-        },
-        {
-          permission: 'admin',
         },
       ],
     ];

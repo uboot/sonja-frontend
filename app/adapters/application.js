@@ -30,6 +30,11 @@ export default class ApplicationAdapter extends JSONAPIAdapter {
       return `${originalUrl}/me`;
     }
 
+    if (query.current) {
+      delete query.current;
+      return `${originalUrl}/current`;
+    }
+
     return originalUrl;
   }
 }
