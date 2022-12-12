@@ -5,7 +5,7 @@ export default class CommitModel extends Model {
   @attr message;
   @attr user_name;
   @attr user_email;
-  @belongsTo('repo') repo;
-  @belongsTo('channel') channel;
-  @hasMany('build') builds;
+  @belongsTo('repo', { async: true, inverse: 'commits' }) repo;
+  @belongsTo('channel', { async: true, inverse: null }) channel;
+  @hasMany('build', { async: true, inverse: 'commit' }) builds;
 }
