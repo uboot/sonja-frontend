@@ -14,8 +14,12 @@ export default class SonjaEventsService extends Service {
     let self = this;
     this.eventSource.addEventListener('update', async function(e) {
       let data = JSON.parse(e.data);
+      let payload = {
+        id: data.data.id,
+        type: data.data.type
+      };
       self.store.pushPayload(data);
-      self.payload = data;
+      self.payload = payload;
     });
   }
 

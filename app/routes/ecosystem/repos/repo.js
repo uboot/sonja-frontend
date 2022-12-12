@@ -24,18 +24,23 @@ export default class EcosystemReposRepoRoute extends Route {
 
     let self = this;
     this.sonjaEvents.addObserver('payload', async () => {
-      let data = self.sonjaEvents.payload.data;
-      
-      if (data.type != "builds")
-      {
+      let payload = self.sonjaEvents.payload;         
+      if (payload.type != "builds") {
         return;
       }
 
-      let record = await self.store.findRecord('build', data.id);
+      let record = await self.store.findRecord('build', payload.id);
       let model = await self.modelFor('ecosystem.repos.repo');
-      if (!model.builds.isAny('id', record.id)) {
-        self.infinity.pushObjects(model.builds.content, [record]);
+
+      if (model.repo.get('id') != record.get('commit.repo.id')) {
+        return;
       }
+
+      if (model.builds.isAny('id', record.id)) {
+        return;
+      }
+      
+      self.infinity.pushObjects(model.builds.content, [record]);
     });
     
     return { 
