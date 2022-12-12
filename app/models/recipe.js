@@ -5,8 +5,8 @@ export default class RecipeModel extends Model {
   @attr version;
   @attr channel;
   @attr user;
-  @belongsTo('ecosystem') ecosystem;
-  @belongsTo('recipe-revision', { inverse: null }) current_revision;
-  @hasMany('recipe-revision', { inverse: 'recipe' }) revisions;
-  @hasMany('build') required_by;
+  @belongsTo('ecosystem', { async: true, inverse: 'recipes' }) ecosystem;
+  @belongsTo('recipe-revision', { async: true, inverse: null }) current_revision;
+  @hasMany('recipe-revision', { async: true, inverse: 'recipe' }) revisions;
+  @hasMany('build', { async: true, inverse: 'missing_recipes' }) required_by;
 }

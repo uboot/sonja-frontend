@@ -13,8 +13,8 @@ export default class EcosystemModel extends Model {
   @attr known_hosts;
   @attr git_credentials;
   @attr docker_credentials;
-  @hasMany('repo') repos;
-  @hasMany('profile') profiles;
-  @hasMany('channel') channels;
-  @hasMany('recipe') recipes;
+  @hasMany('repo', { async: true, inverse: 'ecosystem' }) repos;
+  @hasMany('profile', { async: true, inverse: 'ecosystem' }) profiles;
+  @hasMany('channel', { async: true, inverse: 'ecosystem' }) channels;
+  @hasMany('recipe', { async: true, inverse: 'ecosystem' }) recipes;
 }

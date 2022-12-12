@@ -6,7 +6,7 @@ export default class ProfileModel extends Model {
   @attr platform;
   @attr conan_profile;
   @attr labels;
-  @belongsTo('ecosystem') ecosystem;
+  @belongsTo('ecosystem', { async: true, inverse: 'profiles' }) ecosystem;
 
   get displayPlatform() {
     return this.platform.at(0).toUpperCase() + this.platform.slice(1);

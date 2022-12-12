@@ -1,6 +1,6 @@
 <h1>Login</h1>
 
-<section>
+<section class="sonja-login-form">
   <BsForm @formLayout="vertical" @model={{this}} @onSubmit={{action "submit"}} as |form|>
     <form.element @controlType="string" @label="User" @placeholder="User" @property="user" required />
     <form.element @controlType="password" @label="Password" @placeholder="Password" @property="password" required />

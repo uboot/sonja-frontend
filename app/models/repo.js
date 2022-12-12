@@ -9,8 +9,8 @@ export default class RepoModel extends Model {
   @attr version;
   @attr exclude;
   @attr options;
-  @belongsTo('ecosystem') ecosystem;
-  @hasMany('commit') commits;
+  @belongsTo('ecosystem', { async: true, inverse: 'repos' }) ecosystem;
+  @hasMany('commit', { async: true, inverse: 'repo' }) commits;
 
   transitionTo() {
     return this._internalModel.transitionTo(...arguments);

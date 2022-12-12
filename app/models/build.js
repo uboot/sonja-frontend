@@ -3,11 +3,11 @@ import Model, { attr, belongsTo, hasMany } from '@ember-data/model';
 export default class BuildModel extends Model {
   @attr status;
   @attr('date') created;
-  @belongsTo('commit') commit;
-  @belongsTo('profile') profile;
-  @belongsTo('package', { inverse: 'builds' }) package;
-  @belongsTo('recipe-revision', { inverse: 'builds' }) recipe_revision;
-  @hasMany('recipe', { inverse: null }) missing_recipes;
-  @hasMany('package', { inverse: null }) missing_packages;
-  @hasMany('run') runs;
+  @belongsTo('commit', { async: true, inverse: 'builds' }) commit;
+  @belongsTo('profile', { async: true, inverse: null }) profile;
+  @belongsTo('package', { async: true, inverse: 'builds' }) package;
+  @belongsTo('recipe-revision', { async: true, inverse: 'builds' }) recipe_revision;
+  @hasMany('recipe', { async: true, inverse: null }) missing_recipes;
+  @hasMany('package', { async: true, inverse: null }) missing_packages;
+  @hasMany('run', { async: true, inverse: 'build' }) runs;
 }
