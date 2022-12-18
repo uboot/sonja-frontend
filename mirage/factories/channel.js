@@ -13,8 +13,8 @@ export default Factory.extend({
     return values[i % values.length];
   },
 
-  branch(i) {
-    let values = ['master', 'next', 'feature/*'];
+  ref_pattern(i) {
+    let values = ['heads/master', 'heads/feature.*', 'tags/v.*'];
 
     return values[i % values.length];
   },

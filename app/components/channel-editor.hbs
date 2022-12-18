@@ -16,17 +16,18 @@
 </section>
 
 <section>
-  <h4>Branches</h4>
+  <h4>Reference Pattern</h4>
 
   <p>
-    The name of the branch which should be monitored for this channel. New commits
-    on the branch will trigger builds for the channel. Example: <code>master</code>.
+    The reference pattern which should be monitored for this channel. New commits
+    on matching branches tags will trigger builds for the channel. Example: <code>heads/master</code>
+    or <code>tags/v1</code>.
     It is also possible to provide a pattern to monitor several branches, e.g.
-    <code>feature/*</code>.
+    <code>feature/.*</code>.
   </p>
 
   <BsForm @formLayout="inline" @model={{@model}} as |form|>
-    <form.element @controlType="input" @property="branch" required />
+    <form.element @controlType="input" @property="ref_pattern" required />
   </BsForm>
 </section>
 
