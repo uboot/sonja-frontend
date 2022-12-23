@@ -16,7 +16,7 @@ export default class EcosystemReposRepoIndexController extends Controller {
   }
 
   get ecosystem() {
-    return this.model.repo.ecosystem;
+    return this.model.repo.get('ecosystem');
   }
 
   @action
