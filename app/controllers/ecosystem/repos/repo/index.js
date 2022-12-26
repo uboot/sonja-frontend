@@ -6,6 +6,7 @@ import ENV from 'sonja/config/environment';
 
 export default class EcosystemReposRepoIndexController extends Controller {
   @service session;
+
   queryParams = ['profile', 'channel'];
 
   @tracked profile = null;
