@@ -1,7 +1,72 @@
 <section>
-  <BsForm @formLayout="vertical" @model={{@model}} as |form|>
-    <form.element @controlType="input" @label="Github Webhook Secret" @property="github_secret" required as |el|>
+  <h3>Public SSH Key</h3>
+
+  <p>
+    A SSH key was generated when the ecosystem was created. This is the corresponding public key. Make sure
+    that the SSH repositories of the ecosystem provide read access to this key.
+  </p>
+
+  <TextDialog @title="Public SSH Key" @model={{this.model}} @property="public_ssh_key" @readonly={{true}} />
+</section>
+
+<section>
+  <h3>Known Hosts</h3>
+
+  <p>
+    A list of known SSH hosts and their public SSH keys in the format of the  
+    <code>known_hosts</code> file.
+  </p>
+
+  <TextDialog @title="Known Hosts" @model={{this.model}} @property="known_hosts" @readonly={{false}}/>
+</section>
+
+<section>
+  <h3>Git HTTP credentials</h3>
+
+  <p>
+    A list of credentials for Git HTTP servers. A Git credential helper is set up before Sonja 
+    accesses Git repositories (for crawling repositories or building packages). The helper will provide
+    the credentials listed here. In other words, if a repository is set up with an HTTP URL 
+    and requires authentification then they required credentials have to be provided here.
+  </p>
+
+  <CredentialEditor @model={{this.model}} @property="git_credentials" @title="URL" @title_property="url" />
+</section>
+
+<section>
+  <h3>Docker credentials</h3>
+
+  <p>
+    A list of credentials for docker registry servers. Each build profile references a
+    docker image. When the docker image is pulled from its registry Sonja tries to
+    look up the registry server in the list of credentials here. If credentials for
+    the server exist they are used for authentification with the registry. When entering
+    registry credentials provide the registry server for all other registries than
+    <a href="https://hub.docker.com/">Docker Hub</a>. Leave the server empty for registries
+    at Docker Hub.
+  </p>
+
+  <CredentialEditor @model={{this.model}} @property="docker_credentials" @title="Server" @title_property="server" />
+</section>
+
+<section>
+  <h3>Github Webhook</h3>
+
+  <p>
+    A Github webhook can be configured to trigger builds. The webhook must deliver a JSON
+    payload to <code>&lt;sonja-host&gt;/api/v1/github</code> and is secured
+    by the secret here.
+  </p>
+
+  <BsForm @formLayout="vertical" @model={{this.model}} as |form|>
+    <form.element @controlType="input" @label="Secret" @property="github_secret" required as |el|>
       <el.control readonly />
     </form.element>
   </BsForm>
+</section>
+
+<section>
+  <p>
+    <BsButton @type="primary" @onClick={{this.save}}>Save</BsButton>
+  </p>
 </section>
