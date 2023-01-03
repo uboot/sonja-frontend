@@ -8,7 +8,7 @@
 </nav>
 
 <h1>
-  Build {{this.model.commit.repo.name}}
+  {{this.model.commit.repo.name}}
   <BsButton @onClick={{action "startBuild"}} @type="primary" class="btn-sm">Start</BsButton>
   <BsButton @onClick={{action "stopBuild"}} @type="primary" class="btn-sm">Stop</BsButton>
 </h1>

@@ -16,10 +16,11 @@ export default class EcosystemReposRepoIndexRoute extends Route {
 
   model(params) {
     let ecosystem = this.modelFor('ecosystem');
+    let repo = this.modelFor('ecosystem.repos.repo');
     let dataParams = {
       perPage: 10,
       ecosystem_id: ecosystem.id,
-      repo_id: params.repo_id
+      repo_id: repo.id
     }
 
     if (params.channel) {
