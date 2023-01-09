@@ -13,6 +13,10 @@ export default Factory.extend({
     return values[i % values.length];
   },
 
+  conan_remote() {
+    return 'uboot';
+  },
+
   ref_pattern(i) {
     let values = ['heads/master', 'heads/feature.*', 'tags/v.*'];
 
