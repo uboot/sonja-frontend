@@ -25,15 +25,13 @@ export default Factory.extend({
     return 'master';
   },
 
-  conan_remote() {
-    return 'uboot';
-  },
-
-  conan_user() {
-    return 'agent';
-  },
-
-  conan_password() {
-    return 'demo';
+  conan_credentials() {
+    return [
+      {
+        remote: 'uboot',
+        username: 'agent',
+        password: 'demo',
+      }
+    ];
   },
 });

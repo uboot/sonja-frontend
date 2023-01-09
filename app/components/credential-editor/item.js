@@ -1,4 +1,4 @@
-import { action, set } from '@ember/object';
+import { action, get, set } from '@ember/object';
 import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 
@@ -15,8 +15,8 @@ export default class CredentialEditorItemComponent extends Component {
   @action
   cancel() {
     this.isEditing = false;
-    set(this.item, "url", this.args.item.url);
-    set(this.item, "username", this.args.item.user_name);
+    set(this.item, this.args.title_property, get(this.args.item, this.args.title_property));
+    set(this.item, "username", this.args.item.username);
     set(this.item, "password", this.args.item.password);
   }
 

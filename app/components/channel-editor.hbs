@@ -16,6 +16,18 @@
 </section>
 
 <section>
+  <h4>Conan Remote</h4>
+
+  <p>This channel will store Conan packages at to one of the Conan remotes which are 
+    defined by the Conan configuration above.
+  </p>
+
+  <BsForm @formLayout="inline" @model={{@model}} as |form|>
+    <form.element @controlType="input" @property="conan_remote" />
+  </BsForm>
+</section>
+
+<section>
   <h4>Reference Pattern</h4>
 
   <p>
@@ -30,6 +42,8 @@
     <form.element @controlType="input" @property="ref_pattern" required />
   </BsForm>
 </section>
+
+
 
 <section>
   <p>

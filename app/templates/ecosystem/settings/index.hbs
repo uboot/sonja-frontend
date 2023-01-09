@@ -29,26 +29,17 @@
   </BsForm>
 </section>
 
-<section>
-  <h3>Conan Remote</h3>
 
-  <p>This ecosystem will store Conan packages at to one of the Conan remotes which are 
-    defined by the Conan configuration above. Usually additional credentials are required to be 
-    able to <em>upload</em> packages to the remote.
-    Here, this remote and the credentials to access it are defined. Set <em>Remote</em>
-    to the name of the remote as defined by the Conan configuration. The actual URL
-    of the remote is then looked up via the configuration during the build. 
-    If required provide a user name and a password. Before uploading Conan
-    will login into the remote using this credentials.
+<section>
+  <h3>Conan Credentials</h3>
+
+  <p>
+    A list of credentials for Conan remotes. These Conan credentials are set up before Sonja 
+    builds packages. If one of the remotes in the Conan configuration (for either download or 
+    upload) requires authentification the credentials have to be provided here.
   </p>
 
-  <BsForm @formLayout="vertical" @model={{this.model}} as |form|>
-    <form.element @controlType="input" @label="Remote" @property="conan_remote" />
-    <form.element @controlType="input" @label="User" @property="conan_user" />
-    <form.element @controlType="password" @label="Password" @property="conan_password" as |el|>
-      <el.control autocomplete="off"/>
-    </form.element>
-  </BsForm>
+  <CredentialEditor @model={{this.model}} @property="conan_credentials" @title="Remote" @title_property="remote" />
 </section>
 
 <section>
