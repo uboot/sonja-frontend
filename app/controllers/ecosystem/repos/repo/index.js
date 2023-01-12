@@ -40,7 +40,7 @@ export default class EcosystemReposRepoIndexController extends Controller {
     }
 
     fetch(`/${ENV.apiNamespace}/process_repo/${repoId}`, {
-      method: 'GET',
+      method: 'POST',
       headers: headers
     });
   }
