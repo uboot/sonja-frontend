@@ -4,6 +4,7 @@ import { inject as service } from '@ember/service';
 export default class EcosystemReposRepoIndexRoute extends Route {
   @service infinity;
   @service sonjaEvents;
+  @service store;
 
   queryParams = {
     channel: {
@@ -38,8 +39,8 @@ export default class EcosystemReposRepoIndexRoute extends Route {
         return;
       }
 
-      let record = await self.store.findRecord('build', payload.id);
-      let model = await self.modelFor('ecosystem.repos.repo');
+      let record = await self.store.findRecord('build', payload.id, { backgroundReload: false });
+      let model = self.modelFor('ecosystem.repos.repo.index');
 
       if (model.repo.get('id') != record.get('commit.repo.id')) {
         return;

@@ -26,7 +26,7 @@ export default class EcosystemReposRepoBuildRunRoute extends Route {
     this.eventSource.addEventListener('update', async function(e) {
       let data = JSON.parse(e.data);
       self.store.pushPayload(data);
-      let record = await self.store.findRecord('log-line', data.data.id);
+      let record = await self.store.findRecord('log-line', data.data.id, { backgroundReload: false });
       let logLines = await self.modelFor('ecosystem.repos.repo.build.run').logLines;
       if (!logLines.isAny('id', record.id)){
         self.infinity.pushObjects(logLines, [record]);
