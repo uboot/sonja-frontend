@@ -18,6 +18,7 @@ export default class EcosystemSettingsChannelsNewController extends Controller {
         let source = await this.store.findRecord("channel", this.copyFrom);
         this.model.name = source.name; 
         this.model.conan_channel = source.conan_channel;
+        this.model.conan_remote = source.conan_remote;
         this.model.ref_pattern = source.ref_pattern;
       }
 
