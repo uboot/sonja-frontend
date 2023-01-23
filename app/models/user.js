@@ -1,7 +1,7 @@
 import Model, { attr } from '@ember-data/model';
-import Validator from 'ember-model-validator/decorators/object-validator';
+import { modelValidator } from 'ember-model-validator';
 
-@Validator
+@modelValidator
 export default class BuildModel extends Model {
   @attr user_name;
   @attr first_name;
@@ -62,10 +62,6 @@ export default class BuildModel extends Model {
         permissions.filter((p) => p.permission != permission)
       );
     }
-  }
-
-  transitionTo() {
-    return this._internalModel.transitionTo(...arguments);
   }
 
   validations = {
