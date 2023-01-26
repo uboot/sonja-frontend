@@ -7,7 +7,9 @@ export default class UsersNewRoute extends Route {
   newModel = null;
 
   model() {
-    this.newModel = this.store.createRecord('user', {});
+    this.newModel = this.store.createRecord('user', {
+      permissions: []
+    });
 
     return this.newModel
   }
