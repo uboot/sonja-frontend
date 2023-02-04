@@ -12,6 +12,6 @@ module('Integration | Component | build-badge', function (hooks) {
 
     await render(hbs`<BuildBadge />`);
 
-    assert.dom(this.element).hasText('');
+    assert.dom(this.element).hasText(' | ');
   });
 });
