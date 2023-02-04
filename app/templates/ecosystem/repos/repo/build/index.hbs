@@ -36,32 +36,6 @@
   <BuildTree @build={{this.model}} />
 </p>
 
-<h2>Related</h2>
-<table class="table">
-  <thead>
-    <tr>
-      <th scope="col">Created</th>
-      <th scope="col">Status</th>
-      <th scope="col">Result</th>
-    </tr>
-  </thead>
-  <tbody>
-    {{#each this.model.commit.builds as |build|}}
-      {{#unless (eq build this.model)}}
-      <tr>
-        <td>
-          <LinkTo @route="ecosystem.repos.repo.build" @model={{build}}>
-            <BuildTime @time={{build.created}} />
-          </LinkTo>
-        </td>
-        <td><BuildBadge @build={{build}} /></td>
-        <td><BuildReference @build={{build}} /></td>
-      </tr>
-      {{/unless}}
-    {{/each}}
-  </tbody>
-</table>
-
 <h2>Runs</h2>
 <table class="table">
   <thead>
