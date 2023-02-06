@@ -59,7 +59,6 @@
         <th scope="col">Created</th>
         <th scope="col">Status</th>
         <th scope="col">Commit</th>
-        <th scope="col">Channel</th>
         <th scope="col">Result</th>
       </tr>
     </thead>
@@ -73,7 +72,6 @@
           </td>
           <td><BuildBadge @build={{build}} /></td>
           <td>{{build.commit.message}}</td>
-          <td>{{build.commit.channel.name}}</td>
           <td><BuildReference @build={{build}} /></td>
         </tr>
       {{/each}}
