@@ -45,14 +45,14 @@ section {
 }
 
 .sonja-package { 
-  color: $teal-600;
-  background-color: $teal-100;
+  color: $blue-600;
+  background-color: $blue-100;
   border-radius: var(--bs-border-radius-sm);
 }
 
-.sonja-recipe { 
-  color: $blue-600;
-  background-color: $blue-100;
+.sonja-missing-package { 
+  color: $gray-600;
+  background-color: $gray-100;
   border-radius: var(--bs-border-radius-sm);
 }
 
