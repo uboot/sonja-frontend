@@ -1,4 +1,4 @@
-<span class="badge sonja-recipe">
+<span class="badge {{if @missing "sonja-missing-package" "sonja-package"}}">
   {{#if @missing}}
     <i class="bi-question-lg" />
   {{/if}}
